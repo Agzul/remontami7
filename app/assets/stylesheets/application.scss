@@ -6,3 +6,40 @@ main {
   background-image: url("background1.jpg");
   background-repeat: no-repeat;
 }
+
+.dropdown a {
+  display: block;
+  padding: 16px 40px;
+  color: #757575;
+  text-decoration: none;
+
+  &:hover {
+    background: #E3E3E3;
+    cursor: pointer;
+  }
+}
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-left: 5px;
+  &[data-arrow='top']{
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  &[data-arrow='bottom']{
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+}
+.dropdown-content {
+  padding-left: 15px;
+  transition: all 0.3s;
+  &[data-dropdown_content='hidden']{
+    display: none;
+  }
+  &[data-dropdown_content='visible']{
+    display: block;
+  }
+}

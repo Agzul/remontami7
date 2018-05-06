@@ -8,6 +8,8 @@
     %a.mdl-navigation__link{:href => ""} Расход материалов
     %a.mdl-navigation__link{:href => ""} Контакты
     %a.mdl-navigation__link{:href => ""} Статьи
+
+
   %span.mdl-layout-title Виды ремонта
   %nav.mdl-navigation
     %a.mdl-navigation__link{:href => ""} Евроремонт
@@ -18,13 +20,71 @@
     %a.mdl-navigation__link{:href => ""} В новостройке
     %a.mdl-navigation__link{:href => ""} Черновой
     %a.mdl-navigation__link{:href => ""} Частичный
-    %a.mdl-navigation__link{:href => ""} Отдельными комнатами
+    .dropdown
+      %a.mdl-navigation__link{ "data-toggle": "dropdown" }
+        Отдельными комнатами
+        %i.arrow{ "data-arrow": "bottom" }
+      .dropdown-content{ "data-dropdown_content": "hidden" }
+        %a{:href => "#"} Кухня
+        %a{:href => "#"} Прихожая
+        %a{:href => "#"} Ванная
+        %a{:href => "#"} Гостиная
+        %a{:href => "#"} Спальня
+        %a{:href => "#"} Детская
+        %a{:href => "#"} Туалет санузел
+
+
   %span.mdl-layout-title Виды работ
   %nav.mdl-navigation
-    %a.mdl-navigation__link{:href => ""} Главная
-    %a.mdl-navigation__link{:href => ""} Цены
-    %a.mdl-navigation__link{:href => ""} Наши работы
-    %a.mdl-navigation__link{:href => ""} Информация
-    %a.mdl-navigation__link{:href => ""} Расход материалов
-    %a.mdl-navigation__link{:href => ""} Контакты
-    %a.mdl-navigation__link{:href => ""} Статьи
+    .dropdown
+      %a.mdl-navigation__link{ "data-toggle": "dropdown" }
+        Подготовка стен
+        %i.arrow{ "data-arrow": "bottom" }
+      .dropdown-content{ "data-dropdown_content": "hidden" }
+        %a{:href => "#"} Шпаклевка под обои
+        %a{:href => "#"} Шпаклевка под покраску
+
+    %a.mdl-navigation__link{:href => ""} Штукатурка
+
+    .dropdown
+      %a.mdl-navigation__link{ "data-toggle": "dropdown" }
+        Поклейка обоев
+        %i.arrow{ "data-arrow": "bottom" }
+      .dropdown-content{ "data-dropdown_content": "hidden" }
+        %a{:href => "#"} Виниловые обои
+        %a{:href => "#"} Флизелиновые обои
+        %a{:href => "#"} Текстильные обои
+        %a{:href => "#"} Под покраску
+        %a{:href => "#"} Стеклообои
+
+    .dropdown
+      %a.mdl-navigation__link{ "data-toggle": "dropdown" }
+        Покраска стен потолков
+        %i.arrow{ "data-arrow": "bottom" }
+      .dropdown-content{ "data-dropdown_content": "hidden" }
+        %a{:href => "#"} Покраска стен
+        %a{:href => "#"} Покраска потолка
+
+    .dropdown
+      %a.mdl-navigation__link{ "data-toggle": "dropdown" }
+        Стяжка пола
+        %i.arrow{ "data-arrow": "bottom" }
+      .dropdown-content{ "data-dropdown_content": "hidden" }
+        %a{:href => "#"} Самовыравнивающаяся стяжка
+        %a{:href => "#"} С керамзитом
+
+    %a.mdl-navigation__link{:href => ""} Укладка ламината
+    %a.mdl-navigation__link{:href => ""} Укладка паркетной доски
+
+    .dropdown
+      %a.mdl-navigation__link{ "data-toggle": "dropdown" }
+        Укладка плитки
+        %i.arrow{ "data-arrow": "bottom" }
+      .dropdown-content{ "data-dropdown_content": "hidden" }
+        %a{:href => "#"} Укладка плитки на стену
+        %a{:href => "#"} Укладка плитки на пол
+        %a{:href => "#"} Укладка керамогранита
+
+    %a.mdl-navigation__link{:href => ""} Утепление балкона лоджии
+    %a.mdl-navigation__link{:href => ""} Установка межкомнатных дверей
+    %a.mdl-navigation__link{:href => ""} Натяжные потолки
