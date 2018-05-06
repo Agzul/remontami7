@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  packing: MyString
+  layer_thickness: MyString
+  consumption: MyString
+
+two:
+  name: MyString
+  packing: MyString
+  layer_thickness: MyString
+  consumption: MyString

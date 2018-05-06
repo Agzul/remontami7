@@ -1,0 +1,21 @@
+%header.mdl-layout__header
+  .mdl-layout__header-row
+    / Title
+    %a.mdl-layout-title{:href => root_path}
+      %img=image_tag("logo3.png", size: '256x64', alt: "nav logo")
+    / Add spacer, to align navigation to the right
+    .mdl-layout-spacer
+    / Navigation. We hide it in small screens.
+    %nav.mdl-navigation.mdl-layout--large-screen-only
+      %a.mdl-navigation__link.resize_header_buttuns{:href => root_path } Главная
+      %a.mdl-navigation__link.resize_header_buttuns{:href => "/prices"} Цены
+      %a.mdl-navigation__link.resize_header_buttuns{:href => "/galleries"} Наши работы
+      %a.mdl-navigation__link.resize_header_buttuns{:href => "/information"} Информация
+      %a.mdl-navigation__link.resize_header_buttuns{:href => "/consumption_of_materials"} Расход материалов
+      %a.mdl-navigation__link.resize_header_buttuns{:href => "/contacts"} Контакты
+      %a.mdl-navigation__link.resize_header_buttuns{:href => "/articles"} Статьи
+    .mdl-textfield.mdl-js-textfield.mdl-textfield--expandable.mdl-textfield--floating-label.mdl-textfield--align-right
+      %label.mdl-button.mdl-js-button.mdl-button--icon{:for => "fixed-header-drawer-exp"}
+        %i.material-icons search
+      .mdl-textfield__expandable-holder
+        %input#fixed-header-drawer-exp.mdl-textfield__input{:name => "sample", :type => "text"}/
