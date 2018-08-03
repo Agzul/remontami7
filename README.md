@@ -3,22 +3,14 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+Необходимо исправить:
 
-* Ruby version
+* Ссылки в бд (seeds)
 
-* System dependencies
+* Добавить к таблицам калькулятор за 1 м^2
 
-* Configuration
+* Ссылки на всех страницах
 
-* Database creation
+* Добавить title description keywords 
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Добавить в раздел head страницы элемент с атрибутом rel="canonical".
