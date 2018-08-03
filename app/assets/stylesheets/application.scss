@@ -7,6 +7,21 @@ main {
   background-repeat: no-repeat;
 }
 
+.mdl-layout__content a {
+  color: #0000ff !important;
+}
+
+// Контент
+@media screen and (min-width: 1024px) {
+  .mdl-layout__content {
+    padding: 0 20% 0 20%;
+  }
+}
+
+// Верхнее меню
+.mdl-layout__header-row {
+  height: 64px !important;
+}
 .dropdown a {
   display: block;
   padding: 16px 40px;
@@ -41,5 +56,169 @@ main {
   }
   &[data-dropdown_content='visible']{
     display: block;
+  }
+}
+
+// Калькулятор
+.calculator {
+  border: 5px double black;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #FADDBF;
+
+  .calculator_label{
+    border-bottom: 5px double black;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  h3:last-child {
+    text-align: left;
+  }
+
+  .calculator_first_step {
+    border-bottom: 5px double black;
+  }
+
+  .calculator_first_step div {
+    text-align: center;
+    display: inline-block;
+    width: 23%;
+    margin: auto;
+  }
+
+  .calculator_first_step div input {
+    width: 90%;
+  }
+
+  .hidden_form {
+    display: none;
+    padding-left: 25px;
+  }
+
+  .calculator_section {
+    width: 31%;
+    display: inline-block;
+    border: 5px double black;
+    border-radius: 10px;
+    vertical-align: top;
+  }
+
+  .calculator_section h3 {
+    border-bottom: 5px double black;
+  }
+
+  #over_distance {
+    width: 100%;
+    background: #f4a460;
+  }
+
+  #unpossible_entity {
+    width: 100%;
+    background: #f4a460;
+  }
+
+  #price {
+    display: inline;
+  }
+
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+      position: absolute;
+      opacity: 0;
+    }
+
+    .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+    }
+
+    .checkmark_radio {
+      border-radius: 50%;
+    }
+
+    &:hover input ~ .checkmark {
+      background-color: #ccc;
+    }
+
+    input:checked ~ .checkmark {
+      background-color: #2196F3;
+    }
+
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    input:checked ~ .checkmark:after {
+      display: block;
+    }
+
+    .checkmark:after {
+      top: 5px;
+      left: 9px;
+      width: 5px;
+      height: 10px;
+      border: solid white;
+      border-width: 0 3px 3px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+
+    .checkmark_dropdown:after {
+      left: 5.5px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+    }
+
+    .checkmark_radio:after {
+      top: 7px;
+      left: 7px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+    }
+  }
+
+  .calculator_third_step {
+    border-top: 5px double black;
+
+    h3{
+      display: inline;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .calculator .calculator_section {
+    display: block;
+    width: 97%;
+  }
+  .calculator .calculator_first_step div input {
+    width: 75%;
   }
 }

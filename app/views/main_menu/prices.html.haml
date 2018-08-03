@@ -1,2 +1,471 @@
-%h1 MainMenu#prices
-%p Find me in app/views/main_menu/prices.html.haml
+%h1 Цены за работу по ремонту квартир
+%p
+  Частная бригада Ремонтами 7 выполняет ремонт квартир, цены по видам работ отделки помещений перечислены ниже. Подробнее стоимость по конкретном виду ремонта квартиры можно посмотреть в разделе
+  %a{:href => "/information", :rel => "nofollow", :target => "_blank"} Информация
+
+.calculator
+  .calculator_label
+    %h2{:style => "text-align: center;"}
+      %strong Рассчитать стоимость работ
+  .calculator_first_step
+    %h2
+      %strong 1) Укажите объем работ
+    %div
+      Ширина комнаты (м)
+      %input#width{:type => "text"}/
+    %div
+      Длина комнаты (м)
+      %input#length{:type => "text"}/
+    %div
+      Высота потолка (м)
+      %input#height{:type => "text"}/
+    %div
+      Расстояние от МКАД (Км)
+      %input#distance{:type => "text"}/
+    #over_distance
+    #unpossible_entity
+  .calculator_second_step
+    %h2
+      %strong 2) Укажите необходимые виды работ
+    #section_area.calculator_section
+      %h3
+        %strong Работы по полу
+      %label.container
+        Стяжка пола по маякам
+        %input#pol1{:type => "checkbox", :value => "0"}/
+        %span.checkmark.checkmark_dropdown
+      #hidden_form_pol1.hidden_form
+        %label.container
+          до 5 см + монтаж маяков по лазерному уровню
+          %input#pol1_1{:name => "pol1", :type => "radio", :value => "400"}/
+          %span.checkmark.checkmark_radio
+        %label.container
+          до 7 см + монтаж маяков по лазерному уровню
+          %input#pol1_2{:name => "pol1", :type => "radio", :value => "600"}/
+          %span.checkmark.checkmark_radio
+        %label.container
+          более 7 см + монтаж маяков по лазерному уровню (утепленная с керамзитом)
+          %input#pol1_3{:name => "pol1", :type => "radio", :value => "800"}/
+          %span.checkmark.checkmark_radio
+      %label.container
+        Засыпка керамзита
+        %input#pol2{:type => "checkbox", :value => "60"}/
+        %span.checkmark
+      %label.container
+        Армирование стяжки пола сеткой
+        %input#pol3{:type => "checkbox", :value => "100"}/
+        %span.checkmark
+      %label.container
+        Гидроизоляция обмазочная (Водостоп, Гипердесмо)
+        %input#pol4{:type => "checkbox", :value => "350"}/
+        %span.checkmark
+      %label.container
+        Чистовая cтяжка самовыравнивающейся смесью до 5 мм (наливной пол)
+        %input#pol5{:type => "checkbox", :value => "180"}/
+        %span.checkmark
+      %label.container
+        Грунтовка бетоноконтактом
+        %input#pol6{:type => "checkbox", :value => "50"}/
+        %span.checkmark
+      %label.container
+        Укладка ламината в комнате по прямой + укладка подложки
+        %input#pol7{:type => "checkbox", :value => "200"}/
+        %span.checkmark
+      %label.container
+        Укладка паркетной доски по прямой + укладка подложки
+        %input#pol8{:type => "checkbox", :value => "350"}/
+        %span.checkmark
+      %label.container
+        Устройство тепло и звукоизоляции пола
+        %input#pol9{:type => "checkbox", :value => "200"}/
+        %span.checkmark
+      %label.container
+        Монтаж плинтуса ПВХ
+        %input#pol10{:type => "checkbox", :value => "100"}/
+        %span.checkmark
+      %label.container
+        Демонтаж старого ламината (без сохранения)
+        %input#pol11{:type => "checkbox", :value => "100"}/
+        %span.checkmark
+    #section_perimeter.calculator_section
+      %h3
+        %strong Работы по стенам
+      %label.container
+        Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)
+        %input#steny1{:type => "checkbox", :value => "40"}/
+        %span.checkmark
+      %label.container
+        Штукатурка
+        %input#steny2{:type => "checkbox", :value => "0"}/
+        %span.checkmark.checkmark_dropdown
+      #hidden_form_steny2.hidden_form
+        %label.container
+          по маякам (толщина слоя до 3 см)
+          %input#steny2_1{:name => "steny2", :type => "radio", :value => "450"}/
+          %span.checkmark.checkmark_radio
+        %label.container
+          Штукатурка + грунтовка дверных и оконных откосов с уголками
+          %input#steny2_2{:name => "steny2", :type => "radio", :value => "450"}/
+          %span.checkmark.checkmark_radio
+        %label.container
+          Выравнивание штукатурной смесью по плоскости
+          %input#steny2_3{:name => "steny2", :type => "radio", :value => "300"}/
+          %span.checkmark.checkmark_radio
+      %label.container
+        Установка маяков по уровню
+        %input#steny3{:type => "checkbox", :value => "50"}/
+        %span.checkmark
+      %label.container
+        Шпаклевка
+        %input#steny4{:type => "checkbox", :value => "0"}/
+        %span.checkmark.checkmark_dropdown
+      #hidden_form_steny4.hidden_form
+        %label.container
+          под обои (2 слоя)
+          %input#steny4_1{:name => "steny4", :type => "radio", :value => "220"}/
+          %span.checkmark.checkmark_radio
+        %label.container
+          под покраску (3 слоя)
+          %input#steny4_2{:name => "steny4", :type => "radio", :value => "300"}/
+          %span.checkmark.checkmark_radio
+        %label.container
+          финишной шпаклевкой Шитрок
+          %input#steny4_3{:name => "steny4", :type => "radio", :value => "200"}/
+          %span.checkmark.checkmark_radio
+        %label.container
+          гипсокартона
+          %input#steny4_4{:name => "steny4", :type => "radio", :value => "250"}/
+          %span.checkmark.checkmark_radio
+      %label.container
+        Покраска
+        %input#steny5{:type => "checkbox", :value => "0"}/
+        %span.checkmark.checkmark_dropdown
+      #hidden_form_steny5.hidden_form
+        %label.container
+          стен
+          %input#steny5_1{:name => "steny5", :type => "radio", :value => "0"}/
+          %span.checkmark.checkmark_radio
+        #hidden_form_steny5_1.hidden_form
+          %label.container
+            1 слой
+            %input#steny5_1_1{:name => "steny5_1", :type => "radio", :value => "90"}/
+            %span.checkmark.checkmark_radio
+          %label.container
+            2 слоя
+            %input#steny5_1_2{:name => "steny5_1", :type => "radio", :value => "170"}/
+            %span.checkmark.checkmark_radio
+          %label.container
+            3 слоя
+            %input#steny5_1_3{:name => "steny5_1", :type => "radio", :value => "250"}/
+            %span.checkmark.checkmark_radio
+        %label.container
+          обоев
+          %input#steny5_2{:name => "steny5", :type => "radio", :value => "170"}/
+          %span.checkmark.checkmark_radio
+      %label.container
+        Поклейка
+        %input#steny6{:type => "checkbox", :value => "0"}/
+        %span.checkmark.checkmark_dropdown
+      #hidden_form_steny6.hidden_form
+        %label.container
+          обоев
+          %input#steny6_1{:type => "checkbox", :value => "0"}/
+          %span.checkmark.checkmark_dropdown
+        #hidden_form_steny6_1.hidden_form
+          %label.container
+            флизелин, винил
+            %input#steny6_1_1{:name => "steny6_1", :type => "radio", :value => "220"}/
+            %span.checkmark.checkmark_radio
+          %label.container
+            под покраску
+            %input#steny6_1_2{:name => "steny6_1", :type => "radio", :value => "180"}/
+            %span.checkmark.checkmark_radio
+          %label.container
+            бумажных обоев
+            %input#steny6_1_3{:name => "steny6_1", :type => "radio", :value => "200"}/
+            %span.checkmark.checkmark_radio
+        %label.container
+          малярной сетки
+          %input#steny6_4{:type => "checkbox", :value => "100"}/
+          %span.checkmark
+      %label.container
+        Шлифовка стен
+        %input#steny7{:type => "checkbox", :value => "90"}/
+        %span.checkmark
+      %label.container
+        Монтаж перегородки
+        %input#steny8{:type => "checkbox", :value => "0"}/
+        %span.checkmark.checkmark_dropdown
+      #hidden_form_steny8.hidden_form
+        %label.container
+          пеноблоки
+          %input#steny8_1{:name => "steny8", :type => "radio", :value => "550"}/
+          %span.checkmark.checkmark_radio
+        %label.container
+          кирпич
+          %input#steny8_2{:name => "steny8", :type => "radio", :value => "650"}/
+          %span.checkmark.checkmark_radio
+        %label.container
+          ГКЛ (1 слой)
+          %input#steny8_3{:name => "steny8", :type => "radio", :value => "390"}/
+          %span.checkmark.checkmark_radio
+      %label.container
+        Обшивка стен панелями ПВХ, МДФ
+        %input#steny9{:type => "checkbox", :value => "450"}/
+        %span.checkmark
+      %label.container
+        Демонтаж обоев
+        %input#steny10{:type => "checkbox", :value => "70"}/
+        %span.checkmark
+    #section_area.calculator_section
+      %h3
+        %strong Работы по потолку
+      %label.container
+        Монтаж
+        %input#potolok1{:type => "checkbox", :value => "0"}/
+        %span.checkmark.checkmark_dropdown
+      #hidden_form_potolok1.hidden_form
+        %label.container
+          реечного потолка
+          %input#potolok1_1{:type => "checkbox", :value => "530"}/
+          %span.checkmark
+        %label.container
+          плинтуса
+          %input#potolok1_2{:type => "checkbox", :value => "0"}/
+          %span.checkmark.checkmark_dropdown
+        #hidden_form_potolok1_2.hidden_form
+          %label.container
+            (до 5 см) + шпатлевка + покраска
+            %input#potolok1_2_1{:name => "potolok1_2", :type => "radio", :value => "250"}/
+            %span.checkmark.checkmark_radio
+          %label.container
+            (до 10 см) + шпатлевка + покраска
+            %input#potolok1_2_2{:name => "potolok1_2", :type => "radio", :value => "300"}/
+            %span.checkmark.checkmark_radio
+        %label.container
+          ГКЛ с коробом под подсветку
+          %input#potolok1_3{:type => "checkbox", :value => "800"}/
+          %span.checkmark
+      %label.container
+        Подвесной потолок
+        %input#potolok2{:type => "checkbox", :value => "0"}/
+        %span.checkmark.checkmark_dropdown
+      #hidden_form_potolok2.hidden_form
+        %label.container
+          Подвесной потолок из ГКЛ (1 уровень)
+          %input#potolok2_1{:type => "checkbox", :value => "520"}/
+          %span.checkmark
+        %label.container
+          Подвесной потолок из ГКЛ (многоуровневый)
+          %input#potolok2_2{:type => "checkbox", :value => "600"}/
+          %span.checkmark
+        %label.container
+          Подвесной потолок "Армстронг" 1200х600 (от 10 м2)
+          %input#potolok2_3{:type => "checkbox", :value => "330"}/
+          %span.checkmark
+      %label.container
+        Грунтовка потолка (1 слой)
+        %input#potolok3{:type => "checkbox", :value => "50"}/
+        %span.checkmark
+      %label.container
+        Выравнивание штукатуркой по маякам
+        %input#potolok4{:type => "checkbox", :value => "520"}/
+        %span.checkmark
+      %label.container
+        Установка маяков по уровню
+        %input#potolok5{:type => "checkbox", :value => "50"}/
+        %span.checkmark
+      %label.container
+        Шпаклевка потолка под покраску
+        %input#potolok6{:type => "checkbox", :value => "380"}/
+        %span.checkmark
+      %label.container
+        Покраска потолка (2 слоя)
+        %input#potolok7{:type => "checkbox", :value => "230"}/
+        %span.checkmark
+      %label.container
+        Шлифовка потолка
+        %input#potolok8{:type => "checkbox", :value => "120"}/
+        %span.checkmark
+      %label.container
+        Поклейка стеклохолста (паутинки) на потолок
+        %input#potolok9{:type => "checkbox", :value => "220"}/
+        %span.checkmark
+      %label.container
+        Устройство шумоизоляции
+        %input#potolok10{:type => "checkbox", :value => "250"}/
+        %span.checkmark
+      %label.container
+        Устройство теплоизоляции
+        %input#potolok11{:type => "checkbox", :value => "250"}/
+        %span.checkmark
+  .calculator_third_step
+    %h3
+      %strong Приблизительная стоимость:
+    #price 0.00
+    %h3
+      %strong руб
+
+%em
+  Все цены указаны без стоимости расходных и строительных материалов!
+  %sup *
+
+%p
+  %span{:style => "color: #0000ff;"}
+    %em
+      Актуальность цен: от 01.01.2018 года
+      %sup **
+
+%h3
+  %em Работы по полу
+%table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
+  %thead
+    %tr
+      %th.mdl-data-table__cell--non-numeric №
+      %th.mdl-data-table__cell--non-numeric Наименование работ
+      %th Цена, руб
+      %th.mdl-data-table__cell--non-numeric Ед. измерения
+  %tbody
+    - n = 1
+    - @floor_works.each do |floor_work|
+      %tr
+        %td= n
+        %td.mdl-data-table__cell--non-numeric= raw floor_work.name
+        %td= raw floor_work.price
+        %td.mdl-data-table__cell--non-numeric= raw floor_work.unit
+      - n+=1
+
+%h3
+  %em Работы по стенам
+%table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
+  %thead
+    %tr
+      %th.mdl-data-table__cell--non-numeric №
+      %th.mdl-data-table__cell--non-numeric Наименование работ
+      %th Цена, руб
+      %th.mdl-data-table__cell--non-numeric Ед. измерения
+  %tbody
+    - n = 1
+    - @wall_works.each do |wall_work|
+      %tr
+        %td= n
+        %td.mdl-data-table__cell--non-numeric= raw wall_work.name
+        %td= raw wall_work.price
+        %td.mdl-data-table__cell--non-numeric= raw wall_work.unit
+      - n+=1
+
+%p
+  %sup *
+  \- Работы, ширина которых меньше 1 метра, будут считаться метрами погонными по такой же цене, как м
+  %sup> 2
+  (к примеру, откосы)
+
+%h3
+  %em Работы по потолку
+%table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
+  %thead
+    %tr
+      %th.mdl-data-table__cell--non-numeric №
+      %th.mdl-data-table__cell--non-numeric Наименование работ
+      %th Цена, руб
+      %th.mdl-data-table__cell--non-numeric Ед. измерения
+  %tbody
+    - n = 1
+    - @roof_works.each do |roof_work|
+      %tr
+        %td= n
+        %td.mdl-data-table__cell--non-numeric= raw roof_work.name
+        %td= raw roof_work.price
+        %td.mdl-data-table__cell--non-numeric= raw roof_work.unit
+      - n+=1
+
+%h3
+  %em Кафельная, керамическая плитка (пол, стены)
+%table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
+  %thead
+    %tr
+      %th.mdl-data-table__cell--non-numeric №
+      %th.mdl-data-table__cell--non-numeric Наименование работ
+      %th Цена, руб
+      %th.mdl-data-table__cell--non-numeric Ед. измерения
+  %tbody
+    - n = 1
+    - @tile_works.each do |tile_work|
+      %tr
+        %td= n
+        %td.mdl-data-table__cell--non-numeric= raw tile_work.name
+        %td= raw tile_work.price
+        %td.mdl-data-table__cell--non-numeric= raw tile_work.unit
+      - n+=1
+
+%h3
+  %em Сантехнические работы
+%table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
+  %thead
+    %tr
+      %th.mdl-data-table__cell--non-numeric №
+      %th.mdl-data-table__cell--non-numeric Наименование работ
+      %th Цена, руб
+      %th.mdl-data-table__cell--non-numeric Ед. измерения
+  %tbody
+    - n = 1
+    - @plumbing_works.each do |plumbing_work|
+      %tr
+        %td= n
+        %td.mdl-data-table__cell--non-numeric= raw plumbing_work.name
+        %td= raw plumbing_work.price
+        %td.mdl-data-table__cell--non-numeric= raw plumbing_work.unit
+      - n+=1
+
+%h3
+  %em Электрика
+%table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
+  %thead
+    %tr
+      %th.mdl-data-table__cell--non-numeric №
+      %th.mdl-data-table__cell--non-numeric Наименование работ
+      %th Цена, руб
+      %th.mdl-data-table__cell--non-numeric Ед. измерения
+  %tbody
+    - n = 1
+    - @electric_works.each do |electric_work|
+      %tr
+        %td= n
+        %td.mdl-data-table__cell--non-numeric= raw electric_work.name
+        %td= raw electric_work.price
+        %td.mdl-data-table__cell--non-numeric= raw electric_work.unit
+      - n+=1
+
+%h3
+  %em Дополнительные работы
+%table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp
+  %thead
+    %tr
+      %th.mdl-data-table__cell--non-numeric №
+      %th.mdl-data-table__cell--non-numeric Наименование работ
+      %th Цена, руб
+      %th.mdl-data-table__cell--non-numeric Ед. измерения
+  %tbody
+    - n = 1
+    - @extra_works.each do |extra_work|
+      %tr
+        %td= n
+        %td.mdl-data-table__cell--non-numeric= raw extra_work.name
+        %td= raw extra_work.price
+        %td.mdl-data-table__cell--non-numeric= raw extra_work.unit
+      - n+=1
+
+%p
+  %span{:style => "color: #800000;"}
+    %em
+      %sup *
+      К расходным материалам относятся: валики, шпатели, терки, полутеры, буры, пилки, лопатки, сверла,
+      наждачная бумага, диски, кисти, ванночки, ведра. То есть это те материалы, которые используются в процессе работ
+      и потом для дальнейшего применения не годятся.
+%p
+  %sup>
+    %span{:style => "color: #0000ff;"} **
+  Указанная стоимость работ может незначительно измениться при расчете окончательной стоимости.
+  Здесь влияет множество факторов: срочность выполнения, удаленнность объекта от МКАД, сложность и т.д.
+  Для уточнения итоговой стоимости ремонтных и отделочных работ самым оптимальным будет обсуждение предстоящих
+  дел с мастером и осмотр объекта с выполнением необходимых замеров с последующим расчетом сметы.
