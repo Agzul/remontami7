@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Test_Gallery = Gallery.create( title: 'Test gallery title', alt: 'Test gallery alt')
+Test_Gallery_Image = GalleryImage.create(title: 'Test gallery image title', alt: 'Test gallery image alt', gallery: Test_Gallery )
+
 works = Work.create([
   # Пол
   { name: '<a href="/stjazhka-pola-cena">Стяжка пола по маякам</a> до 5 см + монтаж маяков по лазерному уровню',                                           price: 400, unit: "м<sup>2</sup>", plane: "floor" },

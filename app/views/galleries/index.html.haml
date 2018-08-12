@@ -1,21 +1,17 @@
-%h1 Listing galleries
+%h1 Наши работы
+= link_to 'Новая галерея', new_gallery_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
 
-%table
-  %thead
-    %tr
-      %th Image
-      %th
-      %th
-      %th
-
-  %tbody
-    - @galleries.each do |gallery|
-      %tr
-        %td= gallery.image
-        %td= link_to 'Show', gallery
-        %td= link_to 'Edit', edit_gallery_path(gallery)
-        %td= link_to 'Destroy', gallery, method: :delete, data: { confirm: 'Are you sure?' }
-
+- @galleries.each do |gallery|
+  .mdl-grid
+    %h2.mdl-cell.mdl-cell--8-col= gallery.title
+    .mdl-cell.mdl-cell--4-col
+      = link_to 'Редактировать', edit_gallery_path(gallery), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+      = link_to 'Удалить', gallery, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+    %h3.mdl-cell.mdl-cell--12-col= gallery.alt
+    - for i in 0..gallery.gallery_images.length-1
+      - if gallery.gallery_images[i].image.exists? && gallery.gallery_images[i].cover==true
+        .mdl-cell.mdl-cell--12-col= link_to image_tag(gallery.gallery_images[i].image.url(:cover)), gallery
+    - for i in 0..gallery.gallery_images.length-1
+      - if gallery.gallery_images[i].image.exists? && gallery.gallery_images[i].cover==false
+        .mdl-cell.mdl-cell--2-col= link_to image_tag(gallery.gallery_images[i].image.url(:thumb)), gallery
 %br
-
-= link_to 'New Gallery', new_gallery_path

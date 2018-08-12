@@ -5,9 +5,14 @@
       %ul
         - @gallery.errors.full_messages.each do |message|
           %li= message
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    = f.label :title,      class: "mdl-textfield__label"
+    = f.text_field :title, class: "mdl-textfield__input"
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    = f.label :alt,        class: "mdl-textfield__label"
+    = f.text_field :alt,   class: "mdl-textfield__input"
 
-  .field
-    = f.label :image
-    = f.text_field :image
-  .actions
-    = f.submit 'Save'
+  = f.add_nested_fields_link :gallery_images, "Добавить фото", class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect update-dom"
+  = render "gallery_image_form", f: f
+  .row
+  = f.submit 'Сохранить', class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored"

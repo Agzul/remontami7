@@ -1,0 +1,17 @@
+= f.nested_fields_for :gallery_images do |ff|
+  = ff.remove_nested_fields_link 'Удалить', class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    = ff.label :title,      class: "mdl-textfield__label"
+    = ff.text_field :title, class: "mdl-textfield__input"
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    = ff.label :alt,        class: "mdl-textfield__label"
+    = ff.text_field :alt,   class: "mdl-textfield__input"
+  %label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect
+    %span.mdl-checkbox__label Сделать обложкой
+    = ff.check_box :cover, class: "mdl-checkbox__input"
+
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--file
+    %input#uploadFile.mdl-textfield__input{:placeholder => "Файл не выбран", :readonly => "readonly", :type => "text"}/
+    .mdl-button.mdl-button--primary.mdl-button--icon.mdl-button--file
+      %i.material-icons attach_file
+      = ff.file_field :image, id: "uploadBtn"

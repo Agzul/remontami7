@@ -1,0 +1,17 @@
+ru:
+  activerecord:
+    models:
+      gallery:   Галерея
+      galleries: Галереи
+      gallery_image: Изоражение
+      gallery_images: Изображения
+
+    attributes:
+      gallery:
+        title: Название галереи
+        alt:   Описание
+      gallery_image:
+        title:      Title (Изображение)
+        alt:        Alt (Изображение)
+        image:      Изображение
+        gallery_id: Галерея

@@ -17,7 +17,7 @@ class GalleriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create gallery" do
     assert_difference('Gallery.count') do
-      post galleries_url, params: { gallery: { image: @gallery.image } }
+      post galleries_url, params: { gallery: { alt: @gallery.alt, title: @gallery.title } }
     end
 
     assert_redirected_to gallery_url(Gallery.last)
@@ -34,7 +34,7 @@ class GalleriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update gallery" do
-    patch gallery_url(@gallery), params: { gallery: { image: @gallery.image } }
+    patch gallery_url(@gallery), params: { gallery: { alt: @gallery.alt, title: @gallery.title } }
     assert_redirected_to gallery_url(@gallery)
   end
 

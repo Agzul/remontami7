@@ -1,8 +1,14 @@
 %p#notice= notice
 
 %p
-  %b Image:
-  = @gallery.image
+  %b Title:
+  = @gallery.title
+%p
+  %b Alt:
+  = @gallery.alt
+%p
+  %b Images:
+  = @gallery.gallery_images.map{ |gi| gi.title }.join(', ')
 
 = link_to 'Edit', edit_gallery_path(@gallery)
 \|

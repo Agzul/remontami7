@@ -3,7 +3,11 @@
 one:
   title: MyString
   alt: MyString
+  image: 
+  gallery: one
 
 two:
   title: MyString
   alt: MyString
+  image: 
+  gallery: two
