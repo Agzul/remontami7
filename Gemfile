@@ -39,6 +39,7 @@ gem 'material_design_lite-sass' # Стилизация
 gem 'jquery-rails'              # JQuery
 gem "font-awesome-rails"        # Иконки
 gem 'nested_form_fields'        # Генерация, удаление формы для nested
+gem "browser" # Do some browser detection with Ruby
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
