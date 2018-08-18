@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180808134844) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "summary"
@@ -56,7 +59,7 @@ ActiveRecord::Schema.define(version: 20180808134844) do
     t.bigint "image_file_size"
     t.datetime "image_updated_at"
     t.boolean "cover"
-    t.integer "gallery_id"
+    t.bigint "gallery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gallery_id"], name: "index_gallery_images_on_gallery_id"
@@ -71,4 +74,5 @@ ActiveRecord::Schema.define(version: 20180808134844) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "gallery_images", "galleries"
 end
