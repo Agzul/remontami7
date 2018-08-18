@@ -41,6 +41,10 @@ gem "font-awesome-rails"        # Иконки
 gem 'nested_form_fields'        # Генерация, удаление формы для nested
 gem "browser" # Do some browser detection with Ruby
 
+group :production do
+  gem 'heroku-deflater' # Использование сжатых css и js на heroku
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
