@@ -42,6 +42,7 @@ gem 'nested_form_fields'        # Генерация, удаление форм�
 gem "browser"                   # Do some browser detection with Ruby
 gem 'memcachier'
 gem 'dalli'
+gem 'rack-cache'
 
 group :production do
   gem 'heroku-deflater' # Использование сжатых css и js на heroku
