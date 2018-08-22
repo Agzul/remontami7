@@ -20,7 +20,7 @@
           .mdl-cell.mdl-cell--12-col= link_to image_tag(gallery.gallery_images[i].image.url(:tablet_cover)), gallery
         - else
           .mdl-cell.mdl-cell--12-col= link_to image_tag(gallery.gallery_images[i].image.url(:cover)), gallery
-    - for i in 0..gallery.gallery_images.length-1
-      - if gallery.gallery_images[i].image.exists? && gallery.gallery_images[i].cover==false
+
+      - elsif gallery.gallery_images[i].image.exists? && gallery.gallery_images[i].cover==false
         .mdl-cell.mdl-cell--2-col= link_to image_tag(gallery.gallery_images[i].image.url(:thumb)), gallery
 %br

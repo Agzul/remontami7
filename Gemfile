@@ -39,10 +39,11 @@ gem 'material_design_lite-sass' # Стилизация
 gem 'jquery-rails'              # JQuery
 gem "font-awesome-rails"        # Иконки
 gem 'nested_form_fields'        # Генерация, удаление формы для nested
-gem "browser" # Do some browser detection with Ruby
+gem "browser"                   # Do some browser detection with Ruby
 
 group :production do
   gem 'heroku-deflater' # Использование сжатых css и js на heroku
+  gem 'rails_12factor'
 end
 
 group :development, :test do
