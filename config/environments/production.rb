@@ -31,6 +31,8 @@ Rails.application.configure do
     :metastore    => client,
     :entitystore  => client
   }
+  config.serve_static_assets = true
+  config.assets.compress = true
   config.static_cache_control = "public, max-age=2592000"
 
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
