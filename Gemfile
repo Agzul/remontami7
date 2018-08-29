@@ -40,13 +40,13 @@ gem 'jquery-rails'              # JQuery
 gem "font-awesome-rails"        # Иконки
 gem 'nested_form_fields'        # Генерация, удаление формы для nested
 gem "browser"                   # Do some browser detection with Ruby
-gem 'memcachier'
-gem 'dalli'
-gem 'rack-cache'
 
 group :production do
   gem 'heroku-deflater' # Использование сжатых css и js на heroku
   gem 'rails_12factor'
+  gem 'rack-cache'
+  gem 'dalli'
+  gem 'kgio'
 end
 
 group :development, :test do
