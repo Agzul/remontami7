@@ -16,17 +16,17 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
   config.cache_store = :dalli_store
 
-  MEMCACHIER_SERVERS=  "mc4.dev.ec2.memcachier.com:11211"
-  MEMCACHIER_USERNAME= "9CBC21"
-  MEMCACHIER_PASSWORD= "3B4953C61DE4013AB111BC8383391BF4"
+  server=  "mc4.dev.ec2.memcachier.com:11211"
+  user= "9CBC21"
+  password= "3B4953C61DE4013AB111BC8383391BF4"
 
-  client = Dalli::Client.new((ENV[MEMCACHIER_SERVERS] || "").split(","),
-                           :username => ENV[MEMCACHIER_USERNAME],
-                           :password => ENV[MEMCACHIER_PASSWORD],
-                           :failover => true,
-                           :socket_timeout => 1.5,
-                           :socket_failure_delay => 0.2,
-                           :value_max_bytes => 10485760)
+  client = Dalli::Client.new((server || "").split(","),
+                           username: user,
+                           password: password,
+                           failover: true,
+                           socket_timeout: 1.5,
+                           socket_failure_delay: 0.2,
+                           value_max_bytes: 10485760)
   config.action_dispatch.rack_cache = {
     :metastore    => client,
     :entitystore  => client
