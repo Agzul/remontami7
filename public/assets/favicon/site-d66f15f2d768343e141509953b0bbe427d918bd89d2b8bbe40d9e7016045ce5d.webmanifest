@@ -1,0 +1,19 @@
+{
+    "name": "remontami7",
+    "short_name": "remontami7",
+    "icons": [
+        {
+            "src": "/assets/favicon/android-chrome-192x192-1b06ce823f7d3598d976b690d774045040221cf3b1ba379ac4f395ef34411b37.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/favicon/android-chrome-384x384-6a462c734cb13fcda855d0af2c8061a009cca80e4a1242f06420e69d00441702.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
