@@ -98,5 +98,14 @@ works = Work.create([
   { name: 'Устройство эл. щитка с автоматами 36',                price: 16500, unit: "шт",            plane: "electric" },
   # Дополнительные работы
   { name: 'Подъем стройматериалов на этаж (не более 40 кг)',     price: 50, unit: "мешок", plane: "extra" },
-  { name: 'Вынос мусора на улицу',                               price: 50, unit: "мешок", plane: "extra" },
+  { name: 'Вынос мусора на улицу',                               price: 50, unit: "мешок", plane: "extra" }
+])
+
+image_background = File.open(File.join(Rails.root, '/app/assets/images/images/background.jpg'))
+image_logo = File.open(File.join(Rails.root, '/app/assets/images/images/logo.png'))
+images = Image.create([
+  # Background
+  { title: "background", alt: "background", image: image_background },
+  # Logo
+  { title: "logo", alt: "logo", image: image_logo }
 ])

@@ -3,11 +3,16 @@
   %head
     %title Remontami7
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload', cached: true
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload', cached: true
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %link{:href => "https://code.getmdl.io/1.3.0/material.brown-orange.min.css", :rel => "stylesheet"}/
-  %body{class: "#{controller_name} #{action_name}", style: "background-image:url(#{asset_path "background.jpg"}); background-repeat: no-repeat; width: 100%;"}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %link{:href => "https://code.getmdl.io/1.3.0/material.brown-orange.min.css", :rel => "stylesheet"}
+    - if browser.device.mobile?
+      %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:mobile)}'); background-repeat: repeat-x;"}
+    - elsif browser.device.tablet?
+      %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:tablet)}'); background-repeat: repeat-x;"}
+    - else
+      %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:pc)}'); background-repeat: repeat-x;"}
     .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
       = render "layouts/header"
       = render "layouts/navigation"
