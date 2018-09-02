@@ -40,6 +40,7 @@ gem 'jquery-rails'              # JQuery
 gem "font-awesome-rails"        # Иконки
 gem 'nested_form_fields'        # Генерация, удаление формы для nested
 gem "browser"                   # Do some browser detection with Ruby
+gem 'rails_real_favicon'
 
 group :production do
   gem 'heroku-deflater' # Использование сжатых css и js на heroku
