@@ -1,0 +1,49 @@
+{
+    "name": "remontami7",
+    "short_name": "remontami7",
+    "icons": [
+        {
+            "src": "/assets/favicon/android-chrome-36x36-a748be011157a51f006743e23cdf70ee1fa363bd36a2f55cff72fb68e6a28422.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/favicon/android-chrome-48x48-407832c3aba64b450f04a2dbeca51e73001ae34f4d318c90a6aea769b200fd8c.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/favicon/android-chrome-72x72-6237380ad4d24e7bd4ea3547a17ed509603ce3b64534eeb9aa74d8dc04290caa.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/favicon/android-chrome-96x96-1ad2a1ea35f7c8a9f39a9fcf49fda795c25253aa21e93937fd9a4b2ca1d71b26.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/favicon/android-chrome-144x144-63b76cb46b95727d4e7a2f2679834582069b453ffe200c637d0657e554ae97dc.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/favicon/android-chrome-192x192-c13044ae432f9036897356b5ffd198b6bf9b5b809c12034f995509be9713ea22.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/favicon/android-chrome-256x256-9ae4ab95cf4e3bdee334f48e106921f68f73b05c262a0ad971817e4558785c53.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/favicon/android-chrome-384x384-8f9b81f2893190e4102aaf12d38c84b0386f0afef74f7ba959023d4d69b2dbf5.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "display": "standalone"
+}
