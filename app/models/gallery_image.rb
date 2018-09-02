@@ -9,10 +9,10 @@ class GalleryImage < ApplicationRecord
                                  mobile_cover: [ "320x320", :jpeg ]
                                },
                                convert_options: {
-                                 thumb:        "-quality 90 -strip",
-                                 cover:        "-quality 90 -strip",
-                                 tablet_cover: "-quality 90 -strip",
-                                 mobile_cover: "-quality 90 -strip"
+                                 thumb:        "-quality 85 -strip",
+                                 cover:        "-quality 85 -strip",
+                                 tablet_cover: "-quality 85 -strip",
+                                 mobile_cover: "-quality 85 -strip"
                                }
   validates_attachment :image, content_type: { content_type: /\Aimage\/.*\z/,
                                                message: "имеет неверное расширение"
