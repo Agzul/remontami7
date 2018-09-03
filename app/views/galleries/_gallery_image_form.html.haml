@@ -9,9 +9,9 @@
     = ff.label :alt,        class: "mdl-textfield__label"
     = ff.text_field :alt,   class: "mdl-textfield__input"
   .mdl-textfield.mdl-js-textfield.mdl-textfield--file
-    %input#uploadFile.mdl-textfield__input{:placeholder => "Файл не выбран", :readonly => "readonly", :type => "text"}/
+    %input.uploadFile.mdl-textfield__input{placeholder: "Файл не выбран", readonly: "readonly", type: "text"}
     .mdl-button.mdl-button--primary.mdl-button--icon.mdl-button--file
-      = ff.file_field :image, id: "uploadBtn"
+      = ff.file_field :image, class: "uploadBtn"
       %i.material-icons attach_file
   %label.mdl-checkbox.mdl-js-checkbox.mdl-js-ripple-effect.checkbox-inline
     %span.mdl-checkbox__label Сделать обложкой

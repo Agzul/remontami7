@@ -12,12 +12,20 @@
     , 50
     return
 
-# Добавление названия картинки в форму
+
 @add_label_for_image_form = ->
-  if document.getElementById('uploadBtn')
-    document.getElementById('uploadBtn').onchange = ->
-      document.getElementById('uploadFile').value = @files[0].name
-      return
+  # Добавление названия картинки
+  if $(document).find(".uploadBtn")
+    $(".uploadBtn").change ->
+      uploadFile = $(this).parent().parent().find(".uploadFile")[0]
+      uploadFile.value= @files[0].name
+  # Добавление названия картинки после рендера формы
+  $(document).on "fields_added.nested_form_fields", (event) ->
+    if $(event.target).find(".uploadBtn")
+      uploadBtn = $(event.target).find(".uploadBtn")
+      uploadBtn.change ->
+        uploadFile = $(this).parent().parent().find(".uploadFile")[0]
+        uploadFile.value= @files[0].name
 
 # Выпадающие элементы из бокового меню
 @dropdown = () ->
