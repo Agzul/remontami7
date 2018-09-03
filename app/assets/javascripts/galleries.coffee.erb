@@ -1,0 +1,9 @@
+@set_cover = ->
+  galleriesUrls = $(".temp_information").data("galleriesUrls")
+  for i in [0...galleriesUrls.length]
+    console.log galleriesUrls[i].split(',')
+
+all_ready = ->
+  if @current_controller == "galleries" && @current_action == "index"
+    window.set_cover()
+$(document).on 'turbolinks:load', all_ready
