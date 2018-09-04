@@ -27,11 +27,9 @@
       - elsif gallery_image.image.exists? && gallery_image.cover==false
         - if browser.device.mobile?
           - gallery_image_thumb_to_cover_url = gallery_image.image.url(:mobile_cover)
-          .mdl-cell.mdl-cell--2-col= image_tag gallery_image.image.url(:thumb),         class: "gallery_thumb", data: { gallery_image_thumb_to_cover_url: gallery_image_thumb_to_cover_url }
-        - if browser.device.tablet?
+        - elsif browser.device.tablet?
           - gallery_image_thumb_to_cover_url = gallery_image.image.url(:tablet_cover)
-          .mdl-cell.mdl-cell--2-col= image_tag gallery_image.image.url(:thumb),         class: "gallery_thumb", data: { gallery_image_thumb_to_cover_url: gallery_image_thumb_to_cover_url }
         - else
           - gallery_image_thumb_to_cover_url = gallery_image.image.url(:cover)
-          .mdl-cell.mdl-cell--2-col= image_tag gallery_image.image.url(:thumb),         class: "gallery_thumb", data: { gallery_image_thumb_to_cover_url: gallery_image_thumb_to_cover_url }
+        .mdl-cell.mdl-cell--2-col= image_tag gallery_image.image.url(:thumb),           class: "gallery_thumb", data: { gallery_image_thumb_to_cover_url: gallery_image_thumb_to_cover_url }
 %br
