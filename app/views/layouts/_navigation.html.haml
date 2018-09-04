@@ -1,13 +1,14 @@
 .mdl-layout__drawer
-  %span.mdl-layout-title.mdl-layout--small-screen-only Главное меню
-  %nav.mdl-navigation.mdl-layout--small-screen-only
-    %a.mdl-navigation__link{:href => root_path } Главная
-    %a.mdl-navigation__link{:href => "/prices"} Цены
-    %a.mdl-navigation__link{:href => "/galleries"} Наши работы
-    %a.mdl-navigation__link{:href => "/information"} Информация
-    %a.mdl-navigation__link{:href => "/consumption_of_materials"} Расход материалов
-    %a.mdl-navigation__link{:href => "/contacts"} Контакты
-    %a.mdl-navigation__link{:href => "/articles"} Статьи
+  - if browser.device.mobile? || browser.device.tablet?
+    %span.mdl-layout-title.mdl-layout--small-screen-only Главное меню
+    %nav.mdl-navigation.mdl-layout--small-screen-only
+      %a.mdl-navigation__link{:href => root_path } Главная
+      %a.mdl-navigation__link{:href => "/prices"} Цены
+      %a.mdl-navigation__link{:href => "/galleries"} Наши работы
+      %a.mdl-navigation__link{:href => "/information"} Информация
+      %a.mdl-navigation__link{:href => "/consumption_of_materials"} Расход материалов
+      %a.mdl-navigation__link{:href => "/contacts"} Контакты
+      %a.mdl-navigation__link{:href => "/articles"} Статьи
 
 
   %span.mdl-layout-title Виды ремонта
