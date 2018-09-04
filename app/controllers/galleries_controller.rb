@@ -5,7 +5,6 @@ class GalleriesController < ApplicationController
   # GET /galleries.json
   def index
     @galleries = Gallery.all
-    get_gallery_images_urls
   end
 
   # GET /galleries/1
@@ -74,23 +73,6 @@ class GalleriesController < ApplicationController
       params.require(:gallery).permit(:title, :alt,
         gallery_images_attributes: [:id, :title, :alt, :image, :cover, :gallery_id, :_destroy]
       )
-    end
-
-    def get_gallery_images_urls
-      @galleries_urls = []
-      @galleries.each do |gallery|
-        i = 0
-        gallery.gallery_images.each do |gallery_image|
-          if browser.device.mobile?
-            @galleries_urls[i] = "#{gallery.id}, #{gallery_image.id}, #{gallery_image.image.url(:mobile_cover)}, #{gallery_image.image.url(:thumb)}"
-          elsif browser.device.tablet?
-            @galleries_urls[i] = "#{gallery.id}, #{gallery_image.id}, #{gallery_image.image.url(:tablet_cover)}, #{gallery_image.image.url(:thumb)}"
-          else
-            @galleries_urls[i] = "#{gallery.id}, #{gallery_image.id}, #{gallery_image.image.url(:cover)}, #{gallery_image.image.url(:thumb)}"
-          end
-          i+=1
-        end
-      end
     end
 
 end

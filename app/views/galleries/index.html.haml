@@ -11,18 +11,25 @@
         %i.material-icons edit
       = link_to gallery, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
         %i.material-icons delete
+
     %h3.mdl-cell.mdl-cell--12-col= gallery.alt
-    - for i in 0..gallery.gallery_images.length-1
-      - if gallery.gallery_images[i].image.exists? && gallery.gallery_images[i].cover==true
+    - gallery.gallery_images.each do |gallery_image|
+
+      - if gallery_image.image.exists? && gallery_image.cover==true
+        - gallery_image_cover_to_thumb_url = gallery_image.image.url(:thumb)
         - if browser.device.mobile?
-          .mdl-cell.mdl-cell--12-col= link_to image_tag(gallery.gallery_images[i].image.url(:mobile_cover)), gallery
+          .mdl-cell.mdl-cell--12-col= image_tag gallery_image.image.url(:mobile_cover), class: "gallery_cover", data: { gallery_image_cover_to_thumb_url: gallery_image_cover_to_thumb_url }
         - elsif browser.device.tablet?
-          .mdl-cell.mdl-cell--12-col= link_to image_tag(gallery.gallery_images[i].image.url(:tablet_cover)), gallery
+          .mdl-cell.mdl-cell--12-col= image_tag gallery_image.image.url(:tablet_cover), class: "gallery_cover", data: { gallery_image_cover_to_thumb_url: gallery_image_cover_to_thumb_url }
         - else
-          .mdl-cell.mdl-cell--12-col= link_to image_tag(gallery.gallery_images[i].image.url(:cover)), gallery
+          .mdl-cell.mdl-cell--12-col= image_tag gallery_image.image.url(:cover),        class: "gallery_cover", data: { gallery_image_cover_to_thumb_url: gallery_image_cover_to_thumb_url }
 
-      - elsif gallery.gallery_images[i].image.exists? && gallery.gallery_images[i].cover==false
-        .mdl-cell.mdl-cell--2-col= link_to image_tag(gallery.gallery_images[i].image.url(:thumb)), gallery
-
-= content_tag(:div, "", class: "temp_information", data: { galleries_urls: @galleries_urls})
+      - elsif gallery_image.image.exists? && gallery_image.cover==false
+        - if browser.device.mobile?
+          - gallery_image_thumb_to_cover_url = gallery_image.image.url(:mobile_cover)
+        - if browser.device.tablet?
+          - gallery_image_thumb_to_cover_url = gallery_image.image.url(:tablet_cover)
+        - else
+          - gallery_image_thumb_to_cover_url = gallery_image.image.url(:cover)
+        .mdl-cell.mdl-cell--2-col= image_tag gallery_image.image.url(:thumb),           class: "gallery_thumb", data: { gallery_image_thumb_to_cover_url: gallery_image_thumb_to_cover_url }
 %br

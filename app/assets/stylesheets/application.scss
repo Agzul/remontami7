@@ -23,6 +23,13 @@
   }
 }
 
+// thumb изображение
+.gallery_thumb {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 // Чекбокс
 .checkbox-inline {
   width: 256px !important;
