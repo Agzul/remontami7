@@ -1,17 +1,19 @@
 @set_cover = ->
 
   $(".gallery_thumb").on "click", ->
-    console.log galleryImageThumbToCoverUrl = $(this).attr("data-gallery-image-thumb-to-cover-url")
-    console.log thumbUrl = $(this).attr('src')
+    galleryImageThumbToCoverUrl = $(this).attr("data-gallery-image-thumb-to-cover-url")
+    thumbUrl = $(this).attr('src')
 
-    console.log galleryImageCoverToThumbUrl = $(".gallery_cover").attr("data-gallery-image-cover-to-thumb-url")
-    console.log coverUrl = $(".gallery_cover").attr('src')
+    galleryImageCoverToThumbUrl = $(".gallery_cover").attr("data-gallery-image-cover-to-thumb-url")
+    coverUrl = $(".gallery_cover").attr('src')
 
-    console.log $(this).attr('src', galleryImageCoverToThumbUrl)
-    console.log $(this).attr("data-gallery-image-thumb-to-cover-url", coverUrl)
+    $(this).attr('src', galleryImageCoverToThumbUrl)
+    $(this).attr("data-gallery-image-thumb-to-cover-url", coverUrl)
+    $(this).hide().fadeIn()
 
-    console.log $(".gallery_cover").attr('src', galleryImageThumbToCoverUrl)
-    console.log $(".gallery_cover").attr("data-gallery-image-cover-to-thumb-url", thumbUrl)
+    $(".gallery_cover").attr('src', galleryImageThumbToCoverUrl)
+    $(".gallery_cover").attr("data-gallery-image-cover-to-thumb-url", thumbUrl)
+    $(".gallery_cover").hide().fadeIn()
 
 all_ready = ->
   if @current_controller == "galleries" && @current_action == "index"
