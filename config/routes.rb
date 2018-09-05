@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  resources :galleries
-  resources :articles
+  resources :galleries, :path => 'foto-nashih-rabot'
+  resources :articles,  :path => 'news'
 
   root 'main_menu#home'
-  match '/prices', to: 'main_menu#prices', via: 'get'
-  match '/information', to: 'main_menu#information', via: 'get'
-  match '/consumption_of_materials', to: 'main_menu#consumption_of_materials', via: 'get'
-  match '/contacts', to: 'main_menu#contacts', via: 'get'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/ceny',              to: 'main_menu#prices'
+  get '/informaciya',       to: 'main_menu#information'
+  get '/rashod-materialov', to: 'main_menu#consumption_of_materials'
+  get '/kontakty',          to: 'main_menu#contacts'
 end

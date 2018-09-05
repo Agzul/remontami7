@@ -12,7 +12,6 @@
     , 50
     return
 
-
 @add_label_for_image_form = ->
   # Добавление названия картинки
   if $(document).find(".uploadBtn")
