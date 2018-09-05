@@ -6,10 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# Тестовая галерея
 Test_Gallery = Gallery.create( title: 'Test gallery title', alt: 'Test gallery alt')
 Test_Gallery_Image = GalleryImage.create(title: 'Test gallery image title', alt: 'Test gallery image alt', gallery: Test_Gallery )
 
-works = Work.create([
+Work.create([
   # Пол
   { name: '<a href="/stjazhka-pola-cena">Стяжка пола по маякам</a> до 5 см + монтаж маяков по лазерному уровню',                                           price: 400, unit: "м<sup>2</sup>", plane: "floor" },
   { name: 'Стяжка пола по маякам до 7 см + монтаж маяков по лазерному уровню',                                                                             price: 600, unit: "м<sup>2</sup>", plane: "floor" },
@@ -103,9 +104,15 @@ works = Work.create([
 
 image_background = File.open(File.join(Rails.root, '/app/assets/images/images/background.jpg'))
 image_logo = File.open(File.join(Rails.root, '/app/assets/images/images/logo.png'))
-images = Image.create([
+Image.create([
   # Background
   { title: "background", alt: "background", image: image_background },
   # Logo
   { title: "logo", alt: "logo", image: image_logo }
 ])
+
+Contact.create(
+  name: "Ваган",
+  phone: "8 (985) 094-27-61",
+  email: "info@remontami7.ru"
+)

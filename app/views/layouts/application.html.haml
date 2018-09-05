@@ -1,22 +1,37 @@
 !!!
 %html
   %head
-    %title Remontami7
+    - if @title
+      %title= @title
+    - else
+      %title= "Remontami7"
+
+    - if @description
+      %meta{ name: "description", content: @description }
+    - else
+      %meta{ name: "description", content: "Ремонт квартир в Москве и МО качественно, профессионально" }
+
+    - if @keywords
+      %meta{ name: "keywords", content: @keywords }
+    - else
+      %meta{ name: "keywords", content: "ремонт квартир в Москве, ремонт квартир в Москве цена за м2 недорого" }
+
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     = render 'application/favicon'
     %link{:href => "https://code.getmdl.io/1.3.0/material.brown-orange.min.css", :rel => "stylesheet"}
-    - if browser.device.mobile?
-      %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:mobile)}'); background-repeat: repeat-x;"}
-    - elsif browser.device.tablet?
-      %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:tablet)}'); background-repeat: repeat-x;"}
-    - else
-      %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:pc)}'); background-repeat: repeat-x;"}
-    .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
-      = render "layouts/header"
-      = render "layouts/navigation"
-      %main.mdl-layout__content
-        .content
-          = yield
+
+  - if browser.device.mobile?
+    %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:mobile)}'); background-repeat: repeat-x;"}
+  - elsif browser.device.tablet?
+    %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:tablet)}'); background-repeat: repeat-x;"}
+  - else
+    %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:pc)}'); background-repeat: repeat-x;"}
+  .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+    = render "layouts/header"
+    = render "layouts/navigation"
+    %main.mdl-layout__content
+      .content
+        = yield

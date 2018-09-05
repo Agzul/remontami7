@@ -4,6 +4,10 @@ class GalleriesController < ApplicationController
   # GET /galleries
   # GET /galleries.json
   def index
+    @title =       "Фотогалерея наших работ - частные мастера"
+    @description = "Фото готовых работ по ремонту квартир в Москве и МО, которые выполнили частные мастера нашей бригады"
+    @keywords =    "фото ремонт квартир"
+
     @galleries = Gallery.all
   end
 

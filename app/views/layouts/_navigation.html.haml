@@ -2,13 +2,13 @@
   - if browser.device.mobile? || browser.device.tablet?
     %span.mdl-layout-title.mdl-layout--small-screen-only Главное меню
     %nav.mdl-navigation.mdl-layout--small-screen-only
-      %a.mdl-navigation__link{:href => root_path } Главная
-      %a.mdl-navigation__link{:href => "/prices"} Цены
-      %a.mdl-navigation__link{:href => "/galleries"} Наши работы
-      %a.mdl-navigation__link{:href => "/information"} Информация
-      %a.mdl-navigation__link{:href => "/consumption_of_materials"} Расход материалов
-      %a.mdl-navigation__link{:href => "/contacts"} Контакты
-      %a.mdl-navigation__link{:href => "/articles"} Статьи
+      = link_to "Главная",           root_path,                                                   class: "mdl-navigation__link"
+      = link_to "Цены",              {controller: :main_menu, action: :prices},                   class: "mdl-navigation__link"
+      = link_to "Наши работы",       galleries_path,                                              class: "mdl-navigation__link"
+      = link_to "Информация",        {controller: :main_menu, action: :information},              class: "mdl-navigation__link"
+      = link_to "Расход материалов", {controller: :main_menu, action: :consumption_of_materials}, class: "mdl-navigation__link"
+      = link_to "Контакты",          {controller: :main_menu, action: :contacts},                 class: "mdl-navigation__link"
+      = link_to "Статьи",            articles_path,                                               class: "mdl-navigation__link"
 
 
   %span.mdl-layout-title Виды ремонта
@@ -44,9 +44,7 @@
       .dropdown-content{ "data-dropdown_content": "hidden" }
         %a{:href => "#"} Шпаклевка под обои
         %a{:href => "#"} Шпаклевка под покраску
-
     %a.mdl-navigation__link{:href => ""} Штукатурка
-
     .dropdown
       %a.mdl-navigation__link{ "data-toggle": "dropdown" }
         Поклейка обоев
@@ -57,7 +55,6 @@
         %a{:href => "#"} Текстильные обои
         %a{:href => "#"} Под покраску
         %a{:href => "#"} Стеклообои
-
     .dropdown
       %a.mdl-navigation__link{ "data-toggle": "dropdown" }
         Покраска стен потолков
@@ -65,7 +62,6 @@
       .dropdown-content{ "data-dropdown_content": "hidden" }
         %a{:href => "#"} Покраска стен
         %a{:href => "#"} Покраска потолка
-
     .dropdown
       %a.mdl-navigation__link{ "data-toggle": "dropdown" }
         Стяжка пола
@@ -73,10 +69,8 @@
       .dropdown-content{ "data-dropdown_content": "hidden" }
         %a{:href => "#"} Самовыравнивающаяся стяжка
         %a{:href => "#"} С керамзитом
-
     %a.mdl-navigation__link{:href => ""} Укладка ламината
     %a.mdl-navigation__link{:href => ""} Укладка паркетной доски
-
     .dropdown
       %a.mdl-navigation__link{ "data-toggle": "dropdown" }
         Укладка плитки
@@ -85,7 +79,6 @@
         %a{:href => "#"} Укладка плитки на стену
         %a{:href => "#"} Укладка плитки на пол
         %a{:href => "#"} Укладка керамогранита
-
     %a.mdl-navigation__link{:href => ""} Утепление балкона лоджии
     %a.mdl-navigation__link{:href => ""} Установка межкомнатных дверей
     %a.mdl-navigation__link{:href => ""} Натяжные потолки
