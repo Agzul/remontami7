@@ -29,9 +29,9 @@
     %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:tablet)}'); background-repeat: repeat-x;"}
   - else
     %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:pc)}'); background-repeat: repeat-x;"}
-  .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
-    = render "layouts/header"
-    = render "layouts/navigation"
-    %main.mdl-layout__content
-      .content
-        = yield
+    .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+      = render "layouts/header"
+      = render "layouts/navigation"
+      %main.mdl-layout__content
+        .content
+          = yield
