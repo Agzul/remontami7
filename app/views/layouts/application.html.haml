@@ -31,7 +31,7 @@
   - else
     - background = Image.where('title = ?', 'background')[0].image.url(:pc)
 
-  %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{background}'); background-repeat: repeat-x;"}
+  %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{background}'); background-size: 100%; background-repeat: no-repeat;"}
     .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
       = render "layouts/header"
       = render "layouts/navigation"
