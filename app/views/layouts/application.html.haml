@@ -1,5 +1,5 @@
 !!!
-%html
+%html{lang: "ru"}
   %head
     - if @title
       %title= @title
@@ -19,6 +19,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
     %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
     = render 'application/favicon'
     %link{:href => "https://code.getmdl.io/1.3.0/material.brown-orange.min.css", :rel => "stylesheet"}
@@ -29,9 +30,10 @@
     %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:tablet)}'); background-repeat: repeat-x;"}
   - else
     %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:pc)}'); background-repeat: repeat-x;"}
-    .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
-      = render "layouts/header"
-      = render "layouts/navigation"
-      %main.mdl-layout__content
-        .content
-          = yield
+
+      .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+        = render "layouts/header"
+        = render "layouts/navigation"
+        %main.mdl-layout__content
+          .content
+            = yield

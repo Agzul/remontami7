@@ -2,9 +2,9 @@
   .mdl-layout__header-row
     %a.mdl-layout-title{:href => root_path}
       - if browser.device.mobile?
-        %img=image_tag(Image.where("title = ?", "logo")[0].image.url(:logo), style: "width: 128px; height: 64px;")
+        =image_tag(Image.where("title = ?", "logo")[0].image.url(:logo), style: "width: 128px; height: 64px;")
       - else
-        %img=image_tag(Image.where("title = ?", "logo")[0].image.url(:logo))
+        =image_tag(Image.where("title = ?", "logo")[0].image.url(:logo))
     .mdl-layout-spacer
     - unless browser.device.mobile? || browser.device.tablet?
       %nav.mdl-navigation.mdl-layout--large-screen-only
