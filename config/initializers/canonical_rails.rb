@@ -25,5 +25,5 @@ CanonicalRails.setup do |config|
   config.whitelisted_parameters# = []
 
   # Output a matching OpenGraph URL meta tag (og:url) with the canonical URL, as recommended by Facebook et al
-  config.opengraph_url= true
+  config.opengraph_url# = true
 end
