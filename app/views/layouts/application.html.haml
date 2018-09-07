@@ -25,25 +25,13 @@
     %link{:href => "https://code.getmdl.io/1.3.0/material.brown-orange.min.css", :rel => "stylesheet"}
 
   - if browser.device.mobile?
-    %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:mobile)}'); background-repeat: repeat-x;"}
-      .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
-        = render "layouts/header"
-        = render "layouts/navigation"
-        %main.mdl-layout__content
-          .content
-            = yield
-
+    - image = Image.where('title = ?', 'background')[0].image.url(:mobile)
   - elsif browser.device.tablet?
-    %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:tablet)}'); background-repeat: repeat-x;"}
-      .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
-        = render "layouts/header"
-        = render "layouts/navigation"
-        %main.mdl-layout__content
-          .content
-            = yield
-
+    - image = Image.where('title = ?', 'background')[0].image.url(:tablet)
   - else
-    %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{Image.where('title = ?', 'background')[0].image.url(:pc)}'); background-repeat: repeat-x;"}
+    - image = Image.where('title = ?', 'background')[0].image.url(:pc)
+
+    %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{image}'); background-repeat: repeat-x;"}
       .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
         = render "layouts/header"
         = render "layouts/navigation"
