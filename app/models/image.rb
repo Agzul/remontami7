@@ -1,7 +1,7 @@
 class Image < ApplicationRecord
   has_attached_file    :image,
                                styles: {
-                                 pc:     [ "?x1024", :jpeg ],
+                                 pc:     [ "?x720", :jpeg ],
                                  tablet: [ "?x480",  :jpeg ],
                                  mobile: [ "?x240",  :jpeg ],
                                  logo:   [ "?x64",   :jpeg ]
