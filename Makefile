@@ -26,5 +26,5 @@ git:
 	git add .
 	echo $(m)
 	git commit -m "$m"
-	git push heroku master
 	git push origin master
+	git push heroku master
