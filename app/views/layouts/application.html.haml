@@ -32,10 +32,10 @@
   - else
     - background = Image.where('title = ?', 'background')[0].background.url(:pc)
 
-  %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{background}'); background-size: 100%; background-repeat: no-repeat;"}
+  %body{class: "#{controller_name} #{action_name}"}
     .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
       = render "layouts/header"
       = render "layouts/navigation"
-      %main.mdl-layout__content
+      %main.mdl-layout__content{style: "background-image: url('#{background}'); background-size: 100%; background-repeat: no-repeat;"}
         .content
           = yield
