@@ -20,6 +20,11 @@ assets:
 run:
 	rails s
 
+heroku_compile:
+	heroku run rake db:migrate VERSION=0
+	heroku run rake db:migrate
+	heroku run rake db:seed
+
 m = "default"
 git:
 	git add .
