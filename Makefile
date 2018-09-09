@@ -26,3 +26,13 @@ git:
 	git commit -m "$m"
 	git push origin master
 	git push heroku master
+
+github:
+	git add .
+	git commit -m "$m"
+	git push origin master
+
+heroku:
+	git add .
+	git commit -m "$m"
+	git push heroku master

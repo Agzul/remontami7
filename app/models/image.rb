@@ -20,9 +20,9 @@ class Image < ApplicationRecord
 
   has_attached_file :gallery_image, styles: {
     thumb:        [ "100x100", :jpeg ],
-    cover:        [ "720x720", :jpeg ],
-    tablet_cover: [ "480x480", :jpeg ],
-    mobile_cover: [ "320x320", :jpeg ]
+    cover:        [ "700x700", :jpeg ],
+    tablet_cover: [ "460x460", :jpeg ],
+    mobile_cover: [ "300x300", :jpeg ]
   },
   convert_options: {
     all:  "-quality 85 -strip"
