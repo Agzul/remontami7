@@ -12,8 +12,8 @@
     = f.label :alt,        class: "mdl-textfield__label"
     = f.text_field :alt,   class: "mdl-textfield__input"
 
-  = f.add_nested_fields_link :gallery_images, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect update-dom" do
+  = f.add_nested_fields_link :images, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect update-dom" do
     %i.material-icons add_a_photo
-  = render "gallery_image_form", f: f
+  = render "image_form", f: f
   .row
   = f.submit 'Сохранить', class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored"

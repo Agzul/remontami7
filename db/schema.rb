@@ -51,27 +51,41 @@ ActiveRecord::Schema.define(version: 20180902105856) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "gallery_images", force: :cascade do |t|
+  create_table "images", force: :cascade do |t|
     t.string "title"
     t.string "alt"
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.bigint "image_file_size"
-    t.datetime "image_updated_at"
-    t.boolean "cover"
+    t.string "logo_file_name"
+    t.string "logo_content_type"
+    t.bigint "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string "background_file_name"
+    t.string "background_content_type"
+    t.bigint "background_file_size"
+    t.datetime "background_updated_at"
+    t.bigint "info_id"
+    t.string "info_image_file_name"
+    t.string "info_image_content_type"
+    t.bigint "info_image_file_size"
+    t.datetime "info_image_updated_at"
     t.bigint "gallery_id"
+    t.string "gallery_image_file_name"
+    t.string "gallery_image_content_type"
+    t.bigint "gallery_image_file_size"
+    t.datetime "gallery_image_updated_at"
+    t.boolean "gallery_cover", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["gallery_id"], name: "index_gallery_images_on_gallery_id"
+    t.index ["gallery_id"], name: "index_images_on_gallery_id"
+    t.index ["info_id"], name: "index_images_on_info_id"
   end
 
-  create_table "images", force: :cascade do |t|
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.bigint "image_file_size"
-    t.datetime "image_updated_at"
+  create_table "infos", force: :cascade do |t|
+    t.string "link"
     t.string "title"
-    t.string "alt"
+    t.string "description"
+    t.string "keywords"
+    t.string "name"
+    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -85,5 +99,6 @@ ActiveRecord::Schema.define(version: 20180902105856) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "gallery_images", "galleries"
+  add_foreign_key "images", "galleries"
+  add_foreign_key "images", "infos"
 end

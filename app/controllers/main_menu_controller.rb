@@ -21,12 +21,6 @@ class MainMenuController < ApplicationController
     @extra_works =     @works.where(plane: "extra")
   end
 
-  def information
-    @title = "Информация о ремонте квартир в Москве"
-    @description = "Информация о ремонтных и отделочных работах в Москве и МО"
-    @keywords = "Информация о ремонте"
-  end
-
   def consumption_of_materials
     @title = "Таблица расхода строительных материалов для ремонта квартиры"
     @description = "Расход стройматериалов в виде таблицы, толко рекомендованные лучшие стройматериалы"

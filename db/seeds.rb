@@ -6,10 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Тестовая галерея
-Test_Gallery = Gallery.create( title: 'Test gallery title', alt: 'Test gallery alt')
-Test_Gallery_Image = GalleryImage.create(title: 'Test gallery image title', alt: 'Test gallery image alt', gallery: Test_Gallery )
-
 Work.create([
   # Пол
   { name: '<a href="/stjazhka-pola-cena">Стяжка пола по маякам</a> до 5 см + монтаж маяков по лазерному уровню',                                           price: 400, unit: "м<sup>2</sup>", plane: "floor" },
@@ -102,13 +98,21 @@ Work.create([
   { name: 'Вынос мусора на улицу',                               price: 50, unit: "мешок", plane: "extra" }
 ])
 
-image_background = File.open(File.join(Rails.root, '/app/assets/images/images/background.jpg'))
-image_logo = File.open(File.join(Rails.root, '/app/assets/images/images/logo.png'))
+# Тестовая галерея
+Test_Gallery = Gallery.create( title: 'Test gallery title', alt: 'Test gallery alt')
+
+image_background = File.open(File.join(Rails.root, '/app/assets/images/images/backgrounds/background.jpg'))
+image_logo =       File.open(File.join(Rails.root, '/app/assets/images/images/logos/logo.png'))
+gallery_image1 =   File.open(File.join(Rails.root, '/app/assets/images/images/gallery_images/2018-05-12-210033_1280x1024_scrot.png'))
+gallery_image2 =   File.open(File.join(Rails.root, '/app/assets/images/images/gallery_images/2018-05-12-205959_1280x1024_scrot.png'))
 Image.create([
   # Background
-  { title: "background", alt: "background", image: image_background },
+  { title: "background", alt: "background", background: image_background },
   # Logo
-  { title: "logo", alt: "logo", image: image_logo }
+  { title: "logo", alt: "logo", logo: image_logo },
+  # Gallery
+  { title: 'Test gallery image title 1', alt: 'Test gallery image alt 1', gallery: Test_Gallery, gallery_image: gallery_image1, gallery_cover: true },
+  { title: 'Test gallery image title 2', alt: 'Test gallery image alt 2', gallery: Test_Gallery, gallery_image: gallery_image2 }
 ])
 
 Contact.create(

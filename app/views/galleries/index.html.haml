@@ -11,25 +11,28 @@
         %i.material-icons edit
       = link_to gallery, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
         %i.material-icons delete
-
     %h3.mdl-cell.mdl-cell--12-col= gallery.alt
-    - gallery.gallery_images.each do |gallery_image|
 
-      - if gallery_image.image.exists? && gallery_image.cover==true
-        - gallery_image_cover_to_thumb_url = gallery_image.image.url(:thumb)
-        - if browser.device.mobile?
-          .mdl-cell.mdl-cell--12-col= link_to (image_tag gallery_image.image.url(:mobile_cover), class: "gallery_cover", data: { gallery_image_cover_to_thumb_url: gallery_image_cover_to_thumb_url }), gallery_image.image.url(:original), target: :_blank
-        - elsif browser.device.tablet?
-          .mdl-cell.mdl-cell--12-col= link_to (image_tag gallery_image.image.url(:tablet_cover), class: "gallery_cover", data: { gallery_image_cover_to_thumb_url: gallery_image_cover_to_thumb_url }), gallery_image.image.url(:original), target: :_blank
-        - else
-          .mdl-cell.mdl-cell--12-col= link_to (image_tag gallery_image.image.url(:cover),        class: "gallery_cover", data: { gallery_image_cover_to_thumb_url: gallery_image_cover_to_thumb_url }), gallery_image.image.url(:original), target: :_blank
+    -# Cover
+    - image = gallery.images.find_by_gallery_cover(true)
+    - image_cover_to_thumb_url = image.gallery_image.url(:thumb)
+    - image_original_url = image.gallery_image.url(:original)
+    - if browser.device.mobile?
+      .mdl-cell.mdl-cell--12-col= link_to (image_tag image.gallery_image.url(:mobile_cover), class: "gallery_cover", data: { image_cover_to_thumb_url: image_cover_to_thumb_url, image_original_url: image_original_url }), image.gallery_image.url(:original), target: :_blank, class: "cover_link"
+    - elsif browser.device.tablet?
+      .mdl-cell.mdl-cell--12-col= link_to (image_tag image.gallery_image.url(:tablet_cover), class: "gallery_cover", data: { image_cover_to_thumb_url: image_cover_to_thumb_url, image_original_url: image_original_url }), image.gallery_image.url(:original), target: :_blank, class: "cover_link"
+    - else
+      .mdl-cell.mdl-cell--12-col= link_to (image_tag image.gallery_image.url(:cover),        class: "gallery_cover", data: { image_cover_to_thumb_url: image_cover_to_thumb_url, image_original_url: image_original_url }), image.gallery_image.url(:original), target: :_blank, class: "cover_link"
 
-      - elsif gallery_image.image.exists? && gallery_image.cover==false
-        - if browser.device.mobile?
-          - gallery_image_thumb_to_cover_url = gallery_image.image.url(:mobile_cover)
-        - elsif browser.device.tablet?
-          - gallery_image_thumb_to_cover_url = gallery_image.image.url(:tablet_cover)
-        - else
-          - gallery_image_thumb_to_cover_url = gallery_image.image.url(:cover)
-        .mdl-cell.mdl-cell--2-col= image_tag gallery_image.image.url(:thumb),           class: "gallery_thumb", data: { gallery_image_thumb_to_cover_url: gallery_image_thumb_to_cover_url }
+    -# Thumb
+    - gallery.images.where("gallery_cover = ?", false).each do |image|
+      - image_cover_to_thumb_url = image.gallery_image.url(:thumb)
+      - image_original_url = image.gallery_image.url(:original)
+      - if browser.device.mobile?
+        - image_thumb_to_cover_url = image.gallery_image.url(:mobile_cover)
+      - elsif browser.device.tablet?
+        - image_thumb_to_cover_url = image.gallery_image.url(:tablet_cover)
+      - else
+        - image_thumb_to_cover_url = image.gallery_image.url(:cover)
+      .mdl-cell.mdl-cell--2-col= image_tag image.gallery_image.url(:thumb),           class: "gallery_thumb", data: { image_thumb_to_cover_url: image_thumb_to_cover_url, image_original_url: image_original_url }
 %br

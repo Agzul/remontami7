@@ -26,11 +26,11 @@
     %link{:href => "https://code.getmdl.io/1.3.0/material.brown-orange.min.css", :rel => "stylesheet"}
 
   - if browser.device.mobile?
-    - background = Image.where('title = ?', 'background')[0].image.url(:mobile)
+    - background = Image.where('title = ?', 'background')[0].background.url(:mobile)
   - elsif browser.device.tablet?
-    - background = Image.where('title = ?', 'background')[0].image.url(:tablet)
+    - background = Image.where('title = ?', 'background')[0].background.url(:tablet)
   - else
-    - background = Image.where('title = ?', 'background')[0].image.url(:pc)
+    - background = Image.where('title = ?', 'background')[0].background.url(:pc)
 
   %body{class: "#{controller_name} #{action_name}", style: "background-image: url('#{background}'); background-size: 100%; background-repeat: no-repeat;"}
     .mdl-layout.mdl-js-layout.mdl-layout--fixed-header

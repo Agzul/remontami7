@@ -1,0 +1,28 @@
+= form_for @info do |f|
+  - if @info.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@info.errors.count, "error")} prohibited this info from being saved:"
+      %ul
+        - @info.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :link
+    = f.text_field :link
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label :keywords
+    = f.text_field :keywords
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :body
+    = f.text_area :body
+  .actions
+    = f.submit 'Save'

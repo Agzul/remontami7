@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Link:
+  = @info.link
+%p
+  %b Title:
+  = @info.title
+%p
+  %b Description:
+  = @info.description
+%p
+  %b Keywords:
+  = @info.keywords
+%p
+  %b Name:
+  = @info.name
+%p
+  %b Body:
+  = @info.body
+
+= link_to 'Edit', edit_info_path(@info)
+\|
+= link_to 'Back', infos_path
