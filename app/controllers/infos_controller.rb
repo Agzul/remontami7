@@ -4,12 +4,18 @@ class InfosController < ApplicationController
   # GET /infos
   # GET /infos.json
   def index
+    @title =       "Информация о ремонте квартир в Москве"
+    @description = "Информация о ремонтных и отделочных работах в Москве и МО"
+    @keywords =    "Информация о ремонте"
     @infos = Info.all
   end
 
   # GET /infos/1
   # GET /infos/1.json
   def show
+    @title =       @info.title
+    @description = @info.description
+    @keywords =    @info.keywords
   end
 
   # GET /infos/new
@@ -64,7 +70,7 @@ class InfosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_info
-      @info = Info.find(params[:id])
+      @info = Info.find_by(link: params[:link])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

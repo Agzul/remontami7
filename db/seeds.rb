@@ -120,3 +120,161 @@ Contact.create(
   phone: "8 (985) 094-27-61",
   email: "info@remontami7.ru"
 )
+
+Info.create([
+  {
+    link: "chernovoj-remont-standart",
+    title: "Черновой ремонт в новостройке категории Стандарт и стоимость - бригада частных мастеров",
+    description: "Бригада частных мастеров сделает черновой ремонт квартиры в новостройке по выгодной цене. Стоимость чернового ремонта категории Стандарт в новостройке составляет от 2 598 руб/м2",
+    keywords: "стоимость чернового ремонта в новостройке",
+    name: "Стоимость чернового ремонта в новостройке",
+    body: '
+      <p><img alt="Стоимость чернового ремонта в новостройке" src="/d/649707/d/3472025606_5.jpg" style="border-width: 0px; float: right; margin: 5px;" width="180" height="118">Мы понимаем, что для Вас очень важно просчитать все затраты на проведение чернового ремонта квартиры. Именно поэтому у нас стоимость чернового ремонта в новостройке&nbsp;категории&nbsp;<span style="font-size: 11pt; color: #800000;">Стандарт</span> совершенно прозрачна и не содержит скрытых пунктов для дополнительных расходов.</p>
+      <div class="for-mobile-view"><table class="table1" style="width: 100%; height: 300px;" border="0" align="center"><caption><strong>Квартира площадью 50 м<sup>2</sup>,&nbsp;санузел стандартный 3,5 м<sup>2</sup></strong></caption>
+      <tbody>
+      <tr>
+      <td style="text-align: center; width: 60%;">Вид работ</td>
+      <td style="text-align: center;">Объём работ</td>
+      <td style="text-align: center;">Цена, руб</td>
+      <td style="text-align: center; width: 20%;">Сумма, руб</td>
+      </tr>
+      <tr>
+      <td colspan="4" style="background-color: #ffe4b5; height: 2px;"></td>
+      </tr>
+      <tr>
+      <td colspan="4" style="text-align: center;"><strong><em>Пол (стяжка)</em></strong></td>
+      </tr>
+      <tr style="height: 10px;">
+      <td>Стяжка пола по маякам (до 5 см)</td>
+      <td>50 м<sup>2</sup></td>
+      <td>400</td>
+      <td>20 000</td>
+      </tr>
+      <tr style="height: 10px;">
+      <td>Установка маяков по лазерному уровню</td>
+      <td>50 м<sup>2</sup></td>
+      <td>50</td>
+      <td>2 500</td>
+      </tr>
+      <tr style="height: 10px;">
+      <td>Грунтовка составом "Бетоконтакт"</td>
+      <td>50</td>
+      <td>50</td>
+      <td>2 500</td>
+      </tr>
+      <tr>
+      <td colspan="3" style="text-align: right;"><strong>ИТОГО</strong>:</td>
+      <td><strong>&nbsp;25 000</strong></td>
+      </tr>
+      <tr>
+      <td colspan="4" style="text-align: right; background-color: #ffe4b5; height: 2px;"></td>
+      </tr>
+      <tr>
+      <td colspan="4" style="text-align: center;"><em><strong>Выравнивание стен</strong></em></td>
+      </tr>
+      <tr>
+      <td>Грунтовка стен под штукатурку</td>
+      <td>138м<sup>2</sup></td>
+      <td>50</td>
+      <td>6 900</td>
+      </tr>
+      <tr>
+      <td>Установка маяков по лазерному уровню</td>
+      <td>138 м<sup>2</sup></td>
+      <td>50</td>
+      <td>6 900</td>
+      </tr>
+      <tr>
+      <td>Штукатурка стен по маякам (толщина слоя до 3 см)</td>
+      <td>138 м<sup>2</sup></td>
+      <td>470</td>
+      <td>64 860</td>
+      </tr>
+      <tr>
+      <td>Шлифовка после оштукатуривания</td>
+      <td>138 м<sup>2</sup></td>
+      <td>90</td>
+      <td>12 420</td>
+      </tr>
+      <tr>
+      <td>Грунтовка дверных откосов</td>
+      <td>12 м/п</td>
+      <td>50</td>
+      <td>600</td>
+      </tr>
+      <tr>
+      <td>Штукатурка откосов (дверные) по уголкам</td>
+      <td>12 м/п<sup><br></sup></td>
+      <td>500</td>
+      <td>5 000</td>
+      </tr>
+      <tr>
+      <td>Шлифовка откосов</td>
+      <td>12 м/л</td>
+      <td>90</td>
+      <td>1 080</td>
+      </tr>
+      <tr>
+      <td colspan="3" style="text-align: right;"><strong>ИТОГО:</strong></td>
+      <td><strong>97 760</strong></td>
+      </tr>
+      <tr>
+      <td colspan="4" style="text-align: right; height: 2px; background-color: #ffe4b5;"></td>
+      </tr>
+      <tr>
+      <td colspan="4" style="text-align: center;"><em><strong>Электрика</strong></em></td>
+      </tr>
+      <tr>
+      <td>Прокладка кабеля</td>
+      <td>300 м/п</td>
+      <td>50</td>
+      <td>15 000</td>
+      </tr>
+      <tr>
+      <td>Штробление под прокладку кабеля</td>
+      <td>16 м/п</td>
+      <td>200</td>
+      <td>3 200</td>
+      </tr>
+      <tr>
+      <td colspan="3" style="text-align: right;"><strong>ИТОГО:</strong></td>
+      <td><strong>18 200</strong></td>
+      </tr>
+      <tr>
+      <td colspan="4" style="text-align: center; background-color: #ffe4b5; height: 2px;"></td>
+      </tr>
+      <tr>
+      <td colspan="3" style="background-color: #fafad2; text-align: right;"><strong>Всего работ на сумму:&nbsp;</strong></td>
+      <td style="background-color: #fafad2;"><strong>140 960&nbsp;руб</strong></td>
+      </tr>
+      <tr>
+      <td colspan="4" style="text-align: center;"><span style="color: #ff0000;"><strong>Цена за 1 м</strong><sup><strong>2</strong></sup></span><strong>&nbsp;</strong>по&nbsp;квартире (140 960 руб/50 м<sup>2</sup>) равна <strong><span style="color: #ff0000;">2 820<sup>*</sup></span>&nbsp;руб/м<sup>2</sup></strong></td>
+      </tr>
+      </tbody>
+      </table></div>
+      <p><span style="color: #993300;"><em>Внимание! Скидки на определенные виды работ определяются после осмотра места работ мастером. <strong>Выезд мастера бесплатно! </strong>Стоимость работ по черновому ремонту в новостройке будет неизменна до окончания работ.</em></span></p>
+      <p>Посмотрите для сравнения <a href="/chernovoj-remont-komfort" target="_blank">черновой ремонт Комфорт</a>&nbsp;</p>
+      <p><span style="color: #ff0000;"><sup>*&nbsp;</sup></span>Цена чернового ремонта квартиры не всегда рассчитывается исходя из стоимости 1 кв.метра и зависит от множества факторов. Точная оценка стоимости ремонта производится при составлении сметы (с подробным описанием всех работ, в т.ч. скрытых) и спецификации материалов. На весь период ремонта цены на работы, указанные в смете, фиксируются и пересмотру не подлежат. Ориентировочную итоговую стоимость интресующих работ может назвать мастер.</p>
+      <p><a href="/d/649707/d/stoimost-chernovogo-remonta.jpg" class="highslide" onclick="return hs.expand(this)"><img alt="stoimost-chernovogo-remonta" src="/thumb/Me0celpOoYi0npIpkHtBEw/360r300/649707/stoimost-chernovogo-remonta.jpg" style="border-width: 0px; float: left; margin: 5px;" width="360" height="270"></a>Наш специалист обладает огромным опытом в выполнении черновых работ в новостройках и подскажет, какие работы требуется выполнить в обязательном порядке, так как они будут основой для выполнения дальнейшей качественной чистовой отделки квартиры, а какие не обязательно или можно сделать позже.&nbsp;</p>
+      <p>Бригада частных мастеров Ремонтами 7 сделает недорогой и качественный черновой ремонт в новостройке, стоимость которого зависит от тех строительных материалов, которые будут приобретены. При необходимости мы всегда можем порекомендовать лучший строительный материал и необходимый объем. Мы имеем долгосрочные и выгодные контакты на приобретение качественных строительных материалов со скидками!&nbsp;</p>
+      <hr>
+      <p><span style="font-size: 12pt;"><em>Помните, что черновая отделка квартиры - крайне важный этап, именно он фундамент и залог качественной отделки!</em></span></p>
+      <hr>
+      <p>Смотрите также:</p>
+      <div class="for-mobile-view"><table class="table0" style="width: 100%;" border="0" align="center">
+      <tbody>
+      <tr align="center">
+      <td><a href="/shtukaturka-shpaklevka-sten-pod-pokrasku-cena"><img alt="shtukaturka-sten-i-vyravnivanie" src="/thumb/M7w31nWMeayLxwpz3pKrSA/180r160/649707/shtukaturka-sten-i-vyravnivanie.jpg" style="border-width: 0;" width="200" height="150"></a></td>
+      <td><a href="/samovyravnivajushhajasja-stjazhka"><img alt="самовыравнивающаяся стяжка" src="/thumb/pYwEfkrqreDk1kehQqzSpg/180r160/649707/самовыравнивающаяся_стяжка.jpg" style="border-width: 0;" width="200" height="150"></a></td>
+      <td><a href="/pokraska-potolka-cena"><img alt="pokraska-potolka-vodoemulsionnoy-kraskoy" src="/thumb/Pg7j3VQugMGxAlGYYVOHUA/180r160/649707/pokraska-potolka-vodoemulsionnoy-kraskoy.jpg" style="border-width: 0;" width="200" height="150"></a></td>
+      </tr>
+      <tr align="center">
+      <td><em>Штуркатурка под покраску</em></td>
+      <td><em>Самовыравнивающаяся стяжка</em></td>
+      <td><em>Покраска потолка</em></td>
+      </tr>
+      </tbody>
+      </table></div>'
+    }
+    
+])

@@ -1,31 +1,10 @@
-%h1 Listing infos
-
-%table
-  %thead
-    %tr
-      %th Link
-      %th Title
-      %th Description
-      %th Keywords
-      %th Name
-      %th Body
-      %th
-      %th
-      %th
-
-  %tbody
-    - @infos.each do |info|
-      %tr
-        %td= info.link
-        %td= info.title
-        %td= info.description
-        %td= info.keywords
-        %td= info.name
-        %td= info.body
-        %td= link_to 'Show', info
-        %td= link_to 'Edit', edit_info_path(info)
-        %td= link_to 'Destroy', info, method: :delete, data: { confirm: 'Are you sure?' }
-
+%h1 Информация о ремонте квартир
+= link_to new_info_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" do
+  %i.material-icons note_add
 %br
-
-= link_to 'New Info', new_info_path
+- @infos.each do |info|
+  = link_to info.name, info, class: "blue", target: "_blank"
+  = link_to edit_info_path(info), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
+    %i.material-icons edit
+  = link_to info, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
+    %i.material-icons delete

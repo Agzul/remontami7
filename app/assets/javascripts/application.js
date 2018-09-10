@@ -16,7 +16,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require nested_form_fields
+//= require trix
 //= require_tree .
+
 document.addEventListener('turbolinks:load', function() {
   componentHandler.upgradeDom();
+});
+
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  }
 });

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   resources :galleries, path: '/foto-nashih-rabot'
-  resources :infos, path: '/informaciya'
+  resources :infos,     path: '/informaciya', param: :link
   resources :articles,  path: '/news'
+  resources :images,    only: [:create, :destroy]
 
-  get '/informaciya',                                        to: 'informaciya#index'
   get '/chernovoj-remont-standart',                          to: 'informaciya#chernovojRemontStandart'
   get '/chernovoj-remont-komfort',                           to: 'informaciya#chernovojRemontKomfort'
   get '/remont-kvartiry-standart',                           to: 'informaciya#remontKvartiryStandart'

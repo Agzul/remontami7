@@ -1,23 +1,6 @@
 %p#notice= notice
-
-%p
-  %b Link:
-  = @info.link
-%p
-  %b Title:
-  = @info.title
-%p
-  %b Description:
-  = @info.description
-%p
-  %b Keywords:
-  = @info.keywords
-%p
-  %b Name:
-  = @info.name
-%p
-  %b Body:
-  = @info.body
+%h1= @info.name
+= @info.body.html_safe
 
 = link_to 'Edit', edit_info_path(@info)
 \|
