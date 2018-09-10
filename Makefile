@@ -3,6 +3,7 @@ all:
 	rake db:create
 	rake db:migrate
 	rake db:seed
+	rm -r public/assets/*
 	rake assets:precompile RAILS_ENV=production
 	rails s
 
@@ -11,6 +12,7 @@ compile:
 	rake db:create
 	rake db:migrate
 	rake db:seed
+	rm -r public/assets/*
 	rake assets:precompile RAILS_ENV=production
 
 assets:
