@@ -14,26 +14,27 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
 
   config.action_controller.perform_caching = true
-  config.cache_store = :dalli_store
 
-  server=  "mc4.dev.ec2.memcachier.com:11211"
-  user= "9CBC21"
-  password= "3B4953C61DE4013AB111BC8383391BF4"
-
-  client = Dalli::Client.new((server || "").split(","),
-                           username: user,
-                           password: password,
-                           failover: true,
-                           socket_timeout: 1.5,
-                           socket_failure_delay: 0.2,
-                           value_max_bytes: 10485760)
-  config.action_dispatch.rack_cache = {
-    :metastore    => client,
-    :entitystore  => client
-  }
-  config.serve_static_assets = true
-  config.assets.compress = true
-  config.static_cache_control = "public, max-age=2592000"
+  # config.cache_store = :dalli_store
+  #
+  # server=  "mc4.dev.ec2.memcachier.com:11211"
+  # user= "9CBC21"
+  # password= "3B4953C61DE4013AB111BC8383391BF4"
+  #
+  # client = Dalli::Client.new((server || "").split(","),
+  #                          username: user,
+  #                          password: password,
+  #                          failover: true,
+  #                          socket_timeout: 1.5,
+  #                          socket_failure_delay: 0.2,
+  #                          value_max_bytes: 10485760)
+  # config.action_dispatch.rack_cache = {
+  #   :metastore    => client,
+  #   :entitystore  => client
+  # }
+  # config.serve_static_assets = true
+  # config.assets.compress = true
+  # config.static_cache_control = "public, max-age=2592000"
 
   # Attempt to read encrypted secrets from `config/secrets.yml.enc`.
   # Requires an encryption key in `ENV["RAILS_MASTER_KEY"]` or
