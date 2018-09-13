@@ -7,7 +7,7 @@
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // compiled file. JavaScript code in this file should be added after the last require_* statement.
 //
-// Read Sprockets README (https://github.com/rails/sprockets//sprockets-directives) for details
+// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
 //= require rails-ujs
@@ -16,19 +16,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require nested_form_fields
-
-//= require froala_editor.min.js
-//= require plugins/align.min.js
-//= require plugins/code_view.min.js
-//= require plugins/colors.min.js
-//= require plugins/font_family.min.js
-//= require plugins/font_size.min.js
-//= require plugins/image.min.js
-//= require plugins/link.min.js
-//= require plugins/paragraph_format.min.js
-//= require plugins/paragraph_style.min.js
-//= require plugins/table.min.js
-
 //= require_tree .
 
 document.addEventListener('turbolinks:load', function() {

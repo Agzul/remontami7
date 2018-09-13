@@ -25,6 +25,7 @@ class InfosController < ApplicationController
 
   # GET /infos/1/edit
   def edit
+    @images = @info.images
   end
 
   # POST /infos

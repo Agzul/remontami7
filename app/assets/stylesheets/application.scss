@@ -1,15 +1,5 @@
 @import 'material';
 
-@import 'themes/dark.min.css';
-@import "froala_editor.min";
-@import "froala_style.min";
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import 'plugins/code_view.min.css';
-@import 'plugins/colors.min.css';
-@import 'plugins/image.min.css';
-@import 'plugins/table.min.css';
-
 // Уменьшение внутреннего отступа в header-е
 @media screen and (max-width: 768px) {
   .mdl-layout__header-row {

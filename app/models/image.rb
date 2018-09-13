@@ -29,7 +29,7 @@ class Image < ApplicationRecord
   }
 
   has_attached_file :info_image, styles: {
-   thumb: [ "?x64",  :jpeg ],
+   thumb: [ "100x?",  :jpeg ],
    small: [ "180x?", :jpeg ],
    med:   [ "360x?", :jpeg ]
   },

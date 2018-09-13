@@ -1,4 +1,5 @@
 = f.nested_fields_for :images do |ff|
+  = ff.hidden_field :gallery_image_file_name, class: "image_name"
   %div{style: "height: 36px;"}
     = ff.remove_nested_fields_link class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect del-btn" do
       %i.material-icons delete

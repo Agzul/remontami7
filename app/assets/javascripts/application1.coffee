@@ -12,54 +12,14 @@
     , 50
     return
 
-@froala = ->
-  if (@current_action == "edit" || @current_action == "new") && $('#wysiwyg')
-    $('#wysiwyg').froalaEditor
-      inlineMode: false
-      heightMin: '200px'
-      toolbarButtons: [
-        'bold'
-        'italic'
-        'underline'
-        'strikeThrough'
-        'subscript'
-        'superscript'
-        '|'
-        'fontFamily'
-        'fontSize'
-        'color'
-        'paragraphStyle'
-        '|'
-        'paragraphFormat'
-        'align'
-        'outdent'
-        'indent'
-        '-'
-        'insertLink'
-        'insertImage'
-        'insertTable'
-        '|'
-        'insertHR'
-        'clearFormatting'
-        '|'
-        'html'
-        '|'
-        'undo'
-        'redo'
-      ]
-      toolbarButtonsXS: [
-        'undo'
-        'redo'
-        '-'
-        'bold'
-        'italic'
-        'underline'
-      ]
-    return
-
 @add_label_for_image_form = ->
-  # Добавление названия картинки
-  if $(document).find(".uploadBtn")
+  if $(".uploadBtn")
+    # Добавление названия существующей картинки
+    if $(".image_name")
+      $(".image_name").each ->
+        name = $(this)[0].value
+        $(this).parent().find(".uploadFile")[0].value = name
+    # Добавление названия картинки
     $(".uploadBtn").change ->
       uploadFile = $(this).parent().parent().find(".uploadFile")[0]
       uploadFile.value= @files[0].name
@@ -97,4 +57,3 @@ $(document).on 'turbolinks:load', global_variables
 $(document).on 'turbolinks:load', dropdown
 $(document).on 'turbolinks:load', update_dom
 $(document).on 'turbolinks:load', add_label_for_image_form
-$(document).on 'turbolinks:load', froala

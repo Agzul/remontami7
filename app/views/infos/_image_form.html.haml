@@ -1,0 +1,29 @@
+- i = 0
+= f.nested_fields_for :images do |ff|
+  = ff.hidden_field :id, class: "image_id"
+  = ff.hidden_field :info_image_file_name, class: "image_name"
+  - if @images[i]
+    .image_url_thumb= "Thumb: " + @images[i].info_image.url(:thumb)
+    .image_url_small= "Small: " + @images[i].info_image.url(:small)
+    .image_url_med=   "Med: "   + @images[i].info_image.url(:med)
+  - else
+    .image_url_thumb= "Thumb: "
+    .image_url_small= "Small: "
+    .image_url_med=   "Med: "
+  %div{style: "height: 36px;"}
+    = ff.remove_nested_fields_link class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect del-btn delete-image" do
+      %i.material-icons delete
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    = ff.label :title,      class: "mdl-textfield__label"
+    = ff.text_field :title, class: "mdl-textfield__input"
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+    = ff.label :alt,        class: "mdl-textfield__label"
+    = ff.text_field :alt,   class: "mdl-textfield__input"
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--file
+    %input.uploadFile.mdl-textfield__input{placeholder: "Файл не выбран", readonly: "readonly", type: "text"}
+    .mdl-button.mdl-button--primary.mdl-button--icon.mdl-button--file
+      = ff.file_field :info_image, class: "uploadBtn"
+      %i.material-icons attach_file
+  %btn.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored.send-image Сохранить
+  .image_status.mdl-button{style: "background: #FFCA07; display:none; cursor: default;"}
+  - i+=1
