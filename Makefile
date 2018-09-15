@@ -1,25 +1,24 @@
 all:
+	rm -r public/system/* || true
+	rm -r public/assets/* || true
 	rake db:drop
 	rake db:create
 	rake db:migrate
 	rake db:seed
-	rm -r public/assets/*
-	rm -r public/system/*
 	rake assets:precompile RAILS_ENV=production
 	rails s
 
 compile:
+	rm -r public/system/* || true
+	rm -r public/assets/* || true
 	rake db:drop
 	rake db:create
 	rake db:migrate
 	rake db:seed
-	rm -r public/assets/*
-	rm -r public/system/*
 	rake assets:precompile RAILS_ENV=production
 
 assets:
-	rm -r public/assets/*
-	rm -r public/system/*
+	rm -r public/assets/* || true
 	rake assets:precompile RAILS_ENV=production
 
 run:
