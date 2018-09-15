@@ -3,9 +3,9 @@ class Image < ApplicationRecord
   belongs_to :gallery, optional: true
 
   has_attached_file :background, styles: {
-    pc:     [ "720x?",  :jpeg ],
-    tablet: [ "480x?",  :jpeg ],
-    mobile: [ "240x?",  :jpeg ]
+    pc:     [ "720x?", :jpeg ],
+    tablet: [ "480x?", :jpeg ],
+    mobile: [ "240x?", :jpeg ]
   },
   convert_options: {
     all:     "-quality 85 -strip"
@@ -29,7 +29,7 @@ class Image < ApplicationRecord
   }
 
   has_attached_file :info_image, styles: {
-   thumb: [ "100x?",  :jpeg ],
+   thumb: [ "100x?", :jpeg ],
    small: [ "180x?", :jpeg ],
    med:   [ "360x?", :jpeg ]
   },

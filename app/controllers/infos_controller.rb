@@ -7,6 +7,7 @@ class InfosController < ApplicationController
     @title =       "Информация о ремонте квартир в Москве"
     @description = "Информация о ремонтных и отделочных работах в Москве и МО"
     @keywords =    "Информация о ремонте"
+
     @infos = Info.all
   end
 
@@ -21,6 +22,7 @@ class InfosController < ApplicationController
   # GET /infos/new
   def new
     @info = Info.new
+    @gallery.images.build
   end
 
   # GET /infos/1/edit
@@ -76,6 +78,8 @@ class InfosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def info_params
-      params.require(:info).permit(:link, :title, :description, :keywords, :name, :body)
+      params.require(:info).permit(:link, :title, :description, :keywords, :name, :body,
+        images_attributes: [:id, :title, :alt, :info_image, :info_id, :_destroy]
+      )
     end
 end

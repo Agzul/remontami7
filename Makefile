@@ -4,6 +4,7 @@ all:
 	rake db:migrate
 	rake db:seed
 	rm -r public/assets/*
+	rm -r public/system/*
 	rake assets:precompile RAILS_ENV=production
 	rails s
 
@@ -13,10 +14,12 @@ compile:
 	rake db:migrate
 	rake db:seed
 	rm -r public/assets/*
+	rm -r public/system/*
 	rake assets:precompile RAILS_ENV=production
 
 assets:
 	rm -r public/assets/*
+	rm -r public/system/*
 	rake assets:precompile RAILS_ENV=production
 
 run:
