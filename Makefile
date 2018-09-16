@@ -1,7 +1,7 @@
 all:
 	rm -r public/system/* || true
 	rm -r public/assets/* || true
-	rake db:drop
+	rake db:drop || true
 	rake db:create
 	rake db:migrate
 	rake db:seed
@@ -11,7 +11,7 @@ all:
 compile:
 	rm -r public/system/* || true
 	rm -r public/assets/* || true
-	rake db:drop
+	rake db:drop || true
 	rake db:create
 	rake db:migrate
 	rake db:seed

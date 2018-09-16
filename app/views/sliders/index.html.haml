@@ -1,0 +1,21 @@
+%h1 Слайдеры
+= link_to new_slider_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" do
+  %i.material-icons library_add
+.row
+
+- @sliders.each do |slider|
+  - slider.images.each do |image|
+    - if browser.device.mobile?
+      = image_tag image.slider_image.url(:mobile)
+    - elsif browser.device.tablet?
+      = image_tag image.slider_image.url(:tablet)
+    - else
+      = image_tag image.slider_image.url(:pc)
+
+  = link_to slider, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
+    %i.material-icons remove_red_eye
+  = link_to edit_slider_path(slider), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
+    %i.material-icons edit
+  = link_to slider, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
+    %i.material-icons delete
+  .row

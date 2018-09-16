@@ -43,6 +43,7 @@ gem "browser"                   # Do some browser detection with Ruby
 gem 'rails_real_favicon'
 gem 'rack-rewrite'              # 301 редирект
 gem 'canonical-rails'           # Канонические ссылки
+gem 'bxslider-rails'            # Слайдер
 
 group :production do
   gem 'heroku-deflater' # Использование сжатых css и js на heroku

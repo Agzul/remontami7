@@ -16,8 +16,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require nested_form_fields
+//= require bxslider
 //= require_tree .
 
 document.addEventListener('turbolinks:load', function() {
   componentHandler.upgradeDom();
+});
+
+$(document).ready(function(){
+  $('.bxslider').bxSlider({
+    auto: true,
+  });
 });

@@ -1,4 +1,8 @@
 .mdl-layout__drawer
+  %span.mdl-layout-title Админка
+  %nav.mdl-navigation
+    = link_to "Слайдеры", sliders_path, class: "mdl-navigation__link"
+
   - if browser.device.mobile? || browser.device.tablet?
     %span.mdl-layout-title.mdl-layout--small-screen-only Главное меню
     %nav.mdl-navigation.mdl-layout--small-screen-only

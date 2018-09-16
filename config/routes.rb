@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sliders
   resources :galleries, path: '/foto-nashih-rabot'
   resources :infos,     path: '/informaciya', param: :link
   resources :articles,  path: '/news'

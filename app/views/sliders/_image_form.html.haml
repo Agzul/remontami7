@@ -1,0 +1,10 @@
+= f.nested_fields_for :images do |ff|
+  = ff.hidden_field :slider_image_file_name, class: "image_name"
+  %div{style: "height: 36px;"}
+    = ff.remove_nested_fields_link class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect del-btn" do
+      %i.material-icons delete
+  .mdl-textfield.mdl-js-textfield.mdl-textfield--file
+    %input.uploadFile.mdl-textfield__input{placeholder: "Файл не выбран", readonly: "readonly", type: "text"}
+    .mdl-button.mdl-button--primary.mdl-button--icon.mdl-button--file
+      = ff.file_field :slider_image, class: "uploadBtn"
+      %i.material-icons attach_file

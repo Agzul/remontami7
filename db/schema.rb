@@ -62,21 +62,27 @@ ActiveRecord::Schema.define(version: 20180902105856) do
     t.string "background_content_type"
     t.bigint "background_file_size"
     t.datetime "background_updated_at"
-    t.bigint "info_id"
-    t.string "info_image_file_name"
-    t.string "info_image_content_type"
-    t.bigint "info_image_file_size"
-    t.datetime "info_image_updated_at"
     t.bigint "gallery_id"
     t.string "gallery_image_file_name"
     t.string "gallery_image_content_type"
     t.bigint "gallery_image_file_size"
     t.datetime "gallery_image_updated_at"
     t.boolean "gallery_cover", default: false
+    t.bigint "info_id"
+    t.string "info_image_file_name"
+    t.string "info_image_content_type"
+    t.bigint "info_image_file_size"
+    t.datetime "info_image_updated_at"
+    t.bigint "slider_id"
+    t.string "slider_image_file_name"
+    t.string "slider_image_content_type"
+    t.bigint "slider_image_file_size"
+    t.datetime "slider_image_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gallery_id"], name: "index_images_on_gallery_id"
     t.index ["info_id"], name: "index_images_on_info_id"
+    t.index ["slider_id"], name: "index_images_on_slider_id"
   end
 
   create_table "infos", force: :cascade do |t|
@@ -86,6 +92,11 @@ ActiveRecord::Schema.define(version: 20180902105856) do
     t.string "keywords"
     t.string "name"
     t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sliders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -101,4 +112,5 @@ ActiveRecord::Schema.define(version: 20180902105856) do
 
   add_foreign_key "images", "galleries"
   add_foreign_key "images", "infos"
+  add_foreign_key "images", "sliders"
 end

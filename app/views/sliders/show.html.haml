@@ -1,0 +1,8 @@
+%p#notice= notice
+- @slider.images.each do |image|
+  - if browser.device.mobile?
+    = image_tag image.slider_image.url(:mobile)
+  - elsif browser.device.tablet?
+    = image_tag image.slider_image.url(:tablet)
+  - else
+    = image_tag image.slider_image.url(:pc)

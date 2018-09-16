@@ -1,0 +1,13 @@
+= form_for @slider do |f|
+  - if @slider.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@slider.errors.count, "error")} prohibited this slider from being saved:"
+      %ul
+        - @slider.errors.full_messages.each do |message|
+          %li= message
+
+  = f.add_nested_fields_link :images, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect update-dom" do
+    %i.material-icons add_a_photo
+  = render "image_form", f: f
+  .row
+  = f.submit 'Сохранить', class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored"

@@ -1,6 +1,7 @@
 class Image < ApplicationRecord
   belongs_to :info,    optional: true
   belongs_to :gallery, optional: true
+  belongs_to :slider,  optional: true
 
   has_attached_file :background, styles: {
     pc:     [ "720x?", :jpeg ],
@@ -37,7 +38,16 @@ class Image < ApplicationRecord
     all:  "-quality 85 -strip"
   }
 
-  validates_attachment :background, :logo, :info_image, :gallery_image, content_type: {
+  has_attached_file :slider_image, styles: {
+    pc:     [ "720x360!", :jpeg ],
+    tablet: [ "480x240!", :jpeg ],
+    mobile: [ "240x120!", :jpeg ]
+  },
+  convert_options: {
+    all:  "-quality 85 -strip"
+  }
+
+  validates_attachment :background, :logo, :gallery_image, :info_image, :slider_image, content_type: {
     content_type: /\Aimage\/.*\z/,
     message: "имеет неверное расширение"
   }
