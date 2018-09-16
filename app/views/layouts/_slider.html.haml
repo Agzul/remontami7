@@ -17,4 +17,4 @@
       .slider{style: "width: 720px; height: 360px; margin: auto;"}
         %ul.bxslider
           - Slider.all[0].images.each do |image|
-            %li= image_tag image.slider_image.url(:mobile), draggable: false, ondragstart: "return false;", style: "-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;"
+            %li= image_tag image.slider_image.url(:pc), draggable: false, ondragstart: "return false;", style: "-moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;"
