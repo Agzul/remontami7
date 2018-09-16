@@ -23,7 +23,7 @@ document.addEventListener('turbolinks:load', function() {
   componentHandler.upgradeDom();
 });
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   $('.bxslider').bxSlider({
     auto: true,
   });
