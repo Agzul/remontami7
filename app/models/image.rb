@@ -41,7 +41,7 @@ class Image < ApplicationRecord
   has_attached_file :slider_image, styles: {
     pc:     [ "720x360!", :jpeg ],
     tablet: [ "480x240!", :jpeg ],
-    mobile: [ "240x120!", :jpeg ]
+    mobile: [ "320x160!", :jpeg ]
   },
   convert_options: {
     all:  "-quality 85 -strip"
