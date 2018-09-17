@@ -4,8 +4,9 @@
 %br
 - @infos.each do |info|
   = link_to info.name, info, class: "blue", target: "_blank"
-  = link_to edit_info_path(info), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
-    %i.material-icons edit
-  = link_to info, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
-    %i.material-icons delete
+  - if current_user && current_user.admin
+    = link_to edit_info_path(info), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
+      %i.material-icons edit
+    = link_to info, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
+      %i.material-icons delete
   .row

@@ -1,16 +1,18 @@
 %h1 Наши работы
-= link_to new_gallery_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" do
-  %i.material-icons library_add
+- if current_user && current_user.admin
+  = link_to new_gallery_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" do
+    %i.material-icons library_add
 
 
 - @galleries.each do |gallery|
   .mdl-grid
     %h2.mdl-cell.mdl-cell--8-col= gallery.title
-    .mdl-cell.mdl-cell--4-col
-      = link_to edit_gallery_path(gallery), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
-        %i.material-icons edit
-      = link_to gallery, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
-        %i.material-icons delete
+    - if current_user && current_user.admin
+      .mdl-cell.mdl-cell--4-col
+        = link_to edit_gallery_path(gallery), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
+          %i.material-icons edit
+        = link_to gallery, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
+          %i.material-icons delete
     %h3.mdl-cell.mdl-cell--12-col= gallery.alt
 
     -# Cover

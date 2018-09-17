@@ -1,7 +1,9 @@
 .mdl-layout__drawer
-  %span.mdl-layout-title Админка
-  %nav.mdl-navigation
-    = link_to "Слайдеры", sliders_path, class: "mdl-navigation__link"
+  - if current_user && current_user.admin
+    %span.mdl-layout-title Админка
+    %nav.mdl-navigation
+      = link_to "Выход", :logout, method: :post, class: "mdl-navigation__link"
+      = link_to "Слайдеры", sliders_path,        class: "mdl-navigation__link"
 
   - if browser.device.mobile? || browser.device.tablet?
     %span.mdl-layout-title.mdl-layout--small-screen-only Главное меню
