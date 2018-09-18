@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :deny_access, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /articles
   # GET /articles.json

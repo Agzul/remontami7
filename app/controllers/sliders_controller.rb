@@ -1,5 +1,6 @@
 class SlidersController < ApplicationController
   before_action :set_slider, only: [:show, :edit, :update, :destroy]
+  before_action :deny_access, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /sliders
   # GET /sliders.json

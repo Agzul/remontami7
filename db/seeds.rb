@@ -254,6 +254,8 @@ image_logo =       File.open(File.join(Rails.root, '/app/assets/images/logo/logo
 gallery1 = File.open(File.join(Rails.root, '/app/assets/images/galleries/2018-05-12-210033_1280x1024_scrot.png'))
 gallery2 = File.open(File.join(Rails.root, '/app/assets/images/galleries/2018-05-12-205959_1280x1024_scrot.png'))
 
+slider = Slider.create
+
 info_images = {
   "1_1" =>  File.open(File.join(Rails.root, '/app/assets/images/infos/1_1.jpg')),
   "1_2" =>  File.open(File.join(Rails.root, '/app/assets/images/infos/1_2.jpg')),
@@ -280,6 +282,15 @@ info_images = {
   "17_3" => File.open(File.join(Rails.root, '/app/assets/images/infos/17_3.png')),
   "18_1" => File.open(File.join(Rails.root, '/app/assets/images/infos/18_1.jpg'))
 }
+
+slider_images = [
+  File.open(File.join(Rails.root, '/app/assets/images/sliders/shpaklevka-sten-i-cena-rabot.jpg')),
+  File.open(File.join(Rails.root, '/app/assets/images/sliders/ukladka-laminata-cena.jpg')),
+  File.open(File.join(Rails.root, '/app/assets/images/sliders/cementno-peschanaya-styazhka-pola.jpg')),
+  File.open(File.join(Rails.root, '/app/assets/images/sliders/master-po-pokleyke-oboev.jpg')),
+  File.open(File.join(Rails.root, '/app/assets/images/sliders/pokraska-sten.jpg')),
+  File.open(File.join(Rails.root, '/app/assets/images/sliders/samovyravnivayuschayasya-styazhka-pola.jpg'))
+]
 
 Image.create([
   # Background
@@ -313,7 +324,14 @@ Image.create([
   { title: 'теплый электрический пол, расположенный в квартире',                       alt: 'пример укладки теплого электрического пола в квартире',                                                info: infos[16], info_image: info_images["17_1"] },
   { title: 'прогрев воздуха',                                                          alt: 'схема прогревания воздуха в комнате с системой теплый пол',                                            info: infos[16], info_image: info_images["17_2"] },
   { title: 'инфракрасный пленочный пол',                                               alt: 'пример работы мастера по устройству инфракрасного пленочного теплого пол',                             info: infos[16], info_image: info_images["17_3"] },
-  { title: 'гидроизоляция в ванной',                                                   alt: 'Готовая обмазочная гидроизоляция в ванной комнате',                                                    info: infos[17], info_image: info_images["18_1"] }
+  { title: 'гидроизоляция в ванной',                                                   alt: 'Готовая обмазочная гидроизоляция в ванной комнате',                                                    info: infos[17], info_image: info_images["18_1"] },
+
+  { slider_image: slider_images[5], slider: slider },
+  { slider_image: slider_images[4], slider: slider },
+  { slider_image: slider_images[3], slider: slider },
+  { slider_image: slider_images[2], slider: slider },
+  { slider_image: slider_images[1], slider: slider },
+  { slider_image: slider_images[0], slider: slider }
 ])
 
 Contact.create(

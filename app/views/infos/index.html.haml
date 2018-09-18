@@ -1,12 +1,15 @@
 %h1 Информация о ремонте квартир
-= link_to new_info_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" do
-  %i.material-icons note_add
+- if current_user && current_user.admin
+  = link_to new_info_path, class: "mdl-button mdl-js-button mdl-button--raised mdl-button--colored" do
+    %i.material-icons note_add
 %br
 - @infos.each do |info|
-  = link_to info.name, info, class: "blue", target: "_blank"
+  - if info.images.exists?
+    = link_to (image_tag info.images[0].info_image.url(:thumb), style: "margin: 0 0 10px 0;"), info, target: "_blank"
   - if current_user && current_user.admin
     = link_to edit_info_path(info), class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
       %i.material-icons edit
     = link_to info, method: :delete, data: { confirm: 'Are you sure?' }, class: "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" do
       %i.material-icons delete
+  = link_to info.name, info, class: "blue", target: "_blank"
   .row

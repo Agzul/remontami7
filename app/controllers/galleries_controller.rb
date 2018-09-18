@@ -1,5 +1,6 @@
 class GalleriesController < ApplicationController
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
+  before_action :deny_access, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /galleries
   # GET /galleries.json

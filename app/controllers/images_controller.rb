@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+  before_action :deny_access, only: [:create, :update, :destroy]
+
   def create
     @image = Image.new(image_params)
     @image.save
