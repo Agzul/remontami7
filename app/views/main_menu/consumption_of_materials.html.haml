@@ -1,2 +1,119 @@
-%h1 MainMenu#consumption_of_materials
-%p Find me in app/views/main_menu/consumption_of_materials.html.haml
+%h1
+  Расход материалов
+%article
+  %p Для Вашего удобства на этой странице мы разместили справочную информацию по строительным и расходным материалам, которые используются в ремонте и отделке квартир или офисов. Данные представлены в виде таблицы расхода строительных материалов.
+  %p
+    В таблице перечислены
+    %strong
+      %span{style: "color: #993300;"} самые популярные, качественные и надежные
+    стройматериалы, которые необходимы при ремонте и отделке помещений. За основу приняты рекомендации производителей, однако, из-за особенностей и общего состояния поверхности значения могут незначительно меняться.
+    %br
+    При указании фасовки взяты наиболее популярные показатели.
+  %p По мере появления новых широко применяемых составов и смесей мы будем обновлять и дополнять таблицу.
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th{style: "text-align: center;"} Строительный материал
+        %th{style: "text-align: center;"} Фасовка
+        %th{style: "text-align: center;"} Толщина слоя
+        %th{style: "text-align: center;"}
+          Расход на м
+          %sup 2
+    %tbody
+      %td{colspan: "4", style: "text-align: center;"}
+        %strong
+          %em Штукатурки. шпатлевки
+      - Material.all.where("material_type = ?", "Штукатурки. шпатлевки").each do |material|
+        %tr
+          %td.mdl-data-table__cell--non-numeric= raw material.name
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw material.packing
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw material.layer_thickness
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw "#{material.consumption} #{material.consumption_unit}"
+
+      %td{colspan: "4", style: "text-align: center;"}
+        %strong
+          %em Клеи
+      - Material.all.where("material_type = ?", "Клеи").each do |material|
+        %tr
+          %td.mdl-data-table__cell--non-numeric= raw material.name
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw material.packing
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw material.layer_thickness
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw "#{material.consumption} #{material.consumption_unit}"
+
+      %td{colspan: "4", style: "text-align: center;"}
+        %strong
+          %em Стяжка
+      - Material.all.where("material_type = ?", "Стяжка").each do |material|
+        %tr
+          %td.mdl-data-table__cell--non-numeric= raw material.name
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw material.packing
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw material.layer_thickness
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw "#{material.consumption} #{material.consumption_unit}"
+
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th{colspan: "4", style: "text-align: center;"} Расход краски
+      %tr
+        %th{style: "text-align: center;"} Наименование
+        %th{style: "text-align: center;"} Блеск
+        %th{style: "text-align: center;"} Второй слой
+        %th{style: "text-align: center;"} Расход на 1 л
+    %tbody
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong
+            %em
+              Краски Dulux
+              %a{:href => "http://www.dulux.ru/products/", :rel => "nofollow", :target => "_blank"} описание
+      - Material.all.where("material_type = ?", '<strong>Краски Dulux</strong>&nbsp;<a rel="nofollow" href="http://www.dulux.ru/products/" target="_blank">описание</a>').each do |material|
+        %tr
+          %td.mdl-data-table__cell--non-numeric= raw material.name
+          - if material.shine == 0
+            %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"} мат
+          - else
+            %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw material.shine
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw "через #{material.second_layer_time} ч"
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw "#{material.consumption} #{material.consumption_unit}"
+
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong
+            %em Краски Sikkens
+      - Material.all.where("material_type = ?", 'Краски Sikkens').each do |material|
+        %tr
+          %td.mdl-data-table__cell--non-numeric= raw material.name
+          - if material.shine == 0
+            %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"} мат
+          - else
+            %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw material.shine
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw "через #{material.second_layer_time} ч"
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw "#{material.consumption} #{material.consumption_unit}"
+
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong
+            %em Краски Beckers
+      - Material.all.where("material_type = ?", 'Краски Beckers').each do |material|
+        %tr
+          %td.mdl-data-table__cell--non-numeric= raw material.name
+          - if material.shine == 0
+            %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"} мат
+          - else
+            %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw material.shine
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw "через #{material.second_layer_time} ч"
+          %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw "#{material.consumption} #{material.consumption_unit}"
+  %p{style: "margin-top: 10px;"}
+    %i.material-icons warning
+    %span{:style => "color: #ff0000;"}
+      %strong Совет:
+
+    %a{:href => "/pokraska-potolka-vodoemulsionnoy-kraskoy-cena", target: "_blank", title: "Покраска потолка водоэмульсионной краской"} для покраски потолка
+    лучше всего использовать краски
+    %em Sikkens Alfhacryl Plafond или
+    %em Beckerplast 7. Краска марки Backerplast 7 позволит получить однородное и равномерное покрытие потолка, внешне похожее на натяжной потолок!
+  %p
+    Маркировка Trade у краски марки
+    %em Dulux говорит о том, что данная серия принадлежит к категории профессиональных и обладает более лучшими качествами в сравнении с Retail.

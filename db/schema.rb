@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180917110538) do
+ActiveRecord::Schema.define(version: 20180930145822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,19 @@ ActiveRecord::Schema.define(version: 20180917110538) do
     t.string "keywords"
     t.string "name"
     t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "materials", force: :cascade do |t|
+    t.string "material_type"
+    t.string "name"
+    t.string "packing"
+    t.string "layer_thickness"
+    t.float "consumption"
+    t.string "consumption_unit"
+    t.integer "shine"
+    t.integer "second_layer_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
