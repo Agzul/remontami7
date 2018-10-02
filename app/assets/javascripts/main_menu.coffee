@@ -178,9 +178,7 @@
 @table_calculator = ->
   # Добавление поля счетчика
   $('.mdl-data-table').find("tr:last").after('
-    <td></td>
-    <td></td>
-    <td>Стоимость за 1 ед.: <div class="sum">0</div> руб</td>
+    <td colspan="5">Стоимость за 1 ед.: <div class="sum" style="display: inline;">0</div> руб</td>
   ')
 
   # Подсчет
@@ -188,18 +186,31 @@
   form.each ->
     sum = 0
     this.addEventListener 'change', (e) ->
-      # Выбранная стоимость работы
-      n = e.target.parentNode.parentNode.parentNode.childNodes[6].innerHTML
-      # Исключение
-      if isNaN(n*1)
-        n = 0
-      # Подсчет
-      if e.target.checked == true
-        sum +=n*1
+      # Проверка на первый чекбокс, который выделяет все
+      if $(e.target)[0] == $(e.target).parents("table").find(".mdl-checkbox__input")[0]
+        if e.target.checked == true
+          i = 1
+          $(e.target).parents("table").find("td").each ->
+            if i%5 == 4
+              unless isNaN($(this).text()*1)
+                sum += $(this).text()*1
+            i+=1
+        else
+          sum = 0
       else
-        sum -=n*1
+        # Выбранная стоимость работы
+        n = e.target.parentNode.parentNode.parentNode.childNodes[6].innerHTML
+        # Исключение
+        if isNaN(n*1)
+          n = 0
+        # Подсчет
+        if e.target.checked == true
+          sum += n*1
+        else
+          sum -= n*1
+
       # Запись на страницу
-      e.target.parentNode.parentNode.parentNode.parentNode.lastElementChild.children[0].innerHTML = sum
+      $(e.target).parents("table").find(".sum").html(sum)
       return
 
 all_ready = ->

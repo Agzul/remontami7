@@ -68,27 +68,31 @@
   }
 }
 
-// Таблица с подсчетом
-.sum {
-  display: inline;
-}
+// Адаптивность таблиц + подсчет в ценах
+
+th    { white-space: normal; }
+td    { white-space: normal; }
 @media screen and (max-width: 768px) {
-  thead {
-    display: none;
+  table {
+    th    { white-space: normal;    padding: 0px !important; }
+    td    { white-space: normal;    padding: 0px !important; }
   }
-  tr {
-    white-space: normal;
-    height: 150px !important;
-  }
-  td {
-    display: inline-block;
-  }
-  td:nth-of-type(1) { width: 5% !important; }
-  td:nth-of-type(2) { display: none;}
-  td:nth-of-type(3) { width: 50%; border-bottom: 0px !important; }
-  td:nth-of-type(4):after { content: "руб"; }
-  td:nth-of-type(4) { width: 60px; }
-  td:nth-of-type(5) { height: 50px; width: 30px; }
+  // thead {
+  //   display: none;
+  // }
+  // tr {
+  //   white-space: normal;
+  //   height: 150px !important;
+  // }
+  // td {
+  //   display: inline-block;
+  // }
+  // td:nth-of-type(1) { width: 5% !important; }
+  // td:nth-of-type(2) { display: none;}
+  // td:nth-of-type(3) { width: 50%; border-bottom: 0px !important; }
+  // td:nth-of-type(4):after { content: "руб"; }
+  // td:nth-of-type(4) { width: 60px; }
+  // td:nth-of-type(5) { height: 50px; width: 30px; }
 }
 
 // Верхнее меню

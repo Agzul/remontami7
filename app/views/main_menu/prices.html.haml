@@ -321,18 +321,18 @@
 %table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp.works_table
   %thead
     %tr
-      %th.mdl-data-table__cell--non-numeric №
-      %th.mdl-data-table__cell--non-numeric Наименование работ
-      %th Цена, руб
-      %th.mdl-data-table__cell--non-numeric Ед. измерения
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} №
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Наименование работ
+      %th{style: "text-align: center;"} Цена, руб
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Ед. измерения
   %tbody
     - n = 1
     - @floor_works.each do |floor_work|
       %tr
-        %td= n
+        %td{style: "text-align: center;"}= n
         %td.mdl-data-table__cell--non-numeric= raw floor_work.name
-        %td= raw floor_work.price
-        %td.mdl-data-table__cell--non-numeric= raw floor_work.unit
+        %td{style: "text-align: center;"}= raw floor_work.price
+        %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw floor_work.unit
       - n+=1
 
 %h3
@@ -340,18 +340,18 @@
 %table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp.works_table
   %thead
     %tr
-      %th.mdl-data-table__cell--non-numeric №
-      %th.mdl-data-table__cell--non-numeric Наименование работ
-      %th Цена, руб
-      %th.mdl-data-table__cell--non-numeric Ед. измерения
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} №
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Наименование работ
+      %th{style: "text-align: center;"} Цена, руб
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Ед. измерения
   %tbody
     - n = 1
     - @wall_works.each do |wall_work|
       %tr
-        %td= n
+        %td{style: "text-align: center;"}= n
         %td.mdl-data-table__cell--non-numeric= raw wall_work.name
-        %td= raw wall_work.price
-        %td.mdl-data-table__cell--non-numeric= raw wall_work.unit
+        %td{style: "text-align: center;"}= raw wall_work.price
+        %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw wall_work.unit
       - n+=1
 
 %p
@@ -365,18 +365,18 @@
 %table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp.works_table
   %thead
     %tr
-      %th.mdl-data-table__cell--non-numeric №
-      %th.mdl-data-table__cell--non-numeric Наименование работ
-      %th Цена, руб
-      %th.mdl-data-table__cell--non-numeric Ед. измерения
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} №
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Наименование работ
+      %th{style: "text-align: center;"} Цена, руб
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Ед. измерения
   %tbody
     - n = 1
     - @roof_works.each do |roof_work|
       %tr
-        %td= n
+        %td{style: "text-align: center;"}= n
         %td.mdl-data-table__cell--non-numeric= raw roof_work.name
-        %td= raw roof_work.price
-        %td.mdl-data-table__cell--non-numeric= raw roof_work.unit
+        %td{style: "text-align: center;"}= raw roof_work.price
+        %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw roof_work.unit
       - n+=1
 
 %h3
@@ -384,18 +384,18 @@
 %table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp.works_table
   %thead
     %tr
-      %th.mdl-data-table__cell--non-numeric №
-      %th.mdl-data-table__cell--non-numeric Наименование работ
-      %th Цена, руб
-      %th.mdl-data-table__cell--non-numeric Ед. измерения
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} №
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Наименование работ
+      %th{style: "text-align: center;"} Цена, руб
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Ед. измерения
   %tbody
     - n = 1
     - @tile_works.each do |tile_work|
       %tr
-        %td= n
+        %td{style: "text-align: center;"}= n
         %td.mdl-data-table__cell--non-numeric= raw tile_work.name
-        %td= raw tile_work.price
-        %td.mdl-data-table__cell--non-numeric= raw tile_work.unit
+        %td{style: "text-align: center;"}= raw tile_work.price
+        %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw tile_work.unit
       - n+=1
 
 %h3
@@ -403,18 +403,18 @@
 %table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp.works_table
   %thead
     %tr
-      %th.mdl-data-table__cell--non-numeric №
-      %th.mdl-data-table__cell--non-numeric Наименование работ
-      %th Цена, руб
-      %th.mdl-data-table__cell--non-numeric Ед. измерения
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} №
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Наименование работ
+      %th{style: "text-align: center;"} Цена, руб
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Ед. измерения
   %tbody
     - n = 1
     - @plumbing_works.each do |plumbing_work|
       %tr
-        %td= n
+        %td{style: "text-align: center;"}= n
         %td.mdl-data-table__cell--non-numeric= raw plumbing_work.name
-        %td= raw plumbing_work.price
-        %td.mdl-data-table__cell--non-numeric= raw plumbing_work.unit
+        %td{style: "text-align: center;"}= raw plumbing_work.price
+        %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw plumbing_work.unit
       - n+=1
 
 %h3
@@ -422,18 +422,18 @@
 %table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp.works_table
   %thead
     %tr
-      %th.mdl-data-table__cell--non-numeric №
-      %th.mdl-data-table__cell--non-numeric Наименование работ
-      %th Цена, руб
-      %th.mdl-data-table__cell--non-numeric Ед. измерения
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} №
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Наименование работ
+      %th{style: "text-align: center;"} Цена, руб
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Ед. измерения
   %tbody
     - n = 1
     - @electric_works.each do |electric_work|
       %tr
-        %td= n
+        %td{style: "text-align: center;"}= n
         %td.mdl-data-table__cell--non-numeric= raw electric_work.name
-        %td= raw electric_work.price
-        %td.mdl-data-table__cell--non-numeric= raw electric_work.unit
+        %td{style: "text-align: center;"}= raw electric_work.price
+        %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw electric_work.unit
       - n+=1
 
 %h3
@@ -441,18 +441,18 @@
 %table.mdl-data-table.mdl-js-data-table.mdl-data-table--selectable.mdl-shadow--2dp.works_table
   %thead
     %tr
-      %th.mdl-data-table__cell--non-numeric №
-      %th.mdl-data-table__cell--non-numeric Наименование работ
-      %th Цена, руб
-      %th.mdl-data-table__cell--non-numeric Ед. измерения
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} №
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Наименование работ
+      %th{style: "text-align: center;"} Цена, руб
+      %th.mdl-data-table__cell--non-numeric{style: "text-align: center;"} Ед. измерения
   %tbody
     - n = 1
     - @extra_works.each do |extra_work|
       %tr
-        %td= n
+        %td{style: "text-align: center;"}= n
         %td.mdl-data-table__cell--non-numeric= raw extra_work.name
-        %td= raw extra_work.price
-        %td.mdl-data-table__cell--non-numeric= raw extra_work.unit
+        %td{style: "text-align: center;"}= raw extra_work.price
+        %td.mdl-data-table__cell--non-numeric{style: "text-align: center;"}= raw extra_work.unit
       - n+=1
 
 %p
