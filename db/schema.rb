@@ -62,6 +62,10 @@ ActiveRecord::Schema.define(version: 20180930145822) do
     t.string "background_content_type"
     t.bigint "background_file_size"
     t.datetime "background_updated_at"
+    t.string "tagline_file_name"
+    t.string "tagline_content_type"
+    t.bigint "tagline_file_size"
+    t.datetime "tagline_updated_at"
     t.bigint "gallery_id"
     t.string "gallery_image_file_name"
     t.string "gallery_image_content_type"
@@ -78,6 +82,10 @@ ActiveRecord::Schema.define(version: 20180930145822) do
     t.string "slider_image_content_type"
     t.bigint "slider_image_file_size"
     t.datetime "slider_image_updated_at"
+    t.string "static_image_file_name"
+    t.string "static_image_content_type"
+    t.bigint "static_image_file_size"
+    t.datetime "static_image_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gallery_id"], name: "index_images_on_gallery_id"

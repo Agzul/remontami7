@@ -19,6 +19,13 @@ class Image < ApplicationRecord
     all:  "-quality 85 -strip"
   }
 
+  has_attached_file :tagline, styles: {
+    med:   [ "250x32!" ]
+  },
+  convert_options: {
+    all:  "-quality 85 -strip"
+  }
+
   has_attached_file :gallery_image, styles: {
     thumb:        [ "100x100", :jpeg ],
     cover:        [ "680x680", :jpeg ],
@@ -47,7 +54,15 @@ class Image < ApplicationRecord
     all:  "-quality 85 -strip"
   }
 
-  validates_attachment :background, :logo, :gallery_image, :info_image, :slider_image, content_type: {
+  has_attached_file :static_image, styles: {
+    small: [ "100x100!", ],
+    med:   [ "160x160!", ]
+  },
+  convert_options: {
+    all:  "-quality 85 -strip"
+  }
+
+  validates_attachment :background, :logo, :tagline, :gallery_image, :info_image, :slider_image, :static_image, content_type: {
     content_type: /\Aimage\/.*\z/,
     message: "имеет неверное расширение"
   }

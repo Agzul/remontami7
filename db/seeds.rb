@@ -649,11 +649,21 @@ testGallery = Gallery.create( title: 'Test gallery title', alt: 'Test gallery al
 
 image_background = File.open(File.join(Rails.root, '/app/assets/images/background/background.jpg'))
 image_logo =       File.open(File.join(Rails.root, '/app/assets/images/logo/logo.png'))
+image_tagline =    File.open(File.join(Rails.root, '/app/assets/images/tagline/slog.png'))
 
 gallery1 = File.open(File.join(Rails.root, '/app/assets/images/galleries/2018-05-12-210033_1280x1024_scrot.png'))
 gallery2 = File.open(File.join(Rails.root, '/app/assets/images/galleries/2018-05-12-205959_1280x1024_scrot.png'))
 
 slider = Slider.create
+
+static_pages_images_contacts = []
+for i in 0...4
+  if File.file? File.join(Rails.root, "/app/assets/images/static_pages/contacts/#{i}.png")
+    static_pages_images_contacts[i] = File.open(File.join(Rails.root, "/app/assets/images/static_pages/contacts/#{i}.png"))
+  elsif File.file? File.join(Rails.root, "/app/assets/images/static_pages/contacts/#{i}.jpg")
+    static_pages_images_contacts[i] = File.open(File.join(Rails.root, "/app/assets/images/static_pages/contacts/#{i}.jpg"))
+  end
+end
 
 info_images = {
   "1_1" =>  File.open(File.join(Rails.root, '/app/assets/images/infos/1_1.jpg')),
@@ -696,6 +706,8 @@ Image.create([
   { title: "background", alt: "background", background: image_background },
   # Logo
   { title: "logo", alt: "logo", logo: image_logo },
+  # Tagline
+  { title: "slog", alt: "slog", tagline: image_tagline },
   # Gallery
   { title: 'Test gallery image title 1', alt: 'Test gallery image alt 1', gallery: testGallery, gallery_image: gallery1, gallery_cover: true },
   { title: 'Test gallery image title 2', alt: 'Test gallery image alt 2', gallery: testGallery, gallery_image: gallery2 },
@@ -725,12 +737,19 @@ Image.create([
   { title: 'инфракрасный пленочный пол',                                               alt: 'пример работы мастера по устройству инфракрасного пленочного теплого пол',                             info: infos[16], info_image: info_images["17_3"] },
   { title: 'гидроизоляция в ванной',                                                   alt: 'Готовая обмазочная гидроизоляция в ванной комнате',                                                    info: infos[17], info_image: info_images["18_1"] },
 
+  # Слайдер
   { slider_image: slider_images[5], slider: slider },
   { slider_image: slider_images[4], slider: slider },
   { slider_image: slider_images[3], slider: slider },
   { slider_image: slider_images[2], slider: slider },
   { slider_image: slider_images[1], slider: slider },
-  { slider_image: slider_images[0], slider: slider }
+  { slider_image: slider_images[0], slider: slider },
+
+  # Контакты
+  { static_image: static_pages_images_contacts[0], alt: "contact" },
+  { static_image: static_pages_images_contacts[1], alt: "qr-code" },
+  { static_image: static_pages_images_contacts[2], alt: "remont-kvartir" },
+  { static_image: static_pages_images_contacts[3], alt: "remont-kottedzhey" }
 ])
 
 Contact.create(

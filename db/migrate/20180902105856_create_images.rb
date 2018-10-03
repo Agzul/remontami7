@@ -6,6 +6,7 @@ class CreateImages < ActiveRecord::Migration[5.1]
 
       t.attachment :logo
       t.attachment :background
+      t.attachment :tagline
 
       t.references :gallery, foreign_key: true
       t.attachment :gallery_image
@@ -16,6 +17,8 @@ class CreateImages < ActiveRecord::Migration[5.1]
 
       t.references :slider, foreign_key: true
       t.attachment :slider_image
+
+      t.attachment :static_image
 
       t.timestamps
     end
