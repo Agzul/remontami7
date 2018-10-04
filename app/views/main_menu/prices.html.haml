@@ -10,18 +10,18 @@
   .calculator_first_step
     %h2
       %strong 1) Укажите объем работ
-    %div
-      Ширина комнаты (м)
-      %input#width{:type => "text"}/
-    %div
-      Длина комнаты (м)
-      %input#length{:type => "text"}/
-    %div
-      Высота потолка (м)
-      %input#height{:type => "text"}/
-    %div
-      Расстояние от МКАД (Км)
-      %input#distance{:type => "text"}/
+    .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+      %label.mdl-textfield__label Ширина комнаты (м)
+      %input#width.mdl-textfield__input
+    .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+      %label.mdl-textfield__label Длина комнаты (м)
+      %input#length.mdl-textfield__input
+    .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+      %label.mdl-textfield__label Высота потолка (м)
+      %input#height.mdl-textfield__input
+    .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+      %label.mdl-textfield__label Расстояние от МКАД (Км)
+      %input#distance.mdl-textfield__input
     #over_distance
     #unpossible_entity
   .calculator_second_step

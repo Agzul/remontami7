@@ -193,8 +193,11 @@ a.mdl-navigation__link {
     padding-left: 25px;
   }
 
+  .calculator_second_step {
+    text-align: center;
+  }
   .calculator_section {
-    width: 31%;
+    width: calc(33% - 10px);
     display: inline-block;
     border: 5px double black;
     border-radius: 10px;

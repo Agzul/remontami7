@@ -23,7 +23,16 @@
     # Change link to original image
     $(this).closest(".mdl-grid").find(".cover_link").attr("href", galleryThumbImageOriginal)
 
+@open_and_close_gallery = ->
+  $(".title").click ->
+    if $(this).attr('data-open') == "false"
+      $(this).attr('data-open', "true")
+      $(this).parents(".gallery").find(".images").css("display", "")
+    else
+      $(this).attr('data-open', "false")
+      $(this).parents(".gallery").find(".images").css("display", "none")
 all_ready = ->
   if @current_controller == "galleries" && @current_action == "index"
     window.set_cover()
+    window.open_and_close_gallery()
 $(document).on 'turbolinks:load', all_ready
