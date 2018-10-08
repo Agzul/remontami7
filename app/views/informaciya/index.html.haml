@@ -1,0 +1,9 @@
+%h1 Информация о ремонте квартир
+%article{style: "display: flex; flex-direction: column; display: -webkit-inline-flex; -webkit-flex-direction: column;"}
+  - for i in 0...@links.size
+    %a.mdl-button.mdl-js-button.mdl-button--raised{style: "height: 80px; margin-bottom: 10px; text-transform: none; padding: 0;", href: @links[i]}
+      %table
+        %tr
+          %td= image_tag @preview_image[i] if @preview_image[i] != nil
+          %td{style: "line-height: 15px;"}= @link_names[i]
+    .row

@@ -1,6 +1,6 @@
 %h1 Контакты частного мастера по ремонту квартир
 %article
-  = image_tag(Image.where("title = ?", "logo")[0].logo.url(:logo))
+  = image_tag(Image.find_by_title("logo").logo.url(:logo))
   %span{:style => "font-size: 14pt; color: #800000;"}
     %em
       %strong Мы всегда рады новым клиентам!
@@ -12,7 +12,7 @@
       %tr
         - unless browser.device.mobile?
           %td{rowspan: 3}
-            - img = Image.where("alt = ?", "contact")[0]
+            - img = Image.find_by_alt("contact")
             = image_tag img.static_image.url(:med), alt: "#{img.alt}"
         %td
           %span
@@ -21,7 +21,7 @@
               %a{:href => "tel:#{@default_phone_normal}", class: "blue"}= @default_phone
         - unless browser.device.mobile?
           %td{rowspan: 3}
-            - img = Image.where("alt = ?", "qr-code")[0]
+            - img = Image.find_by_alt("qr-code")
             = image_tag img.static_image.url(:med), alt: "#{img.alt}"
       %tr
       %tr
@@ -36,13 +36,13 @@
       %strong Где работают наши мастера
 
   %p{style: "display: flex; align-items: center;"}
-    - img = Image.where("alt = ?", "remont-kvartir")[0]
+    - img = Image.find_by_alt("remont-kvartir")
     = image_tag img.static_image.url(:small), alt: "#{img.alt}"
     %strong Ремонт квартир, офисов, служебных помещений
     в Москве (все районы) и Московской области с удаленностью от МКАД ≈ до 10-15 км (к сожалению, мы ограничены дальностью в осуществлении ремонта)
 
   %p{style: "display: flex; align-items: center;"}
-    - img = Image.where("alt = ?", "remont-kottedzhey")[0]
+    - img = Image.find_by_alt("remont-kottedzhey")
     = image_tag img.static_image.url(:small), alt: "#{img.alt}"
     %strong Ремонт в коттеджах
     до Малого бетонного кольца ( ≈ до 35 км от МКАД)
@@ -58,5 +58,5 @@
   %hr{style: "margin: 50px; 0 50px 0;"}
 
   %div{style: "text-align: center;"}
-    - img = Image.where("alt = ?", "slog")[0]
+    - img = Image.find_by_alt("slog")
     = image_tag img.tagline.url(:med), alt: "#{img.alt}"

@@ -72,11 +72,6 @@ ActiveRecord::Schema.define(version: 20180930145822) do
     t.bigint "gallery_image_file_size"
     t.datetime "gallery_image_updated_at"
     t.boolean "gallery_cover", default: false
-    t.bigint "info_id"
-    t.string "info_image_file_name"
-    t.string "info_image_content_type"
-    t.bigint "info_image_file_size"
-    t.datetime "info_image_updated_at"
     t.bigint "slider_id"
     t.string "slider_image_file_name"
     t.string "slider_image_content_type"
@@ -86,22 +81,14 @@ ActiveRecord::Schema.define(version: 20180930145822) do
     t.string "static_image_content_type"
     t.bigint "static_image_file_size"
     t.datetime "static_image_updated_at"
+    t.string "info_image_file_name"
+    t.string "info_image_content_type"
+    t.bigint "info_image_file_size"
+    t.datetime "info_image_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gallery_id"], name: "index_images_on_gallery_id"
-    t.index ["info_id"], name: "index_images_on_info_id"
     t.index ["slider_id"], name: "index_images_on_slider_id"
-  end
-
-  create_table "infos", force: :cascade do |t|
-    t.string "link"
-    t.string "title"
-    t.string "description"
-    t.string "keywords"
-    t.string "name"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "materials", force: :cascade do |t|
@@ -142,6 +129,5 @@ ActiveRecord::Schema.define(version: 20180930145822) do
   end
 
   add_foreign_key "images", "galleries"
-  add_foreign_key "images", "infos"
   add_foreign_key "images", "sliders"
 end

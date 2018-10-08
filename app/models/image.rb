@@ -1,5 +1,4 @@
 class Image < ApplicationRecord
-  belongs_to :info,    optional: true
   belongs_to :gallery, optional: true
   belongs_to :slider,  optional: true
 
@@ -42,8 +41,8 @@ class Image < ApplicationRecord
 
   has_attached_file :info_image, styles: {
    thumb: [ "100x75!", :jpeg ],
-   small: [ "180x?", :jpeg ],
-   med:   [ "360x?", :jpeg ]
+   small: [ "180x?",   :jpeg ],
+   med:   [ "360x?",   :jpeg ]
   },
   convert_options: {
     all:  "-quality 85 -strip"

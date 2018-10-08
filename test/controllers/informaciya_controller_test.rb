@@ -6,93 +6,93 @@ class InformaciyaControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get chernovojRemontStandart" do
-    get informaciya_chernovojRemontStandart_url
+  test "should get chernovoj_remont_standart" do
+    get informaciya_chernovoj_remont_standart_url
     assert_response :success
   end
 
-  test "should get chernovojRemontKomfort" do
-    get informaciya_chernovojRemontKomfort_url
+  test "should get chernovoj_remont_komfort" do
+    get informaciya_chernovoj_remont_komfort_url
     assert_response :success
   end
 
-  test "should get remontKvartiryStandart" do
-    get informaciya_remontKvartiryStandart_url
+  test "should get remont_kvartiry_standart" do
+    get informaciya_remont_kvartiry_standart_url
     assert_response :success
   end
 
-  test "should get remontKvartiryKomfort" do
-    get informaciya_remontKvartiryKomfort_url
+  test "should get remont_kvartiry_komfort" do
+    get informaciya_remont_kvartiry_komfort_url
     assert_response :success
   end
 
-  test "should get remontKvartiryKomfortPljus" do
-    get informaciya_remontKvartiryKomfortPljus_url
+  test "should get remont_kvartiry_komfort_pljus" do
+    get informaciya_remont_kvartiry_komfort_pljus_url
     assert_response :success
   end
 
-  test "should get remontKvartiryPremium" do
-    get informaciya_remontKvartiryPremium_url
+  test "should get remont_kvartiry_premium" do
+    get informaciya_remont_kvartiry_premium_url
     assert_response :success
   end
 
-  test "should get remontKvartiryJekonom" do
-    get informaciya_remontKvartiryJekonom_url
+  test "should get remont_kvartiry_jekonom" do
+    get informaciya_remont_kvartiry_jekonom_url
     assert_response :success
   end
 
-  test "should get kosmeticheskijRemontKomnatyCeny" do
-    get informaciya_kosmeticheskijRemontKomnatyCeny_url
+  test "should get kosmeticheskij_remont_komnaty_ceny" do
+    get informaciya_kosmeticheskij_remont_komnaty_ceny_url
     assert_response :success
   end
 
-  test "should get cenaRemontaKoridora" do
-    get informaciya_cenaRemontaKoridora_url
+  test "should get cena_remonta_koridora" do
+    get informaciya_cena_remonta_koridora_url
     assert_response :success
   end
 
-  test "should get kosmeticheskijRemontKuhniCena" do
-    get informaciya_kosmeticheskijRemontKuhniCena_url
+  test "should get kosmeticheskij_remont_kuhni_cena" do
+    get informaciya_kosmeticheskij_remont_kuhni_cena_url
     assert_response :success
   end
 
-  test "should get obshivkaBalkonaPlastikovymiPanelyamiIVagonkoy" do
-    get informaciya_obshivkaBalkonaPlastikovymiPanelyamiIVagonkoy_url
+  test "should get obshivka_balkona_plastikovymi_panelyami_i_vagonkoy" do
+    get informaciya_obshivka_balkona_plastikovymi_panelyami_i_vagonkoy_url
     assert_response :success
   end
 
-  test "should get remontVannojKomnatyCeny" do
-    get informaciya_remontVannojKomnatyCeny_url
+  test "should get remont_vannoj_komnaty_ceny" do
+    get informaciya_remont_vannoj_komnaty_ceny_url
     assert_response :success
   end
 
-  test "should get raschetPeskobetonaDljaStjazhki" do
-    get informaciya_raschetPeskobetonaDljaStjazhki_url
+  test "should get raschet_peskobetona_dlja_stjazhki" do
+    get informaciya_raschet_peskobetona_dlja_stjazhki_url
     assert_response :success
   end
 
-  test "should get raschetKeramzitaNaStyazhku" do
-    get informaciya_raschetKeramzitaNaStyazhku_url
+  test "should get raschet_keramzita_na_styazhku" do
+    get informaciya_raschet_keramzita_na_styazhku_url
     assert_response :success
   end
 
-  test "should get raschetPloschadiStenPodPokleyku" do
-    get informaciya_raschetPloschadiStenPodPokleyku_url
+  test "should get raschet_ploschadi_sten_pod_pokleyku" do
+    get informaciya_raschet_ploschadi_sten_pod_pokleyku_url
     assert_response :success
   end
 
-  test "should get polipropilenovyeTruby" do
-    get informaciya_polipropilenovyeTruby_url
+  test "should get polipropilenovye_truby" do
+    get informaciya_polipropilenovye_truby_url
     assert_response :success
   end
 
-  test "should get elektricheskijTeplyjPolVKvartire" do
-    get informaciya_elektricheskijTeplyjPolVKvartire_url
+  test "should get elektricheskij_teplyj_pol_v_kvartire" do
+    get informaciya_elektricheskij_teplyj_pol_v_kvartire_url
     assert_response :success
   end
 
-  test "should get gidroizoljacijaPolaVKvartire" do
-    get informaciya_gidroizoljacijaPolaVKvartire_url
+  test "should get gidroizoljacija_pola_v_kvartire" do
+    get informaciya_gidroizoljacija_pola_v_kvartire_url
     assert_response :success
   end
 
