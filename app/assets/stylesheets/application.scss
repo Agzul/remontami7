@@ -60,9 +60,9 @@
 }
 
 // Контент
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 768px) {
   .content {
-    max-width: 1280px;
+    max-width: 768px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -197,7 +197,7 @@ a.mdl-navigation__link {
     text-align: center;
   }
   .calculator_section {
-    width: calc(33% - 10px);
+    width: calc(33% - 11px);
     display: inline-block;
     border: 5px double black;
     border-radius: 10px;

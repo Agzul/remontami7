@@ -70,6 +70,65 @@ class InformaciyaController < ApplicationController
     @title =       "Черновой ремонт в новостройке категории Стандарт и стоимость - бригада частных мастеров"
     @description = "Бригада частных мастеров сделает черновой ремонт квартиры в новостройке по выгодной цене. Стоимость чернового ремонта категории Стандарт в новостройке составляет от 2 598 руб/м2"
     @keywords =    "стоимость чернового ремонта в новостройке"
+    # Пол
+    @floor_names = [
+      "Стяжка пола по маякам (до 5 см)",
+      "Установка маяков по лазерному уровню",
+      'Грунтовка составом "Бетоконтакт"'
+    ]
+    href = url_for controller: :vidy_rabot, action: :stjazhka_pola_cena, only_path: true
+    @floor_prices = [
+      Work.find_by_name("<a href='#{href}' target='_blank'>Стяжка пола по маякам</a> до 5 см + монтаж маяков по лазерному уровню").price.to_f,
+      Work.find_by_name('Установка маяков по уровню').price.to_f,
+      Work.find_by_name('Грунтовка бетоноконтактом').price.to_f
+    ]
+    @sum_floor_price = 0
+    for i in 0...@floor_prices.size
+      @sum_floor_price +=@floor_prices[i]
+    end
+    @sum_floor_price *= 50
+    # Стены
+    @wall_names = [
+      "Грунтовка стен под штукатурку",
+      "Установка маяков по лазерному уровню",
+      "Штукатурка стен по маякам (толщина слоя до 3 см)",
+      "Шлифовка после оштукатуривания",
+      "Грунтовка дверных откосов",
+      "Штукатурка откосов (дверные) по уголкам",
+      "Шлифовка откосов"
+    ]
+    @wall_prices = [
+      Work.find_by_name('Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)').price.to_f,
+      Work.find_by_name('Установка маяков по уровню').price.to_f,
+      Work.find_by_name('Штукатурка стен по маякам (толщина слоя до 3 см)').price.to_f,
+      Work.find_by_name('Шлифовка стен').price.to_f,
+      Work.find_by_name('Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)').price.to_f,
+      Work.find_by_name('Штукатурка + грунтовка дверных и оконных откосов с уголками').price.to_f,
+      Work.find_by_name('Шлифовка стен').price.to_f
+    ]
+    @wall_volumes = [138, 138, 138, 138, 12, 12, 12]
+    @wall_units = ["м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м/п", "м/п", "м/п"]
+    @sum_wall_price = 0
+    for i in 0...@wall_prices.size
+      @sum_wall_price +=@wall_prices[i]*@wall_volumes[i]
+    end
+    @sum_wall_price
+    # Электрика
+    @electric_names = ["Прокладка кабеля", "Штробление под прокладку кабеля"]
+    @electric_prices = [
+      Work.find_by_name("Прокладка кабеля").price.to_f,
+      Work.find_by_name("Штробление под кабель в кирпиче, штукатурке, блоках").price.to_f
+    ]
+    @electric_volumes = [300, 16]
+    @electric_units = ["м/п", "м/п"]
+    @sum_electric_price = 0
+    for i in 0...@electric_prices.size
+      @sum_electric_price +=@electric_prices[i]*@electric_volumes[i]
+    end
+    @sum_electric_price
+    # Общее
+    @sum_price = @sum_floor_price + @sum_wall_price + @sum_electric_price
+    @one_meter_price = @sum_price / 50
   end
 
   def chernovoj_remont_komfort

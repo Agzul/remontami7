@@ -1,0 +1,2 @@
+module VidyRabotHelper
+end

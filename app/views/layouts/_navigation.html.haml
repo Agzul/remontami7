@@ -8,37 +8,38 @@
   - if browser.device.mobile? || browser.device.tablet?
     %span.mdl-layout-title.mdl-layout--small-screen-only Главное меню
     %nav.mdl-navigation.mdl-layout--small-screen-only
-      = link_to "Главная",           root_path,                                                   class: "mdl-navigation__link"
-      = link_to "Цены",              {controller: :main_menu, action: :prices},                   class: "mdl-navigation__link"
-      = link_to "Наши работы",       galleries_path,                                              class: "mdl-navigation__link"
-      = link_to "Информация",        {controller: :informaciya, action: :index},                  class: "mdl-navigation__link"
-      = link_to "Расход материалов", {controller: :main_menu, action: :consumption_of_materials}, class: "mdl-navigation__link"
-      = link_to "Контакты",          {controller: :main_menu, action: :contacts},                 class: "mdl-navigation__link"
-      = link_to "Статьи",            articles_path,                                               class: "mdl-navigation__link"
+      = link_to "Главная",           root_path,                                                     class: "mdl-navigation__link"
+      = link_to "Цены",              { controller: :main_menu, action: :prices },                   class: "mdl-navigation__link"
+      = link_to "Наши работы",       galleries_path,                                                class: "mdl-navigation__link"
+      = link_to "Информация",        { controller: :informaciya, action: :index },                  class: "mdl-navigation__link"
+      = link_to "Расход материалов", { controller: :main_menu, action: :consumption_of_materials }, class: "mdl-navigation__link"
+      = link_to "Контакты",          { controller: :main_menu, action: :contacts },                 class: "mdl-navigation__link"
+      = link_to "Статьи",            articles_path,                                                 class: "mdl-navigation__link"
 
 
   %span.mdl-layout-title Виды ремонта
   %nav.mdl-navigation
-    %a.mdl-navigation__link{:href => ""} Евроремонт
-    %a.mdl-navigation__link{:href => ""} Капитальный
-    %a.mdl-navigation__link{:href => ""} Косметический
-    %a.mdl-navigation__link{:href => ""} Под ключ
-    %a.mdl-navigation__link{:href => ""} Комплексный
-    %a.mdl-navigation__link{:href => ""} В новостройке
-    %a.mdl-navigation__link{:href => ""} Черновой
-    %a.mdl-navigation__link{:href => ""} Частичный
+    = link_to "Евроремонт",    { controller: :vidy_remonta, action: :evroremont_kvartir },             class: "mdl-navigation__link"
+    = link_to "Капитальный",   { controller: :vidy_remonta, action: :kapitalnyj_remont_kvartir },      class: "mdl-navigation__link"
+    = link_to "Косметический", { controller: :vidy_remonta, action: :kosmeticheskiy_remont_kvartiry }, class: "mdl-navigation__link"
+    = link_to "Под ключ",      { controller: :vidy_remonta, action: :remont_kvartir_pod_klyuch },      class: "mdl-navigation__link"
+    = link_to "Комплексный",   { controller: :vidy_remonta, action: :kompleksnyj_remont_kvartir },     class: "mdl-navigation__link"
+    = link_to "В новостройке", { controller: :vidy_remonta, action: :remont_v_novostrojke },           class: "mdl-navigation__link"
+    = link_to "Черновой",      { controller: :vidy_remonta, action: :chernovoj_remont_v_novostrojke }, class: "mdl-navigation__link"
+    = link_to "Частичный",     { controller: :vidy_remonta, action: :chastichnyj_remont_kvartir },     class: "mdl-navigation__link"
     .dropdown
       %a.mdl-navigation__link{ "data-toggle": "dropdown" }
         Отдельными комнатами
         %i.arrow{ "data-arrow": "bottom" }
       .dropdown-content{ "data-dropdown_content": "hidden" }
-        %a{:href => "#"} Кухня
-        %a{:href => "#"} Прихожая
-        %a{:href => "#"} Ванная
-        %a{:href => "#"} Гостиная
-        %a{:href => "#"} Спальня
-        %a{:href => "#"} Детская
-        %a{:href => "#"} Туалет санузел
+        = link_to "Отдельными комнатами", { controller: :vidy_remonta, action: :kosmeticheskij_remont_komnaty }
+        = link_to "Кухня",                { controller: :vidy_remonta, action: :remont_kuhni }
+        = link_to "Прихожая",             { controller: :vidy_remonta, action: :remont_koridora_pod_kljuch }
+        = link_to "Ванная",               { controller: :vidy_remonta, action: :remont_vannoj_komnaty_v_moskve }
+        = link_to "Гостиная",             { controller: :vidy_remonta, action: :remont_gostinoj }
+        = link_to "Спальня",              { controller: :vidy_remonta, action: :remont_spalni }
+        = link_to "Детская",              { controller: :vidy_remonta, action: :remont_detskoy_komnaty }
+        = link_to "Туалет санузел",       { controller: :vidy_remonta, action: :remont_tualeta_v_kvartire }
 
 
   %span.mdl-layout-title Виды работ
@@ -48,43 +49,48 @@
         Подготовка стен
         %i.arrow{ "data-arrow": "bottom" }
       .dropdown-content{ "data-dropdown_content": "hidden" }
-        %a{:href => "#"} Шпаклевка под обои
-        %a{:href => "#"} Шпаклевка под покраску
-    %a.mdl-navigation__link{:href => ""} Штукатурка
+        = link_to "Подготовка стен",        { controller: :vidy_rabot, action: :shpaklevka_sten_cena }
+        = link_to "Шпаклевка под обои",     { controller: :vidy_rabot, action: :shpaklevka_sten_pod_oboi_ceny }
+        = link_to "Шпаклевка под покраску", { controller: :vidy_rabot, action: :shpaklevka_sten_pod_pokrasku_cena }
+    = link_to "Штукатурка", { controller: :vidy_rabot, action: :shtukaturka_sten_cena }, class: "mdl-navigation__link"
     .dropdown
       %a.mdl-navigation__link{ "data-toggle": "dropdown" }
         Поклейка обоев
         %i.arrow{ "data-arrow": "bottom" }
       .dropdown-content{ "data-dropdown_content": "hidden" }
-        %a{:href => "#"} Виниловые обои
-        %a{:href => "#"} Флизелиновые обои
-        %a{:href => "#"} Текстильные обои
-        %a{:href => "#"} Под покраску
-        %a{:href => "#"} Стеклообои
+        = link_to "Поклейка обоев",    { controller: :vidy_rabot, action: :pokleyka_oboev_cena }
+        = link_to "Виниловые обои",    { controller: :vidy_rabot, action: :poklejka_vinilovyh_oboev }
+        = link_to "Флизелиновые обои", { controller: :vidy_rabot, action: :poklejka_oboev_na_flizelinovoj_osnove }
+        = link_to "Текстильные обои",  { controller: :vidy_rabot, action: :pokleyka_tekstilnyh_oboev }
+        = link_to "Под покраску",      { controller: :vidy_rabot, action: :pokleyka_oboev_pod_pokrasku }
+        = link_to "Стеклообои",        { controller: :vidy_rabot, action: :pokleyka_steklooboev }
     .dropdown
       %a.mdl-navigation__link{ "data-toggle": "dropdown" }
         Покраска стен потолков
         %i.arrow{ "data-arrow": "bottom" }
       .dropdown-content{ "data-dropdown_content": "hidden" }
-        %a{:href => "#"} Покраска стен
-        %a{:href => "#"} Покраска потолка
+        = link_to "Покраска стен потолков", { controller: :vidy_rabot, action: :pokraska_sten_potolka_cena }
+        = link_to "Покраска стен",          { controller: :vidy_rabot, action: :pokraska_sten_cena }
+        = link_to "Покраска потолка",       { controller: :vidy_rabot, action: :pokraska_potolka_cena }
     .dropdown
       %a.mdl-navigation__link{ "data-toggle": "dropdown" }
         Стяжка пола
         %i.arrow{ "data-arrow": "bottom" }
       .dropdown-content{ "data-dropdown_content": "hidden" }
-        %a{:href => "#"} Самовыравнивающаяся стяжка
-        %a{:href => "#"} С керамзитом
-    %a.mdl-navigation__link{:href => ""} Укладка ламината
-    %a.mdl-navigation__link{:href => ""} Укладка паркетной доски
+        = link_to "Стяжка пола",                { controller: :vidy_rabot, action: :stjazhka_pola_cena }
+        = link_to "Самовыравнивающаяся стяжка", { controller: :vidy_rabot, action: :samovyravnivajushhajasja_stjazhka }
+        = link_to "С керамзитом",               { controller: :vidy_rabot, action: :stjazhka_pola_s_keramzitom }
+    = link_to "Укладка ламината",        { controller: :vidy_rabot, action: :ukladka_laminata_cena },   class: "mdl-navigation__link"
+    = link_to "Укладка паркетной доски", { controller: :vidy_rabot, action: :ukladka_parketnoy_doski }, class: "mdl-navigation__link"
     .dropdown
       %a.mdl-navigation__link{ "data-toggle": "dropdown" }
         Укладка плитки
         %i.arrow{ "data-arrow": "bottom" }
       .dropdown-content{ "data-dropdown_content": "hidden" }
-        %a{:href => "#"} Укладка плитки на стену
-        %a{:href => "#"} Укладка плитки на пол
-        %a{:href => "#"} Укладка керамогранита
-    %a.mdl-navigation__link{:href => ""} Утепление балкона лоджии
-    %a.mdl-navigation__link{:href => ""} Установка межкомнатных дверей
-    %a.mdl-navigation__link{:href => ""} Натяжные потолки
+        = link_to "Укладка плитки",          { controller: :vidy_rabot, action: :ukladka_plitki }
+        = link_to "Укладка плитки на стену", { controller: :vidy_rabot, action: :ukladka_plitki_na_stenu }
+        = link_to "Укладка плитки на пол",   { controller: :vidy_rabot, action: :ukladka_plitki_na_pol }
+        = link_to "Укладка керамогранита",   { controller: :vidy_rabot, action: :ukladka_keramogranita_cena }
+    = link_to "Утепление балкона лоджии", { controller: :vidy_rabot, action: :uteplenie_i_otdelka_balkonov_i_lodzhij }, class: "mdl-navigation__link"
+    = link_to "Установка межкомнатных дверей", { controller: :vidy_rabot, action: :ustanovka_mezhkomnatnyh_dverej },    class: "mdl-navigation__link"
+    = link_to "Натяжные потолки", { controller: :vidy_rabot, action: :natyazhnye_potolki_v_moskve },                    class: "mdl-navigation__link"
