@@ -10,6 +10,9 @@
 
 .blue { color: blue; }
 
+article a {
+  color: blue !important;
+}
 // Форма добавления изображения
 .mdl-button--file {
   input {

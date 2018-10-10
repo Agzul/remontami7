@@ -1,2 +1,150 @@
-%h1 Informaciya#chernovoj_remont_komfort
-%p Find me in app/views/informaciya/chernovoj_remont_komfort.html.haml
+%h1 Сколько стоит черновая отделка в новостройке
+%article
+  %p
+    - img = Image.find_by_alt("стоимость черновой отделки в новостройке")
+    = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
+    Для каждого заказчика, которому необходимо выполнение черновых ремонтных работ
+    в квартире,  очень важно знать, сколько стоит черновая отделка в новостройке,
+    в данном случае категории
+    %strong Комфорт
+    , которую выполнит наша бригада частных
+    мастеров Ремонтами 7.
+  %p
+    Итоговая сумма работ категории
+    %strong Комфорт
+    по черновой отделке в новой квартире
+    окончательная и может измениться лишь в том случае, когда Вы сами внесете
+    дополнения в перечень необходимых работ.
+
+  %div{style: "text-align: center; margin: 10px 0 5px 0; font-size: 12pt;"}
+    %strong
+      Стоимость чернового ремонта Комфорт в новостройке для квартиры 50 м
+      %sup 2
+      , санузел 3,5 м
+      %sup 2
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th{style: "text-align: center;"} Наименование работ
+        %th{style: "text-align: center;"} Объём работ
+        %th{style: "text-align: center;"} Цена, руб
+        %th{style: "text-align: center;"} Сумма, руб
+    %tbody
+      -# Стяжка пола
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Стяжка пола
+      - for i in 0...@floor_names.size
+        %tr
+          %td{style: "text-align: center;"}= @floor_names[i]
+          %td{style: "text-align: center;"}= "#{@floor_volumes[i]} #{@floor_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @floor_prices[i].round
+          %td{style: "text-align: center;"}= @floor_prices[i].round * @floor_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_floor_price.round
+      -# Сантехника
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Сантехника
+      - for i in 0...@plumbing_names.size
+        %tr
+          %td{style: "text-align: center;"}= @plumbing_names[i]
+          %td{style: "text-align: center;"}= "#{@plumbing_volumes[i]} #{@plumbing_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @plumbing_prices[i].round
+          %td{style: "text-align: center;"}= @plumbing_prices[i].round * @plumbing_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_plumbing_price.round
+      -# Электрика
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Электрика
+      - for i in 0...@electric_names.size
+        %tr
+          %td{style: "text-align: center;"}= @electric_names[i]
+          %td{style: "text-align: center;"}= "#{@electric_volumes[i]} #{@electric_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @electric_prices[i].round
+          %td{style: "text-align: center;"}= @electric_prices[i].round * @electric_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_electric_price.round
+    -# Стены
+    %tr
+      %td{colspan: "4", style: "text-align: center;"}
+        %strong Работы по стенам
+    - for i in 0...@wall_names.size
+      %tr
+        %td{style: "text-align: center;"}= @wall_names[i]
+        %td{style: "text-align: center;"}= "#{@wall_volumes[i]} #{@wall_units[i]}".html_safe
+        %td{style: "text-align: center;"}= @wall_prices[i].round
+        %td{style: "text-align: center;"}= @wall_prices[i].round * @wall_volumes[i].round
+    %tr
+      %td{colspan: "4", style: "text-align: right;"}
+        %strong
+          ИТОГО:
+          = @sum_wall_price.round
+    %tr
+      %td{colspan: "4", style: "text-align: right;"}
+        %strong
+          Всего работ на сумму:
+          = @sum_price.round
+    -# Общее
+    %tr
+      %td{colspan: "4", style: "text-align: right;"}
+        %strong
+          %div{style: "color: red; display: inline;"} Цена за 1 м
+          %sup{style: "color: red;"} 2
+          по квартире (
+          = @sum_price.round
+          руб/50 м
+          %sup 2
+          ) равна
+          %div{style: "color: red; display: inline;"}= @one_meter_price.round
+          руб/м
+          %sup 2
+
+  %p
+    %em{style: "color: #800000;"}
+      Внимание! Скидки на определенные виды работ определяются после осмотра места
+      работ мастером.
+      %strong Выезд мастера бесплатно!
+      Стоимость работ будет неизменна до
+      окончания работ.
+  %p
+    Посмотрите для сравнения
+    = link_to "черновой ремонт Стандарт", { controller: :informaciya, action: :chernovoj_remont_standart }
+  %p
+    %sup{style: "color: red;"} *
+    Цена чернового ремонта квартиры не всегда рассчитывается исходя из стоимости
+    1 кв.метра и зависит от множества факторов. Точная оценка стоимости ремонта
+    производится при составлении сметы (с подробным описанием всех работ, в т.ч.
+    скрытых) и спецификации материалов. На весь период ремонта цены на работы,
+    указанные в смете, фиксируются и пересмотру не подлежат. Ориентировочную
+    итоговую стоимость интресующих работ может назвать мастер.
+  %p
+    - img = Image.find_by_alt("stoimost-chernovoy-otdelki")
+    = image_tag img.info_image.url(:med), alt: img.alt, align: "right"
+    Возможно, в Вашей квартире необходимо выполнить не все работы, которые есть
+    в перечне. Но в любой квартире есть такие работы, которые выполнить необходимо
+    и обязательно в первую очередь. Наш специалист обладает огромным опытом и
+    подскажет, какие работы при выполнении черновой отделке квартиры сделать
+    необходимо, а какие можно сделать позже или не делать совсем.
+  %p
+    Итоговая стоимость работ по черновой отделке квартиры в новостройке и
+    качество выполненных работ будет зависеть не только от профессионализма
+    мастеров, но и от качества приобретенных строительных материалов. Наша
+    бригада имеет выгодные контакты с поставщиками качественных стройматериалов.
+    Мы поможем Вам приобрести самые лучшие и по выгодным ценам!
+  %hr
+  %em
+    Помните, что черновая отделка квартиры - крайне важный этап, именно он
+    фундамент и залог качественной отделки!
+  %hr

@@ -112,7 +112,6 @@ class InformaciyaController < ApplicationController
     for i in 0...@wall_prices.size
       @sum_wall_price +=@wall_prices[i]*@wall_volumes[i]
     end
-    @sum_wall_price
     # Электрика
     @electric_names = ["Прокладка кабеля", "Штробление под прокладку кабеля"]
     @electric_prices = [
@@ -125,7 +124,6 @@ class InformaciyaController < ApplicationController
     for i in 0...@electric_prices.size
       @sum_electric_price +=@electric_prices[i]*@electric_volumes[i]
     end
-    @sum_electric_price
     # Общее
     @sum_price = @sum_floor_price + @sum_wall_price + @sum_electric_price
     @one_meter_price = @sum_price / 50
@@ -135,6 +133,83 @@ class InformaciyaController < ApplicationController
     @title =       "Узнайте, сколько стоит черновая отделка в новостройке Комфорт от бригады частных мастеров Ремонтами 7"
     @description = "Выполним черновую отделку квартиры в новостройке категории Комфорт по оптимальной цене. Бригада частных мастеров выполнит работы по цене от 3 801 руб/м2"
     @keywords =    "сколько стоит черновая отделка в новостройке, черновой ремонт Комфорт"
+
+    # Стяжка пола
+    @floor_names = [
+      "Стяжка пола по маякам с керамзитом утепленная, свыше 7 см + монтаж маяков по лазерному уровню",
+      "Гидроизоляция пола в санузле (Водостоп)"
+    ]
+    link = url_for controller: :vidy_rabot, action: :stjazhka_pola_s_keramzitom, only_path: true
+    @floor_prices = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Стяжка пола по маякам (утепленная с керамзитом)</a>&nbsp;более 7 см + монтаж маяков по лазерному уровню").price.to_f,
+      Work.find_by_name('Гидроизоляция обмазочная (Водостоп, Гипердесмо)').price.to_f
+    ]
+    @floor_volumes = [ 50, 3.5 ]
+    @floor_units = [ "м<sup>2</sup>", "м<sup>2</sup>" ]
+    @sum_floor_price = 0
+    for i in 0...@floor_volumes.size
+      @sum_floor_price +=@floor_prices[i]*@floor_volumes[i]
+    end
+    # Сантехника
+    @plumbing_names = [
+      "Разводка сантехники (разодка горячей и холодной воды, канализации к сантехническим приборам, ванная, 2 раковины, унитаз, полотенцесушитель)",
+      "Штробление под трубы"
+    ]
+    @plumbing_prices = [
+      Work.find_by_name('Разводка труб (полипропилен)').price.to_f,
+      Work.find_by_name('Штробление под прокладку труб').price.to_f
+    ]
+    @plumbing_volumes = [ 8, 4 ]
+    @plumbing_units = [ "точек", nil ]
+    @sum_plumbing_price = 0
+    for i in 0...@plumbing_volumes.size
+      @sum_plumbing_price +=@plumbing_prices[i]*@plumbing_volumes[i]
+    end
+    # Электрика
+    @electric_names = [
+      "Прокладка кабелей",
+      "Штробление под прокладку кабелей",
+      "Устройство эл.щитка с автоматами 18"
+    ]
+    @electric_prices = [
+      Work.find_by_name('Прокладка кабеля').price.to_f,
+      Work.find_by_name('Штробление под кабель в кирпиче, штукатурке, блоках').price.to_f,
+      Work.find_by_name('Устройство эл. щитка с автоматами 18').price.to_f
+    ]
+    @electric_volumes = [ 310, 16, 1 ]
+    @electric_units = [ "м/п", "м/п", "шт" ]
+    @sum_electric_price = 0
+    for i in 0...@electric_volumes.size
+      @sum_electric_price +=@electric_prices[i]*@electric_volumes[i]
+    end
+    # Стены
+    @wall_names = [
+      "Монтаж перегородок (пеноблоки)",
+      "Армирование перегородок",
+      "Грунтовка стен (2 цикла)",
+      "Установка маяков по лазерному уровню",
+      "Штукатурка стен по маякам (толщина слоя до 3 см)",
+      "Шлифовка стен",
+      "Штукатурка и грунтовка дверных, оконных откосов с уголком"
+    ]
+    @wall_prices = [
+      Work.find_by_name('Монтаж перегородки, пеноблоки (до 10 м2)').price.to_f,
+      Work.find_by_name('Армирование стяжки пола сеткой').price.to_f,
+      Work.find_by_name('Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)').price.to_f,
+      Work.find_by_name('Установка маяков по уровню').price.to_f,
+      Work.find_by_name('Штукатурка стен по маякам (толщина слоя до 3 см)').price.to_f,
+      Work.find_by_name('Шлифовка стен').price.to_f,
+      Work.find_by_name('Штукатурка + грунтовка дверных и оконных откосов с уголками').price.to_f
+    ]
+    @wall_volumes = [ 12, 12, 276, 138, 138, 138, 15 ]
+    @wall_units = [ "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м/п" ]
+    @sum_wall_price = 0
+    for i in 0...@wall_volumes.size
+      @sum_wall_price +=@wall_prices[i]*@wall_volumes[i]
+    end
+    # Общее
+    @sum_price = @sum_floor_price + @sum_plumbing_price + @sum_electric_price + @sum_wall_price
+    @one_meter_price = @sum_price / 50
   end
 
   def remont_kvartiry_standart
