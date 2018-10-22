@@ -76,9 +76,9 @@ class InformaciyaController < ApplicationController
       "Установка маяков по лазерному уровню",
       'Грунтовка составом "Бетоконтакт"'
     ]
-    href = url_for controller: :vidy_rabot, action: :stjazhka_pola_cena, only_path: true
+    link = url_for controller: :vidy_rabot, action: :stjazhka_pola_cena, only_path: true
     @floor_prices = [
-      Work.find_by_name("<a href='#{href}' target='_blank'>Стяжка пола по маякам</a> до 5 см + монтаж маяков по лазерному уровню").price.to_f,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Стяжка пола по маякам</a> до 5 см + монтаж маяков по лазерному уровню").price.to_f,
       Work.find_by_name('Установка маяков по уровню').price.to_f,
       Work.find_by_name('Грунтовка бетоноконтактом').price.to_f
     ]
@@ -216,6 +216,143 @@ class InformaciyaController < ApplicationController
     @title =       "Капитальный ремонт квартир под ключ категории Стандарт и цены - бригада частных мастеров"
     @description = "Выполним капитальный ремонт квартиры под ключ категории Стандарт по цене от 4 841 руб/м2. Бригада частных мастеров работает качественно и профессионально!"
     @keywords =    "капитальный ремонт квартир под ключ цены"
+
+    # Стяжка пола
+    @floor_names = [
+      "Стяжка пола по маякам (до 5 см)",
+      "Установка маяков по лазерному уровню"
+    ]
+    link = url_for controller: :vidy_rabot, action: :stjazhka_pola_cena, only_path: true
+    @floor_prices = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Стяжка пола по маякам</a> до 5 см + монтаж маяков по лазерному уровню").price.to_f,
+      Work.find_by_name('Установка маяков по уровню').price.to_f
+    ]
+    @floor_volumes = [ 60, 60 ]
+    @floor_units = [ "м<sup>2</sup>", "м<sup>2</sup>" ]
+    @sum_floor_price = 0
+    for i in 0...@floor_volumes.size
+      @sum_floor_price +=@floor_prices[i]*@floor_volumes[i]
+    end
+    # Сантехника
+    @plumbing_names = [
+      "Разводка сантехники (полипропилен)",
+      "Штробление под трубы"
+    ]
+    @plumbing_prices = [
+      Work.find_by_name('Разводка труб (полипропилен)').price.to_f,
+      Work.find_by_name('Штробление под прокладку труб').price.to_f
+    ]
+    @plumbing_volumes = [ 5, 2 ]
+    @plumbing_units = [ "точек", "м/п" ]
+    @sum_plumbing_price = 0
+    for i in 0...@plumbing_volumes.size
+      @sum_plumbing_price +=@plumbing_prices[i]*@plumbing_volumes[i]
+    end
+    # Электрика
+    @electric_names = [
+      "Электромонтажные работы",
+      "Прокладка кабеля",
+      "Штробление под прокладку провода",
+      "Монтаж электрощитка на 12 автоматов"
+    ]
+    @electric_prices = [
+      Work.find_by_name('Электромонтаж (розетка, выключатель, освещение)').price.to_f,
+      Work.find_by_name('Прокладка кабеля').price.to_f,
+      Work.find_by_name('Штробление под кабель в кирпиче, штукатурке, блоках').price.to_f,
+      Work.find_by_name('Устройство эл. щитка с автоматами 12').price.to_f
+    ]
+    @electric_volumes = [ 15, 300, 15, 1 ]
+    @electric_units = [ "точек", "м/п", "м/п", "шт" ]
+    @sum_electric_price = 0
+    for i in 0...@electric_volumes.size
+      @sum_electric_price +=@electric_prices[i]*@electric_volumes[i]
+    end
+    # Стены
+    @wall_names = [
+      "Грунтовка стен",
+      "Штукатурка стен по плоскости",
+      "Грунтовка стен (второй цикл)",
+      "Шпаклевка стен под обои (2 слоя)",
+      "Шлифовка стен",
+      "Штукатурка+грунтовка дверных и оконных откосов"
+    ]
+    link = url_for controller: :vidy_rabot, action: :shpaklevka_sten_pod_oboi_ceny, only_path: true
+    @wall_prices = [
+      Work.find_by_name('Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)').price.to_f,
+      Work.find_by_name('Выравнивание штукатурной смесью по плоскости').price.to_f,
+      Work.find_by_name('Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)').price.to_f,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").price.to_f,
+      Work.find_by_name('Шлифовка стен').price.to_f,
+      Work.find_by_name('Штукатурка + грунтовка дверных и оконных откосов с уголками').price.to_f
+    ]
+    @wall_volumes = [ 160, 160, 160, 132, 132, 12 ]
+    @wall_units = [ "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м/п" ]
+    @sum_wall_price = 0
+    for i in 0...@wall_volumes.size
+      @sum_wall_price +=@wall_prices[i]*@wall_volumes[i]
+    end
+    # Потолок
+    @roof_names = [ "Монтаж реечного потолка" ]
+    @roof_prices = [ Work.find_by_name('Монтаж реечного потолка').price.to_f ]
+    @roof_volumes = [ 60 ]
+    @roof_units = [ "м<sup>2</sup>" ]
+    @sum_roof_price = 0
+    for i in 0...@roof_volumes.size
+      @sum_roof_price +=@roof_prices[i]*@roof_volumes[i]
+    end
+    # Плиточные работы
+    link = url_for controller: :vidy_rabot, action: :ukladka_plitki, only_path: true
+    @tile_names = [
+      "<a href='#{link}' target='_blank'>Укладка кафеля</a> в санузле (пол и стены)",
+      "Затирка швов"
+    ]
+    @tile_prices = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Укладка плитки</a> 20х30, 20х40, 30х40").price.to_f,
+      Work.find_by_name("Затирка швов плитки 20х30, 20х40, 30х30, 40х40 (пол, стены)").price.to_f
+    ]
+    @tile_volumes = [ 27.5, 27.5 ]
+    @tile_units = [ "м<sup>2</sup>", "м<sup>2</sup>" ]
+    @sum_tile_price = 0
+    for i in 0...@tile_volumes.size
+      @sum_tile_price +=@tile_prices[i]*@tile_volumes[i]
+    end
+    # Малярные работы
+    link = url_for controller: :vidy_rabot, action: :pokleyka_oboev_cena, only_path: true
+    @paint_names = [
+      "Грунтовка стен",
+      "Оклейка обоями (винил, флизелин)"
+    ]
+    @paint_prices = [
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").price.to_f,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price.to_f
+    ]
+    @paint_volumes = [ 132, 132 ]
+    @paint_units = [ "м<sup>2</sup>", "м<sup>2</sup>" ]
+    @sum_paint_price = 0
+    for i in 0...@paint_volumes.size
+      @sum_paint_price +=@paint_prices[i]*@paint_volumes[i]
+    end
+    # Финальные работы
+    link = url_for controller: :vidy_rabot, action: :ukladka_laminata_cena, only_path: true
+    @finish_names = [
+      "<a href='#{link}' target='_blank'>Укладка ламината</a> по прямой + подложка",
+      "Монтаж порожков",
+      "Монтаж пластикового плинтуса ПВХ"
+    ]
+    @finish_prices = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Укладка ламината</a>&nbsp;в комнате по прямой + укладка подложки").price.to_f,
+      250,
+      Work.find_by_name("Монтаж плинтуса ПВХ").price.to_f
+    ]
+    @finish_volumes = [ 56, 1, 35 ]
+    @finish_units = [ "м<sup>2</sup>", "шт", "п/п" ]
+    @sum_finish_price = 0
+    for i in 0...@finish_volumes.size
+      @sum_finish_price +=@finish_prices[i]*@finish_volumes[i]
+    end
+    # Общее
+    @sum_price = @sum_floor_price + @sum_plumbing_price + @sum_electric_price + @sum_wall_price + @sum_roof_price + @sum_tile_price + @sum_paint_price + @sum_finish_price
+    @one_meter_price = @sum_price / 60
   end
 
   def remont_kvartiry_komfort

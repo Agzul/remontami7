@@ -1,8 +1,8 @@
 %h1 Сколько стоит черновая отделка в новостройке
 %article
+  - img = Image.find_by_alt("стоимость черновой отделки в новостройке")
+  = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
   %p
-    - img = Image.find_by_alt("стоимость черновой отделки в новостройке")
-    = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
     Для каждого заказчика, которому необходимо выполнение черновых ремонтных работ
     в квартире,  очень важно знать, сколько стоит черновая отделка в новостройке,
     в данном случае категории
@@ -129,9 +129,15 @@
     скрытых) и спецификации материалов. На весь период ремонта цены на работы,
     указанные в смете, фиксируются и пересмотру не подлежат. Ориентировочную
     итоговую стоимость интресующих работ может назвать мастер.
+
+  - img = Image.find_by_alt("stoimost-chernovoy-otdelki")
+  - if browser.device.mobile?
+    = link_to (image_tag img.info_image.url(:small), alt: img.alt, align: "right", hspace: "10"), img.info_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.info_image.url(:med), alt: img.alt, align: "right", hspace: "10"), img.info_image.url(:original), target: "_blank"
+
+
   %p
-    - img = Image.find_by_alt("stoimost-chernovoy-otdelki")
-    = image_tag img.info_image.url(:med), alt: img.alt, align: "right"
     Возможно, в Вашей квартире необходимо выполнить не все работы, которые есть
     в перечне. Но в любой квартире есть такие работы, которые выполнить необходимо
     и обязательно в первую очередь. Наш специалист обладает огромным опытом и

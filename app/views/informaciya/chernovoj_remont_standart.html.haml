@@ -1,8 +1,8 @@
 %h1 Стоимость чернового ремонта в новостройке
 %article
+  - img = Image.find_by_alt("Стоимость чернового ремонта в новостройке")
+  = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
   %p
-    - img = Image.find_by_alt("Стоимость чернового ремонта в новостройке")
-    = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
     Мы понимаем, что для Вас очень важно просчитать все затраты на проведение
     чернового ремонта квартиры. Именно поэтому у нас стоимость чернового ремонта
     в новостройке категории Стандарт совершенно прозрачна и не содержит скрытых
@@ -70,6 +70,7 @@
           %strong
             ИТОГО:
             = @sum_electric_price.round
+      -# Итог
       %tr
         %td{colspan: "4", style: "text-align: right;"}
           %strong
@@ -105,9 +106,14 @@
     (с подробным описанием всех работ, в т.ч. скрытых) и спецификации материалов.
     На весь период ремонта цены на работы, указанные в смете, фиксируются и пересмотру
     не подлежат. Ориентировочную итоговую стоимость интресующих работ может назвать мастер.
-  %p
-    - img = Image.find_by_alt("stoimost-chernovogo-remonta")
+
+  - img = Image.find_by_alt("stoimost-chernovogo-remonta")
+  - if browser.device.mobile?
+    = link_to (image_tag img.info_image.url(:small), alt: img.alt, align: "left", hspace: "10"), img.info_image.url(:original), target: "_blank"
+  - else
     = link_to (image_tag img.info_image.url(:med), alt: img.alt, align: "left", hspace: "10"), img.info_image.url(:original), target: "_blank"
+
+  %p
     Наш специалист обладает огромным опытом в выполнении черновых работ в
     новостройках и подскажет, какие работы требуется выполнить в обязательном
     порядке, так как они будут основой для выполнения дальнейшей качественной

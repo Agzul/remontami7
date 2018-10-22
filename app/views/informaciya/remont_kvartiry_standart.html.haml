@@ -1,2 +1,200 @@
-%h1 Informaciya#remont_kvartiry_standart
-%p Find me in app/views/informaciya/remont_kvartiry_standart.html.haml
+%h1 Капитальный ремонт квартир под ключ цены
+%article
+  - img = Image.find_by_alt("расчет стоимости работ по капитальному ремонту квартир под ключ категории Стандарт")
+  = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
+  %p
+    Для каждого клиента очень важно знать точно, сколько стоит капитальный
+    ремонт квартиры (или коттеджа). Именно поэтому у нас цены на капитальный
+    ремонт квартир под ключ категории Стандарт абсолютно прозрачны и не содержат
+    никаких скрытых пунктов для дополнительных расходов.
+  %p
+    Стоимость капитального ремонта квартиры окончательная и может измениться
+    только в том случае, если Вы сами захотите дополнительно заказать определенные
+    строительные и отделочные работы. В таблице указана стоимость капитального
+    ремонта однокомнатной квартиры общей площадью 60 м2.
+  %p
+    %strong{style: "color: #800000;"} Капитальный ремонт Стандарт - ничего лишнего!
+
+  %div{style: "text-align: center; margin: 10px 0 5px 0; font-size: 12pt;"}
+    %strong
+      Капитальный ремонт квартир под ключ категории Стандарт и цены Квартира 60 м
+      %sup 2
+      , санузел 4 м
+      %sup 2
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th{style: "text-align: center;"} Наименование работ
+        %th{style: "text-align: center;"} Объём работ
+        %th{style: "text-align: center;"} Цена, руб
+        %th{style: "text-align: center;"} Сумма, руб
+    %tbody
+      -# Стяжка пола
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Стяжка пола
+      - for i in 0...@floor_names.size
+        %tr
+          %td{style: "text-align: center;"}= @floor_names[i]
+          %td{style: "text-align: center;"}= "#{@floor_volumes[i]} #{@floor_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @floor_prices[i].round
+          %td{style: "text-align: center;"}= @floor_prices[i].round * @floor_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_floor_price.round
+      -# Сантехника
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Сантехника
+      - for i in 0...@plumbing_names.size
+        %tr
+          %td{style: "text-align: center;"}= @plumbing_names[i]
+          %td{style: "text-align: center;"}= "#{@plumbing_volumes[i]} #{@plumbing_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @plumbing_prices[i].round
+          %td{style: "text-align: center;"}= @plumbing_prices[i].round * @plumbing_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_plumbing_price.round
+      -# Электрика
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Электрика
+      - for i in 0...@electric_names.size
+        %tr
+          %td{style: "text-align: center;"}= @electric_names[i]
+          %td{style: "text-align: center;"}= "#{@electric_volumes[i]} #{@electric_units[i]}"
+          %td{style: "text-align: center;"}= @electric_prices[i].round
+          %td{style: "text-align: center;"}= @electric_prices[i].round * @electric_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_electric_price.round
+      -# Стены
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Стены
+      - for i in 0...@wall_names.size
+        %tr
+          %td{style: "text-align: center;"}= @wall_names[i]
+          %td{style: "text-align: center;"}= "#{@wall_volumes[i]} #{@wall_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @wall_prices[i].round
+          %td{style: "text-align: center;"}= @wall_prices[i].round * @wall_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_wall_price.round
+      -# Потолок
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Потолок
+      - for i in 0...@roof_names.size
+        %tr
+          %td{style: "text-align: center;"}= @roof_names[i]
+          %td{style: "text-align: center;"}= "#{@roof_volumes[i]} #{@roof_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @roof_prices[i].round
+          %td{style: "text-align: center;"}= @roof_prices[i].round * @roof_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_roof_price.round
+      -# Плиточные работы
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Плиточные работы
+      - for i in 0...@tile_names.size
+        %tr
+          %td{style: "text-align: center;"}= @tile_names[i].html_safe
+          %td{style: "text-align: center;"}= "#{@tile_volumes[i]} #{@tile_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @tile_prices[i].round
+          %td{style: "text-align: center;"}= @tile_prices[i].round * @tile_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_tile_price.round
+      -# Малярные работы
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Малярные работы
+      - for i in 0...@paint_names.size
+        %tr
+          %td{style: "text-align: center;"}= @paint_names[i].html_safe
+          %td{style: "text-align: center;"}= "#{@paint_volumes[i]} #{@paint_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @paint_prices[i].round
+          %td{style: "text-align: center;"}= @paint_prices[i].round * @paint_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_paint_price.round
+      -# Финальные отделочные работы
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Финальные отделочные работы
+      - for i in 0...@finish_names.size
+        %tr
+          %td{style: "text-align: center;"}= @finish_names[i].html_safe
+          %td{style: "text-align: center;"}= "#{@finish_volumes[i]} #{@finish_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @finish_prices[i].round
+          %td{style: "text-align: center;"}= @finish_prices[i].round * @finish_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_finish_price.round
+      -# Итог
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            Всего работ на сумму:
+            = @sum_price.round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            %div{style: "color: red; display: inline;"} Цена за 1 м
+            %sup{style: "color: red;"} 2
+            по квартире (
+            = @sum_price.round
+            руб/60 м
+            %sup 2
+            ) равна
+            %div{style: "color: red; display: inline;"}= @one_meter_price.round
+            руб/м
+            %sup 2
+  %p{style: "color: #993300;"}
+    Внимание! Скидки на определенные виды работ определяются после осмотра мастером места работ.
+    %strong Выезд мастера бесплатно!
+    Стоимость работ будет неизменна до окончания работ.
+  %p
+    %sup{style: "color: red;"} *
+    %em
+      Цена капитального ремонта квартиры не всегда рассчитывается исходя из
+      стоимости 1 кв.метра и зависит от множества факторов. Точная оценка стоимости
+      ремонта производится при составлении сметы (с подробным описанием всех работ,
+      в т.ч. скрытых) и спецификации материалов. На весь период ремонта цены на работы,
+      указанные в смете, фиксируются и пересмотру не подлежат. Ориентировочную
+      итоговую стоимость интресующих работ может назвать мастер.
+  %p
+    Ремонт начинается с визита нашего мастера на объект работ. Высокий
+    профессионализм и большой опыт работ гарантируют, что на Вашем объекте не
+    будут выполнены лишние и ненужные работы. Специалист определит работы
+    первоочередные, необходимые, второстепенные и необязательные.
+  %p
+    Как и в случае любого ремонта, общая цена капитального ремонта квартиры под
+    ключ для заказчика зависит от стоимости строительных материалов. Наши опытные
+    мастера подскажут наиболее подходящие и качественные стройматериалы, которые
+    с нашей помощью можно приобрести со скидками. Ведь мы имеем долгосрочные и
+    выгодные контакты с партнерами-поставщиками.
+  %p
+    %strong
+      Смотрите также
+      = link_to "Цены", controller: :main_menu, action: :prices
+      на услуги.
