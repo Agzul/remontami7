@@ -1,2 +1,206 @@
-%h1 Informaciya#remont_kvartiry_komfort_pljus
-%p Find me in app/views/informaciya/remont_kvartiry_komfort_pljus.html.haml
+%h1 Ремонт квартир под ключ цена
+%article
+  - img = Image.find_by_alt("Расчет цены ремонта под ключ категории Комфорт Плюс")
+  = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
+  %p
+    Каждому клиенту хочется сделать ремонт квартир под ключ, цена на который
+    максимально точная и откровенная. Мы предлагаем рассмотреть перечень работ,
+    которые будут произведены в Вашей квартире при выполнении комплекса работ по
+    ремонту квартир под ключ категории Комфорт Плюс. Предлагаемый список не
+    содержит никаких скрытых пунктов для дополнительных затрат на ремонт.
+  %p
+    При выполнении перечисленного комплекса работ по ремонту квартир под ключ
+    категории Комфорт Плюс итоговая цена не изменится!
+  %p
+    %strong
+      %span{ style: "font-size: 11pt; color: #800000;" }
+        Ремонт квартиры под ключ Комфорт Плюс - это максимум работ без лишних затрат!
+  %h2
+    Ремонт квартир под ключ Категории Комфорт Плюс, цена
+  %p{ style: "text-align: center;" }
+    %strong
+      Квартира 60 м
+      %sup 2
+      , санузел 4 м
+      %sup 2
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th{style: "text-align: center;"} Наименование работ
+        %th{style: "text-align: center;"} Объём работ
+        %th{style: "text-align: center;"} Цена, руб
+        %th{style: "text-align: center;"} Сумма, руб
+    %tbody
+      -# Стяжка пола
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Стяжка пола
+      - for i in 0...@floor_names.size
+        %tr
+          %td{style: "text-align: center;"}= @floor_names[i]
+          %td{style: "text-align: center;"}= "#{@floor_volumes[i]} #{@floor_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @floor_prices[i].round
+          %td{style: "text-align: center;"}= @floor_prices[i].round * @floor_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_floor_price.round
+      -# Сантехника
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Сантехника
+      - for i in 0...@plumbing_names.size
+        %tr
+          %td{style: "text-align: center;"}= @plumbing_names[i]
+          %td{style: "text-align: center;"}= "#{@plumbing_volumes[i]} #{@plumbing_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @plumbing_prices[i].round
+          %td{style: "text-align: center;"}= @plumbing_prices[i].round * @plumbing_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_plumbing_price.round
+      -# Электрика
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Электрика
+      - for i in 0...@electric_names.size
+        %tr
+          %td{style: "text-align: center;"}= @electric_names[i]
+          %td{style: "text-align: center;"}= "#{@electric_volumes[i]} #{@electric_units[i]}"
+          %td{style: "text-align: center;"}= @electric_prices[i].round
+          %td{style: "text-align: center;"}= @electric_prices[i].round * @electric_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_electric_price.round
+      -# Стены
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Стены
+      - for i in 0...@wall_names.size
+        %tr
+          %td{style: "text-align: center;"}= @wall_names[i]
+          %td{style: "text-align: center;"}= "#{@wall_volumes[i]} #{@wall_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @wall_prices[i].round
+          %td{style: "text-align: center;"}= @wall_prices[i].round * @wall_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_wall_price.round
+      -# Потолок
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Потолок
+      - for i in 0...@roof_names.size
+        %tr
+          %td{style: "text-align: center;"}= @roof_names[i]
+          %td{style: "text-align: center;"}= "#{@roof_volumes[i]} #{@roof_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @roof_prices[i].round
+          %td{style: "text-align: center;"}= @roof_prices[i].round * @roof_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_roof_price.round
+      -# Плиточные работы
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Плиточные работы
+      - for i in 0...@tile_names.size
+        %tr
+          %td{style: "text-align: center;"}= @tile_names[i].html_safe
+          %td{style: "text-align: center;"}= "#{@tile_volumes[i]} #{@tile_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @tile_prices[i].round
+          %td{style: "text-align: center;"}= @tile_prices[i].round * @tile_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_tile_price.round
+      -# Малярные работы
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Малярные работы
+      - for i in 0...@paint_names.size
+        %tr
+          %td{style: "text-align: center;"}= @paint_names[i].html_safe
+          %td{style: "text-align: center;"}= "#{@paint_volumes[i]} #{@paint_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @paint_prices[i].round
+          %td{style: "text-align: center;"}= @paint_prices[i].round * @paint_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_paint_price.round
+      -# Финальные отделочные работы
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Финальные отделочные работы
+      - for i in 0...@finish_names.size
+        %tr
+          %td{style: "text-align: center;"}= @finish_names[i].html_safe
+          %td{style: "text-align: center;"}= "#{@finish_volumes[i]} #{@finish_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @finish_prices[i].round
+          %td{style: "text-align: center;"}= @finish_prices[i].round * @finish_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_finish_price.round
+      -# Итог
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            Всего работ на сумму:
+            = @sum_price.round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            %div{style: "color: red; display: inline;"} Цена за 1 м
+            %sup{style: "color: red;"} 2
+            по квартире (
+            = @sum_price.round
+            руб/60 м
+            %sup 2
+            ) равна
+            %div{style: "color: red; display: inline;"}= @one_meter_price.round
+            руб/м
+            %sup 2
+  %p{style: "color: #993300;"}
+    Внимание! Скидки на определенные виды работ определяются после осмотра мастером места работ.
+    %strong Выезд мастера бесплатно!
+    Стоимость работ будет неизменна до окончания работ.
+  %p
+    Посмотрите для сравнения
+    = link_to "ремонт Комфорт", controller: :informaciya, action: :remont_kvartiry_komfort
+  %p
+    %em
+      %span{style: "color: #ff0000;"} *
+      Цена ремонта квартиры под ключ не всегда рассчитывается исходя из стоимости
+      1 кв.метра и зависит от множества факторов. Точная оценка стоимости ремонта
+      производится при составлении сметы (с подробным описанием всех работ, в т.ч.
+      скрытых) и спецификации материалов. На весь период ремонта цены на работы,
+      указанные в смете, фиксируются и пересмотру не подлежат. Ориентировочную
+      итоговую стоимость интресующих работ может назвать мастер.
+  %p
+    Ремонт под ключ категории Комфорт Плюс начинается только после визита и осмотра
+    мастером места работ. Высокий профессионализм наших специалистов гарантирует,
+    что в процессе выполнения ремонта под ключ лишние работы выполнены не будут.
+    Мы не стремимся получить дополнительный доход в результате выполнения ненужных
+    услуг, главное - чтобы клиент был доволен качеством работ, стоимостью ремонта
+    и профессионализмом наших специалистов. Мастер внимательно осмотрит квартиру
+    и определит необходимые и необязательные работы именно для Вашей квартиры.
+  %p
+    Благодаря наличию выгодных и долгосрочных контактов с поставщиками высококлассных
+    стройматериалов, мы поможем Вам приобрести самые качественные строительные и
+    отделочные материалы по максимально приемлемой цене, что позволит снизить
+    общую цену ремонта квартиры под ключ.
+  %p
+    Смотрите подробный список
+    = link_to "Цены", controller: :main_menu, action: :prices
+    на наши услуги
