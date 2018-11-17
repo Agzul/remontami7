@@ -1,2 +1,222 @@
-%h1 Informaciya#remont_kvartiry_premium
-%p Find me in app/views/informaciya/remont_kvartiry_premium.html.haml
+%h1 Стоимость евроремонта за квадратный метр
+%article
+  - img = Image.find_by_alt("Расчет стоимости евроремонта категории Премиум в Москве за квадратный метр")
+  = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
+  %p
+    Любой евроремонт квартиры делается надолго и максимально качественно,
+    поэтому стоимость евроремонта за квадратный метр просто не может быть низкой.
+    Именно по этой же причине евроремонт категории Премиум, который выполняет
+    наша бригада частных мастеров, занимает несколько больше времени по сравнению
+    с традиционным ремонтом.
+  %p
+    %strong
+      %span{ style: "color: #993300;" }
+        У нас работают профессионалы!
+  %p
+    Сроки исполнения евроремонта категории
+    %span{ style: "font-size: 12pt; color: #800000;" }
+      %strong
+        Премиум
+    напрямую зависят от площади ремонтируемого помещения, а также от сложности дизайн-проекта. Мы заранее оговариваем сроки выполнения ремонтных работ в Вашей квартире и в дальнейшем не нарушаем их.
+  %h2 Стоимость евроремонта за квадратный метр в Москве
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th Наименование работ
+        %th
+          Цена, м
+          %sup 2
+        %th Сроки выполнения
+    %tbody
+      %tr
+        %td Евроремонт квартиры категории Премиум
+        %td
+          от
+          %span{ style: "color: #ff0000;"}
+            %strong 12 000
+        %td
+          от
+          %strong 3
+          до
+          %strong 6
+          мес
+  %p
+    Наша бригада выполняет евроремонт, цена за квадратный метр по Москве на
+    который у нас вполне доступна. При этом все работы нашей бригады отличаются
+    очень высоким качеством, ведь у нас работают только компетентные мастера с
+    большим опытом работы. Стоимость евроремонта у нас не самая низкая, но
+    дешевле сделать работы такого уровня просто невозможно. Звоните, и мы
+    всегда готовы предоставить скидки!
+  %h2 Полный перечень работ по евроремонту категории Премиум
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %tbody
+      %tr
+        %td{style: "text-align: left;"} Демонтаж
+        %td{style: "text-align: left;"} Демонтаж внутренних НЕ несущих перегородок
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{rowspan: 4} Монтаж
+        %td{style: "text-align: left;"} Возведение прямых конструкций (кирпич, бетон)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Возведение круглых и фигурных конструкций из ГКЛ
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Возведение перегородок
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Возведение декоративных перегородок произвольной формы
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{rowspan: 3} Стяжка
+        %td{style: "text-align: left;"} Устройство нового пола и стяжка пола по маякам (до 10 см)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Устройство теплого пола
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Гидроизоляция пола в санузле
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{rowspan: 3} Сантехника
+        %td{style: "text-align: left;"} Разводка сантехники (полипропилен)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Монтаж сантехники
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Устройство системы защиты от протечек
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{rowspan: 4} Электрика
+        %td{style: "text-align: left;"} Устройство новой системы электроснабжения
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Монтаж щитка с автоматами
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Прокладка кабеля
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Устройство освещения в нишах, неон
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{rowspan: 5} Стены
+        %td{style: "text-align: left;"} Звукоизоляция стен и пола
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Грунтовка стен
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Штукатурка любых стен по маякам (круглых, фигурных)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Штукатурка откосов
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Шпатлевка стен (3 слоя)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{rowspan: 5} Потолок
+        %td{style: "text-align: left;"} Грунтовка потолков
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Шпатлевка потолков (3 слоя)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Монтаж натяжных потолков (конструкция любая)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Монтаж одноуровневых потолков из ГКЛ
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Монтаж двухуровневых потолков из ГКЛ
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{rowspan: 5} Плиточные работы
+        %td{style: "text-align: left;"} Устройство сантехкороба и экрана ванны из ГКЛ
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Устройство люка-невидимки
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Укладка плитки в санузле (стены, пол), на полу в коридоре, фартук кухни (фриз, декор)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Укладка мозаики
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Укладка керамогранита, натурального камня
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{rowspan: 4} Малярные работы
+        %td{style: "text-align: left;"} Поклейка обоев (винил, флизелин, текстиль)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Проклейка стеклохолста
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Покраска стен (2 слоя)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Отделка декоративной (венецианской) штукатуркой, фактурной краской
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{rowspan: 5} Финальная отделка
+        %td{style: "text-align: left;"} Укладка напольного покрытия (фанерная подложка)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Устройство напольного покрытия (паркетная доска, пробка)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Укладка паркета (в том числе штучного)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Монтаж плинтусов (пластик, МДФ)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Монтаж настенной и потолочной лепнины (гипс, полиуретан)
+        %td{style: "text-align: left;"}
+          %i.material-icons check_circle
+  %p
+    Смотрите более подробно
+    = link_to "Цены на наши услуги.", controller: :main_menu, action: :prices 
