@@ -1,2 +1,170 @@
-%h1 Informaciya#remont_kvartiry_jekonom
-%p Find me in app/views/informaciya/remont_kvartiry_jekonom.html.haml
+%h1 Косметический ремонт квартир в Москве цены
+%article
+  - img = Image.find_by_alt("kosmeticheskiy-remont-kvartir-ceny")
+  = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
+  %p
+    Конечно, каждый клиент хочет знать максимально точную стоимость косметического
+    ремонта квартиры. Мы предлагаем косметический ремонт квартир в Москве, цены
+    на который вполне доступны. Заметим, что итоговая стоимость косметического
+    ремонта и отделочных работ в квартире будет зависеть от перечня требуемых работ.
+  %p
+    Ниже мы представили расчет стоимости косметического ремонта категории Эконом,
+    который выполнит наша бригада Ремонтами 7. В смете указаны расценки, по
+    которым работают наши специалисты. Данный список не содержит никаких
+    дополнительных пунктов скрытых расходов! Окончательная цена косметического
+    ремонта квартиры в Москве и ближайшем Подмосковье изменится только в том
+    случае, если Вы сами дополните список необходимых работ.
+  %p
+    %strong
+      %span{ style: "color: #993300;" }
+        Косметический ремонт Эконом - только самое необходимое!
+  %p
+    Оптимальный набор услуг бригады позволяет сделать косметический ремонт в
+    квартире недорого, обеспечив максимально обновленный и свежий внешний вид.
+  %h2 Косметический ремонт квартиры категории Эконом и цена
+  %p{style: "text-align: center;"}
+    %strong
+      Квартира 60 м
+      %sup 2
+      , санузел 4 м
+      %sup 2
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th{style: "text-align: center;"} Наименование работ
+        %th{style: "text-align: center;"} Объём работ
+        %th{style: "text-align: center;"} Цена, руб
+        %th{style: "text-align: center;"} Сумма, руб
+    %tbody
+      -# Демонтажные работы
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Демонтажные работы
+      - for i in 0...@destroy_names.size
+        %tr
+          %td{style: "text-align: center;"}= @destroy_names[i]
+          %td{style: "text-align: center;"}= "#{@destroy_volumes[i]} #{@destroy_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @destroy_prices[i].round
+          %td{style: "text-align: center;"}= @destroy_prices[i].round * @destroy_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_destroy_price.round
+      -# Стены
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Стены
+      - for i in 0...@wall_names.size
+        %tr
+          %td{style: "text-align: center;"}= @wall_names[i]
+          %td{style: "text-align: center;"}= "#{@wall_volumes[i]} #{@wall_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @wall_prices[i].round
+          %td{style: "text-align: center;"}= @wall_prices[i].round * @wall_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_wall_price.round
+      -# Потолок
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Потолок
+      - for i in 0...@roof_names.size
+        %tr
+          %td{style: "text-align: center;"}= @roof_names[i]
+          %td{style: "text-align: center;"}= "#{@roof_volumes[i]} #{@roof_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @roof_prices[i].round
+          %td{style: "text-align: center;"}= @roof_prices[i].round * @roof_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_roof_price.round
+      -# Пол
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Пол
+      - for i in 0...@floor_names.size
+        %tr
+          %td{style: "text-align: center;"}= @floor_names[i]
+          %td{style: "text-align: center;"}= "#{@floor_volumes[i]} #{@floor_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @floor_prices[i].round
+          %td{style: "text-align: center;"}= @floor_prices[i].round * @floor_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_floor_price.round
+      -# Электрика
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Электрика
+      - for i in 0...@electric_names.size
+        %tr
+          %td{style: "text-align: center;"}= @electric_names[i]
+          %td{style: "text-align: center;"}= "#{@electric_volumes[i]} #{@electric_units[i]}"
+          %td{style: "text-align: center;"}= @electric_prices[i].round
+          %td{style: "text-align: center;"}= @electric_prices[i].round * @electric_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_electric_price.round
+      -# Итог
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            Всего работ на сумму:
+            = @sum_price.round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            %div{style: "color: red; display: inline;"} Цена за 1 м
+            %sup{style: "color: red;"} 2
+            по квартире (
+            = @sum_price.round
+            руб/60 м
+            %sup 2
+            ) равна
+            %div{style: "color: red; display: inline;"}= @one_meter_price.round
+            руб/м
+            %sup 2
+
+  %p{style: "color: #993300;"}
+    Внимание! Скидки на определенные виды работ определяются после осмотра мастером места работ.
+    %strong Выезд мастера бесплатно!
+    Стоимость работ будет неизменна до окончания работ.
+  %p
+    %em
+      %span{style: "color: #ff0000;"} *
+      Цена косметического ремонта квартиры не всегда рассчитывается исходя из
+      стоимости 1 кв.метра и зависит от множества факторов. Точная оценка
+      стоимости ремонта производится при составлении сметы (с подробным описанием
+      всех работ, в т.ч. скрытых) и спецификации материалов. На весь период
+      ремонта цены на работы, указанные в смете, фиксируются и пересмотру не
+      подлежат. Ориентировочную итоговую стоимость интресующих работ может
+      назвать мастер.
+  %p
+    Каждый ремонт очень индивидуален и всегда начинается с визита нашего
+    специалиста. Профессионализм и опыт мастера позволит определить набор
+    необходимых работ именно в данной квартире, а также их последовательность и
+    сроки исполнения. Мы гарантируем, что
+    %strong
+      никаких лишних работ в Вашей квартире
+      сделано не будет - мы зарабатываем на качестве работ и дорожим собственной
+      репутацией и мнением клиента!
+  %p
+    Благодаря наличию выгодных и долгосрочных контактов с известными поставщиками
+    качественных стройматериалов, мы поможем приобрести необходимое количество
+    строительных материалов высокого качества по более выгодным ценам. Это
+    поможет дополнительно снизить итоговою стоимость косметического ремонта
+    Вашей квартиры.
+  %p
+    %span{style: "font-family: 'arial black', 'avant garde'; font-size: 12pt; color: #993300;"}
+      Использование современных строительных технологий и материалов позволяет сделать
+      косметический ремонт квартир по доступным ценам!
+  %p
+    Смотрите полный
+    = link_to "список цен.", controller: :main_menu, action: :prices
