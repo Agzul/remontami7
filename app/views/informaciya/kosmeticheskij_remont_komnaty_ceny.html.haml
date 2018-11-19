@@ -1,2 +1,141 @@
-%h1 Informaciya#kosmeticheskij_remont_komnaty_ceny
-%p Find me in app/views/informaciya/kosmeticheskij_remont_komnaty_ceny.html.haml
+%h1 Косметический ремонт комнаты цены
+%article
+  - img = Image.find_by_alt("косметический ремонт комнаты цены")
+  = link_to (image_tag img.info_image.url(:small), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
+  %p
+    Каждый клиент, желающий сделать косметический ремонт в комнате, хочет увидеть
+    максимально точную стоимость работ. Наша бригада частных мастеров предлагает
+    выполнить
+    %strong косметический ремонт комнаты, цены
+    на который очень доступны и
+    выгодны. Работы ведутся качественно, профессионально и будут выполнены
+    точно в срок.
+  %p
+    Мы представляем расчет стоимости косметического ремонта комнаты площадью 10 м
+    %sup 2
+    с высотой потолка 2,5 м, который выполнит наша бригада частных мастеров.
+    Представленная стоимость косметического ремонта комнаты не содержит скрытых
+    пунктов дополнительных расходов. Срок выполнения косметического ремонта такой
+    комнаты составит не более 4-7 дней.
+  %p
+    %strong
+      %span{ style: "font-size: 11pt; color: #800000;" }
+        Косметический ремонт комнаты - быстро, качественно и по доступной цене!
+  %h2 Цена косметического ремонта комнаты
+  %p{style: "text-align: center;"}
+    %em
+      %span{style: "color: #0000ff;"}
+        (без стоимости материалов)
+  %p{style: "text-align: center;"}
+    площадь комнаты 10 м
+    %sup 2
+    , высота потолка 2,5 м
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th{style: "text-align: center;"} Наименование работ
+        %th{style: "text-align: center;"} Объём работ
+        %th{style: "text-align: center;"} Цена, руб
+        %th{style: "text-align: center;"} Сумма, руб
+    %tbody
+      -# Демонтажные работы
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Демонтажные работы
+      - for i in 0...@destroy_names.size
+        %tr
+          %td{style: "text-align: center;"}= @destroy_names[i]
+          %td{style: "text-align: center;"}= "#{@destroy_volumes[i]} #{@destroy_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @destroy_prices[i].round
+          %td{style: "text-align: center;"}= @destroy_prices[i].round * @destroy_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_destroy_price.round
+      -# Потолок
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Потолок
+      - for i in 0...@roof_names.size
+        %tr
+          %td{style: "text-align: center;"}= @roof_names[i]
+          %td{style: "text-align: center;"}= "#{@roof_volumes[i]} #{@roof_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @roof_prices[i].round
+          %td{style: "text-align: center;"}= @roof_prices[i].round * @roof_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_roof_price.round
+      -# Стены
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Стены
+      - for i in 0...@wall_names.size
+        %tr
+          %td{style: "text-align: center;"}= @wall_names[i]
+          %td{style: "text-align: center;"}= "#{@wall_volumes[i]} #{@wall_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @wall_prices[i].round
+          %td{style: "text-align: center;"}= @wall_prices[i].round * @wall_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_wall_price.round
+      -# Итог
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            Всего работ на сумму:
+            = @sum_price.round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            %div{style: "color: red; display: inline;"} Цена за 1 м
+            %sup{style: "color: red;"} 2
+            по квартире (
+            = @sum_price.round
+            руб/10 м
+            %sup 2
+            ) равна
+            %div{style: "color: red; display: inline;"}= @one_meter_price.round
+            руб/м
+            %sup 2
+  %p{style: "color: #993300;"}
+    %em
+      %span{style: "text-decoration: underline;"} Внимание!
+      Скидки на определенные виды работ определяются после осмотра мастером места работ.
+      %strong Выезд мастера бесплатно!
+      Стоимость работ будет неизменна до окончания работ.
+  %p
+    Смотрите полный список
+    = link_to "наших цен", controller: :main_menu, action: :prices
+    по ремонту квартир.
+  %p
+    %strong{style: "font-size: 11pt; color: #993300;"}
+      Общая стоимость косметического ремонта комнаты может быть изменена,
+      если Вы сами захотите внести изменения в перечень работ.
+
+
+  %p
+    %i.material-icons{ align: "left" } warning
+    %em
+      Это значит, что Вы сами определяете и решаете, какие работы нужно делать,
+      а какие не надо. Следовательно, цена косметического ремонта комнаты может
+      быть ниже или, наоборот, выше.
+  %p
+    При обращении к нам наши частные мастера в первую очередь определят бюджет
+    будущего ремонта, минимизируя лишние дополнительные расходы, только тогда
+    возможно сделать косметический ремонт комнаты недорого. Конечная цена ремонта
+    комнаты под ключ зависит от стоимости строительных материалов, используемых
+    при этом. Наши специалисты помогут Вам сделать
+    %strong косметический ремонт в комнате недорого
+    и в короткие сроки, так как мы понимаем, что испытывать длительные
+    неудобства клиент не желает.
+  %p
+    Если возникнет необходимость, мы предложим альтернативные варианты материалов
+    и отделки, которые никак не повлияют на качество ремонта комнаты в целом, 
+    но способны значительно снизить бюджетные расходы на приобретение необходимых
+    стройматериалов для недорогого косметического ремонта в комнате.
