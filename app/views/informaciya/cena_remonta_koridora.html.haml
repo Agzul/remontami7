@@ -1,2 +1,119 @@
-%h1 Informaciya#cena_remonta_koridora
-%p Find me in app/views/informaciya/cena_remonta_koridora.html.haml
+%h1 Цена ремонта коридора
+%article
+  - img = Image.find_by_alt("remont-koridora-cena")
+  = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
+  %p
+    Зная о том, что
+    %strong каждый клиент хочет узнать максимально точную цену ремонта коридора (или прихожей)
+    , на этой странице мы представляем пример сметы на
+    косметическую отделку помещения. Можно увидеть, что перечисление работ и
+    итоговая цена не содержит скрытых или обманных пунктов для того, чтобы
+    увеличить реальные расходы.
+  %p
+    Цена ремонта прихожей может измениться лишь в том случае, если заказчик сам
+    пожелает провести дополнительные работы. В представленной смете стоимость
+    ремонта коридора окончательная и соответствует нашим тарифам.
+  %h2 Цена ремонта коридора
+  %p{style: "text-align: center;"}
+    (площадь по полу 4,6 м
+    %sup 2
+    , высота потолка 2,7 м)
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th{style: "text-align: center;"} Наименование работ
+        %th{style: "text-align: center;"} Объём работ
+        %th{style: "text-align: center;"} Цена, руб
+        %th{style: "text-align: center;"} Сумма, руб
+    %tbody
+      -# Демонтажные работы
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Демонтажные работы
+      - for i in 0...@destroy_names.size
+        %tr
+          %td{style: "text-align: center;"}= @destroy_names[i]
+          %td{style: "text-align: center;"}= "#{@destroy_volumes[i]} #{@destroy_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @destroy_prices[i].round
+          %td{style: "text-align: center;"}= (@destroy_prices[i] * @destroy_volumes[i]).round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_destroy_price.round
+      -# Потолок
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Потолок
+      - for i in 0...@roof_names.size
+        %tr
+          %td{style: "text-align: center;"}= @roof_names[i]
+          %td{style: "text-align: center;"}= "#{@roof_volumes[i]} #{@roof_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @roof_prices[i].round
+          %td{style: "text-align: center;"}= (@roof_prices[i] * @roof_volumes[i]).round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_roof_price.round
+      -# Стены
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Стены
+      - for i in 0...@wall_names.size
+        %tr
+          %td{style: "text-align: center;"}= @wall_names[i]
+          %td{style: "text-align: center;"}= "#{@wall_volumes[i]} #{@wall_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @wall_prices[i].round
+          %td{style: "text-align: center;"}= (@wall_prices[i] * @wall_volumes[i]).round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_wall_price.round
+      -# Итог
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            Всего работ на сумму:
+            = @sum_price.round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            %div{style: "color: red; display: inline;"} Цена за 1 м
+            %sup{style: "color: red;"} 2
+            по коридору (
+            = @sum_price.round
+            руб/4.6 м
+            %sup 2
+            ) равна
+            %div{style: "color: red; display: inline;"}= @one_meter_price.round
+            руб/м
+            %sup 2
+
+  %p{style: "color: #993300;"}
+    %em
+      %span{style: "text-decoration: underline;"} Внимание!
+      Скидки на определенные виды работ определяются после осмотра мастером места работ.
+      %strong Выезд мастера бесплатно!
+      Стоимость работ будет неизменна до окончания работ.
+  - img = Image.find_by_alt("stoimost-remonta-prihozhey")
+  - if browser.device.mobile?
+    = link_to (image_tag img.info_image.url(:small), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.info_image.url(:med), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
+  %p
+    Ремонт коридора представляет некоторую сложность тем, что это не ремонт
+    комнаты, которую можно закрыть и ее ремонт Вам не будет сильно докучать.
+    По коридору Вы ходите постоянно и его ремонт оказывает на Вас существенное
+    воздействие. Поэтому к ремонтнм работам этого помещения квартиры отнеситесь
+    с большой ответственностью и закажите его у
+    %span{style: "font-size: 11pt; color: #993300;"}
+      %em бригады частных мастеров Ремонтами 7.
+  %p
+    Как и в случае ремонта других помещений квартиры, стоимость ремонта прихожей
+    складывается из цены на необходимые строительно-отделочные материалы,
+    транспортные расходы и, собственно, стоимости работ специалистов. Ремонт
+    коридора необходимо выполнять в комплексе, чтобы обеспечить качественные
+    отделочные работы, которые потом не придется переделывать.
