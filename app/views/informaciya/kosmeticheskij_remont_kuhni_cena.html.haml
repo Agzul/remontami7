@@ -1,2 +1,129 @@
-%h1 Informaciya#kosmeticheskij_remont_kuhni_cena
-%p Find me in app/views/informaciya/kosmeticheskij_remont_kuhni_cena.html.haml
+%h1 Ремонт маленькой кухни
+%article
+  - img = Image.find_by_alt("remont-kuhni-cena")
+  = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
+  %p
+    Нам известно, насколько для Вас важно узнать сколько стоит ремонт кухни.
+    Бригада частных мастеров
+    %strong{ style: "color: #800000;" } Ремонтами7
+    качественно и надежно
+    %strong сделает косметический ремонт кухни, цена которого доступна и выгодна.
+  %p
+    Напомним, что стоимость работ, которые будут выполнены нашими частными
+    мастерами при косметическом ремонте кухни, зависит от объема производимой
+    отделки и размеров помещения. Приблизительную стоимость ремонта кухни можно
+    уточнить у мастера:
+  %p
+    %i.material-icons phone
+    = @default_phone
+  %p
+    Ниже для примера размещена реальная смета косметического ремонта кухни
+    маленькой площади, который выполнили наши специалисты.
+    %strong
+      Данный перечень включает штукатурку поверхностей, которая обычно не входит
+      в простой косметический ремонт кухонного помещения класса
+    %strong{ style: "color: #800000;" } "Эконом".
+    Но мы стремимся к лучшему результату и включили эти работы в перечень
+    %span{ style: "text-decoration: underline;" } по согласованию с заказчиком.
+    Ремонт маленькой кухни и указанный список работ не содержит пунктов для скрытых расходов.
+  %p{style: "color: #0000ff;"}
+    %em
+      Итоговая цена работ по косметическому ремонту кухни изменится лишь в том
+      случае, когда Вы сами пожелаете добавить (или исключить) перечисленные работы!*
+
+  %h2 Цена косметического ремонта маленькой кухни
+  %p{style: "text-align: center;"}
+    (Ремонт кухни площадью  6 м
+    %sup 2
+    ; высота потолка 2,5 м; площадь окна 2,3 м
+    %sup 2
+    )
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th{style: "text-align: center;"} Наименование работ
+        %th{style: "text-align: center;"} Объём работ
+        %th{style: "text-align: center;"} Цена, руб
+        %th{style: "text-align: center;"} Сумма, руб
+    %tbody
+      -# Потолок
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Потолок
+      - for i in 0...@roof_names.size
+        %tr
+          %td{style: "text-align: center;"}= @roof_names[i].html_safe
+          %td{style: "text-align: center;"}= "#{@roof_volumes[i]} #{@roof_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @roof_prices[i].round
+          %td{style: "text-align: center;"}= (@roof_prices[i] * @roof_volumes[i]).round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_roof_price.round
+      -# Стены
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Стены
+      - for i in 0...@wall_names.size
+        %tr
+          %td{style: "text-align: center;"}= @wall_names[i].html_safe
+          %td{style: "text-align: center;"}= "#{@wall_volumes[i]} #{@wall_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @wall_prices[i].round
+          %td{style: "text-align: center;"}= (@wall_prices[i] * @wall_volumes[i]).round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_wall_price.round
+      -# Пол
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Пол
+      - for i in 0...@floor_names.size
+        %tr
+          %td{style: "text-align: center;"}= @floor_names[i].html_safe
+          %td{style: "text-align: center;"}= "#{@floor_volumes[i]} #{@floor_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @floor_prices[i].round
+          %td{style: "text-align: center;"}= @floor_prices[i].round * @floor_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_floor_price.round
+      -# Итог
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            Всего работ на сумму:
+            = @sum_price.round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            %div{style: "color: red; display: inline;"} Цена за 1 м
+            %sup{style: "color: red;"} 2
+            по кухне (
+            = @sum_price.round
+            руб/6 м
+            %sup 2
+            ) равна
+            %div{style: "color: red; display: inline;"}= @one_meter_price.round
+            руб/м
+            %sup 2
+  %p{style: "color: #993300;"}
+    %em
+      %span{style: "text-decoration: underline;"} Внимание!
+      Скидки на определенные виды работ определяются после осмотра мастером места работ.
+      %strong Выезд мастера бесплатно!
+      Стоимость работ будет неизменна до окончания работ.
+
+  %p
+    %i.material-icons warning
+    %span{ style: "color: #0000ff;" }
+      *Это значит, что Вы сами определяете и решаете, какие работы нужно делать,
+      а какие не надо. Следовательно, цена косметического ремонта кухни под
+      ключ может быть ниже или, наоборот, выше.
+  %p
+    Посмотрите наш
+    = link_to "список цен", controller: :main_menu, action: :prices

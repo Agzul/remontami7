@@ -1030,6 +1030,93 @@ class InformaciyaController < ApplicationController
     @title =       "Косметический ремонт кухни и цена - частный мастер бригады Ремонтами 7"
     @description = "Бригада частных мастеров Ремонтами 7 выполнит косметический ремонт кухни, цена которого доступна и выгодна. Посмотреть стоимость косметического ремонта можно на примере расчета для маленькой кухни. У нас работают только опытные специалисты."
     @keywords =    "косметический ремонт кухни цена, ремонт маленькой кухни"
+
+    # Потолок
+    @roof_names = [
+      "Зачистка от старой краски",
+      "Грунтовка потолка составом 'Бетононтакт'",
+      "Шпаклевка потолка под покраску",
+      "Шлифовка потолка",
+      "Грунтовка потолка",
+      "Покраска потолка водоэмульсионной краской (2 слоя)"
+    ]
+    @roof_prices = [
+      200,
+      Work.find_by_name('Грунтовка бетоноконтактом').price.to_f,
+      Work.find_by_name('Шпаклевка потолка под покраску').price.to_f,
+      Work.find_by_name('Шлифовка потолка').price.to_f,
+      Work.find_by_name('Грунтовка потолка (1 слой)').price.to_f,
+      Work.find_by_name('Покраска потолка (2 слоя)').price.to_f
+    ]
+    @roof_volumes = [ 6, 6, 6, 6, 6, 6 ]
+    @roof_units = [ "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>" ]
+    @sum_roof_price = 0
+    for i in 0...@roof_volumes.size
+      @sum_roof_price +=@roof_prices[i]*@roof_volumes[i]
+    end
+
+    # Стены
+    @wall_names = [
+      "Демонтаж плитки с кухонного фартука",
+      "Снятие старых обоев",
+      "Грунтовка стен глубокого проникновения",
+      "Штукатурка стен по плоскости",
+      "Шпатлевка стен под обои",
+      "Шлифовка стен",
+      "Обработка стен составом 'Антиплесень'",
+      "Поклейка обоев (винил, флизелин) с подбором рисунка",
+      "Монтаж кухонного фартука (обычная плитка 20х20, пл. 4,2 м<sup>2</sup>)"
+    ]
+    link  = url_for controller: :vidy_rabot, action: :shpaklevka_sten_pod_oboi_ceny, only_path: true
+    link1 = url_for controller: :vidy_rabot, action: :pokleyka_oboev_cena, only_path: true
+    @wall_prices = [
+      80,
+      Work.find_by_name("Демонтаж обоев").price.to_f,
+      Work.find_by_name("Грунтовка бетоноконтактом").price.to_f,
+      Work.find_by_name("Выравнивание штукатурной смесью по плоскости").price.to_f,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").price.to_f,
+      Work.find_by_name("Шлифовка стен").price.to_f,
+      Work.find_by_name('Обработка стен составом "антиплесень"').price.to_f,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price.to_f,
+      5000
+    ]
+    @wall_volumes = [ 1.5, 22, 22, 22, 22, 22, 22, 22, 1 ]
+    @wall_units = [ "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "шт" ]
+    @sum_wall_price = 0
+    for i in 0...@wall_volumes.size
+      @sum_wall_price +=@wall_prices[i]*@wall_volumes[i]
+    end
+
+    # Пол
+    link0  = url_for controller: :vidy_rabot, action: :samovyravnivajushhajasja_stjazhka, only_path: true
+    @floor_names = [
+      "Демонтаж линолеума",
+      "Демонтаж плинтусов",
+      "<a href='#{link0}' target='_blank'>Выравнивание основы под ламинат</a>",
+      "Укладка ламината + подложка",
+      "Монтаж плинтуса ПВХ",
+      "Устройство порожка"
+    ]
+    link  = url_for controller: :vidy_rabot, action: :ukladka_laminata_cena, only_path: true
+    link1 = url_for controller: :vidy_rabot, action: :samovyravnivajushhajasja_stjazhka, only_path: true
+    @floor_prices = [
+      50,
+      30,
+      Work.find_by_name("Чистовая <a href='#{link1}' target='_blank'>cтяжка самовыравнивающейся смесью</a> до 5 мм (наливной пол)").price.to_f,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Укладка ламината</a>&nbsp;в комнате по прямой + укладка подложки").price.to_f,
+      Work.find_by_name('Монтаж плинтуса ПВХ').price.to_f,
+      250
+    ]
+    @floor_volumes = [ 6, 10, 6, 6, 10, 1 ]
+    @floor_units = [ "м<sup>2</sup>", "м/п", "м<sup>2</sup>", "м<sup>2</sup>", "м/п", "шт" ]
+    @sum_floor_price = 0
+    for i in 0...@floor_volumes.size
+      @sum_floor_price +=@floor_prices[i]*@floor_volumes[i]
+    end
+
+    # Общее
+    @sum_price = @sum_wall_price + @sum_roof_price + @sum_floor_price
+    @one_meter_price = @sum_price / 6
   end
 
   def obshivka_balkona_plastikovymi_panelyami_i_vagonkoy
