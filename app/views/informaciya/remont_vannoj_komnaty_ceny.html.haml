@@ -1,2 +1,142 @@
-%h1 Informaciya#remont_vannoj_komnaty_ceny
-%p Find me in app/views/informaciya/remont_vannoj_komnaty_ceny.html.haml
+%h1 Капитальный ремонт ванной комнаты и стоимость работ
+%article
+  - img = Image.find_by_alt("Пример готовой работы частных мастеров по капитальному ремонту ванной комнаты по доступной стоимости")
+  - if browser.device.mobile?
+    = link_to (image_tag img.info_image.url(:small), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.info_image.url(:med), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
+  %p
+    Чтобы ответить максимально точно на вопрос о том,
+    %strong сколько стоит ремонт ванной комнаты,
+    необходимо определить, какие работы потребуются именно в Вашей ванной.
+    Кроме того, на стоимость работ также влияет площадь помещения.
+    Свяжитесь с нашим специалистом по указанному на сайте телефону, и Вы
+    сможете приблизительно узнать, сколько будет стоить ремонт ванной.
+  %p
+    Обращайтесь к нам, и наши частные специалисты произведут необходимый замер
+    помещения, дадут квалифицированную консультацию о подходящих материалах и
+    технологиях отделки, выполнят расчет стоимости работ.
+  %p
+    %strong
+      %span{ style: "color: #993300;" }
+        Ремонт ванной комнаты от наших частных мастеров - доступно, качественно, как для себя!
+  %p
+    Рассмотрим пример расчета стоимости работ по выполнению капитального ремонта
+    ванной комнаты стандартной площадью 1,5 х 1,35 метра при высоте потолков 2,3 метра.
+  %h2 Стоимость капитального ремонта ванной комнаты
+  %p{style: "text-align: center;"}
+    Площадь пола и потолка 2 м
+    %sup 2
+    , площадь стен без дверей 11,9 м
+    %sup 2
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th{style: "text-align: center;"} Наименование работ
+        %th{style: "text-align: center;"} Объём работ
+        %th{style: "text-align: center;"} Цена, руб
+        %th{style: "text-align: center;"} Сумма, руб
+    %tbody
+      -# Пол
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Стяжка пола
+      - for i in 0...@floor_names.size
+        %tr
+          %td{style: "text-align: center;"}= @floor_names[i]
+          %td{style: "text-align: center;"}= "#{@floor_volumes[i]} #{@floor_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @floor_prices[i].round
+          %td{style: "text-align: center;"}= (@floor_prices[i] * @floor_volumes[i]).round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_floor_price.round
+      -# Стены
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Стены и потолок
+      - for i in 0...@wall_names.size
+        %tr
+          %td{style: "text-align: center;"}= @wall_names[i]
+          %td{style: "text-align: center;"}= "#{@wall_volumes[i]} #{@wall_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @wall_prices[i].round
+          %td{style: "text-align: center;"}= (@wall_prices[i] * @wall_volumes[i]).round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_wall_price.round
+      -# Сантехника
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Сантехника
+      - for i in 0...@plumbing_names.size
+        %tr
+          %td{style: "text-align: center;"}= @plumbing_names[i]
+          %td{style: "text-align: center;"}= "#{@plumbing_volumes[i]} #{@plumbing_units[i]}".html_safe
+          %td{style: "text-align: center;"}= @plumbing_prices[i].round
+          %td{style: "text-align: center;"}= @plumbing_prices[i].round * @plumbing_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_plumbing_price.round
+      -# Электрика
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Электрика
+      - for i in 0...@electric_names.size
+        %tr
+          %td{style: "text-align: center;"}= @electric_names[i]
+          %td{style: "text-align: center;"}= "#{@electric_volumes[i]} #{@electric_units[i]}"
+          %td{style: "text-align: center;"}= @electric_prices[i].round
+          %td{style: "text-align: center;"}= @electric_prices[i].round * @electric_volumes[i].round
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            ИТОГО:
+            = @sum_electric_price.round
+      -# Подготовка
+      %tr
+        %td{colspan: "4", style: "text-align: center;"}
+          %strong Работы по подготовке
+      %tr
+        %td{style: "text-align: center;"} Вывоз мусора
+        %td{style: "text-align: center;"} контейнер
+        %td{style: "text-align: center;"} 3700
+        %td{style: "text-align: center;"} 3700
+      -# Итог
+      %tr
+        %td{colspan: "4", style: "text-align: right;"}
+          %strong
+            Всего работ на сумму:
+            = @sum_price.round
+  %p{style: "color: #993300;"}
+    %em
+      %span{style: "text-decoration: underline;"} Внимание!
+      Скидки на определенные виды работ определяются после осмотра мастером места работ.
+      %strong Выезд мастера бесплатно!
+      Стоимость работ будет неизменна до окончания работ.
+  %p
+    Ремонт ванной комнаты - это не только сложное дело для новичка, но и
+    затратное. И если Вы впервые решили сделать ремонт в ванной, не поленитесь и
+    тщательно изучите свойства современных материалов и технологии выполнения работ.
+  %hr
+  %p
+    %strong
+      Не рекомендуем для экономии расходов готовить самостоятельно ванную для
+      ремонта - демонтаж должен проводиться специалистом, знающим особенности этого процесса!
+  %hr
+  %p
+    Любой ремонт, в том числе и ремонт ванной комнаты начинается с визита мастера
+    и осмотра места проведения работ. Наш специалист профессионально оценит
+    состояние Вашей ванной комнаты и определит, какие работы необходимо сделать
+    обязательно, а какие - только по желанию клиента. Кроме того, мастер не
+    только поможет оптимально подобрать перечень работ, но и подскажет, на каких
+    стройматериалах можно сэкономить, а на каких вообще экономить не стоит.
+  %p
+    %strong
+      %span{ style: "color: #993300;" }
+        Мы заинтересованы в том, чтобы Вы остались довольны стоимостью и качеством работ!

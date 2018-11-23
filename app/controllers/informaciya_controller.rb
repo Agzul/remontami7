@@ -1129,6 +1129,110 @@ class InformaciyaController < ApplicationController
     @title =       "Сколько будет стоить ремонт ванной комнаты"
     @description = "Бригада частных мастеров выполнит капитальный ремонт ванной комнаты по доступной стоимости. Работаем в Москве и Подмосковье качественно и быстро. Стоимость ремонта ванной комнаты составит ..."
     @keywords =    "сколько стоит ремонт ванной комнаты, ремонт ванной комнаты стоимость работ"
+
+    # Пол
+    @floor_names = [
+      "Демонтаж плитки с пола",
+      "Грунтовка глубокого проникновения",
+      "Гидроизоляция обмазочная (Водостоп)",
+      "Стяжка пола цементно-песчаная (до 5 см)",
+      "Укладка керамической плитки",
+      "Затирка швов",
+      "Устройство порожка"
+    ]
+    link  = url_for controller: :vidy_rabot, action: :stjazhka_pola_cena, only_path: true
+    link1 = url_for controller: :vidy_rabot, action: :ukladka_keramogranita_cena, only_path: true
+    @floor_prices = [
+      240,
+      Work.find_by_name('Грунтовка бетоноконтактом').price.to_f,
+      Work.find_by_name('Гидроизоляция обмазочная (Водостоп, Гипердесмо)').price.to_f,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Стяжка пола по маякам</a> до 5 см + монтаж маяков по лазерному уровню").price.to_f,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Укладка керамогранита</a>&nbsp;на пол&nbsp;(кухня, прихожая и пр.)").price.to_f,
+      Work.find_by_name('Затирка швов плитки 20х30, 20х40, 30х30, 40х40 (пол, стены)').price.to_f,
+      800
+    ]
+    @floor_volumes = [ 2, 2, 2, 2, 2, 2, 0.6 ]
+    @floor_units = [ "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м/п" ]
+    @sum_floor_price = 0
+    for i in 0...@floor_volumes.size
+      @sum_floor_price +=@floor_prices[i]*@floor_volumes[i]
+    end
+
+    # Стены
+    @wall_names = [
+      "Демонтаж плитки со стен (без сохранения)",
+      "Грунтовка стен глубокого проникновения",
+      "Подготовка стен под укладку плитки (штукатурка под маяк до 3 см)",
+      "Укладка плитки на стену",
+      "Затирка швов",
+      "Монтаж решетки вентиляции",
+      "Монтаж реечного потолка"
+    ]
+    link  = url_for controller: :vidy_rabot, action: :ukladka_plitki, only_path: true
+    @wall_prices = [
+      150,
+      Work.find_by_name("Грунтовка бетоноконтактом").price.to_f,
+      Work.find_by_name("Штукатурка стен по маякам (толщина слоя до 3 см)").price.to_f,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Укладка плитки</a> 20х30, 20х40, 30х40").price.to_f,
+      Work.find_by_name("Затирка швов плитки 20х30, 20х40, 30х30, 40х40 (пол, стены)").price.to_f,
+      250,
+      Work.find_by_name("Монтаж реечного потолка").price.to_f,
+    ]
+    @wall_volumes = [ 11.9, 11.9, 11.9, 11.9, 11.9, 1, 2 ]
+    @wall_units = [ "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "м<sup>2</sup>", "шт", "м<sup>2</sup>" ]
+    @sum_wall_price = 0
+    for i in 0...@wall_volumes.size
+      @sum_wall_price +=@wall_prices[i]*@wall_volumes[i]
+    end
+
+    # Сантехника
+    @plumbing_names = [
+      "Демонтаж смесителя, раковины (без сохранения)",
+      "Демонтаж полотенцесушителя",
+      "Демонтаж ванны",
+      "Разводка сантехнических труб (комплекс работ)",
+      "Штробирование бетонной стены + заделка штроб",
+      "Монтаж ванны",
+      "Устройство экрана под ванну",
+      "Установка сифона + 'тюльпан'",
+      "Монтаж смесителя",
+      "Установка полотенцесушителя на готовое место"
+    ]
+    @plumbing_prices = [
+      500,
+      300,
+      2000,
+      Work.find_by_name('Разводка труб (полипропилен)').price.to_f*3,
+      Work.find_by_name('Штробление под прокладку труб').price.to_f,
+      Work.find_by_name('Установка ванной').price.to_f,
+      1000,
+      2600,
+      Work.find_by_name('Установка смесителя').price.to_f,
+      Work.find_by_name('Установка полотенцесушителя').price.to_f
+    ]
+    @plumbing_volumes = [ 1, 1, 1, 1, 5, 1, 1, 1, 1, 1 ]
+    @plumbing_units = [ "шт", "шт", "шт", "шт", "точек", "шт", "шт", "шт", "шт", "шт"]
+    @sum_plumbing_price = 0
+    for i in 0...@plumbing_volumes.size
+      @sum_plumbing_price +=@plumbing_prices[i]*@plumbing_volumes[i]
+    end
+
+    # Электрика
+    @electric_names = [ "Диагностика электропроводки", "Установка точечных светильников", "Прокладка проводов в гофре, трубах ПВХ" ]
+    @electric_prices = [
+      200,
+      Work.find_by_name("Монтаж светильника точечного").price.to_f,
+      Work.find_by_name("Прокладка кабеля").price.to_f
+    ]
+    @electric_volumes = [ 1, 4, 4 ]
+    @electric_units = [ "шт", "шт", "м/п" ]
+    @sum_electric_price = 0
+    for i in 0...@electric_prices.size
+      @sum_electric_price +=@electric_prices[i]*@electric_volumes[i]
+    end
+    # Общее
+    @sum_price = @sum_floor_price + @sum_wall_price + @sum_plumbing_price + @sum_electric_price + 3700
+    @one_meter_price = @sum_price / 50
   end
 
   def raschet_peskobetona_dlja_stjazhki
