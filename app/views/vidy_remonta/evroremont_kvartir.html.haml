@@ -1,2 +1,146 @@
-%h1 VidyRemonta#evroremont_kvartir
-%p Find me in app/views/vidy_remonta/evroremont_kvartir.html.haml
+%h1 Евроремонт квартир под ключ
+%article
+  - img = Image.find_by_alt("евроремонт квартир под ключ")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Несколько лет назад никто и не слышал о таком понятии, как евроремонт.
+    Употребляя этот термин, люди стремились в первую очередь подчеркнуть то, что
+    новый вид ремонта в корне отличается от того «обычного» ремонта, который
+    был весьма распространен в эпоху советских времен. Но сейчас
+    %strong
+      понятие фразы евроремонт квартир под ключ имеет более глубокий смысл,
+      особенно при выполнении работ по евроремонту квартир в столице.
+  %p
+    Выполнение евроремонта квартиры от нашей бригады частных мастеров означает,
+    что будет выполнен комплекс услуг категории
+    %strong{style: "color: #800000;"} Премиум
+    высочайшего класса и качества! Для Вашего удобства будет сделан евроремонт
+    квартиры под ключ. Вы войдет в полностью готовое и совершенно новое жилище,
+    в котором все ремонтные и строительные работы будут произведены только в
+    соответствии с Вашими желаниями и предпочтениями, а Вам останется только
+    удобно в нем расположиться!
+
+  %p{style: "color: #800000; text-align: center;"}
+    %strong Стоимость евроремонта Премиум составляет от 12 000 руб/м2
+  - img = Image.find_by_alt("evroremont_kvartiri_v_moskve")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Отметим, что наша бригада частных мастеров предлагает услуги по выполнению
+    евроремонта квартир под ключ по очень демократичным ценам и на высоком
+    профессиональном уровне. Будет идеально выполнена самая тщательная
+    подготовка и выравнивание стен, по Вашему желанию будет уложен штучный паркет,
+    = link_to "плитка с заданным рисунком", { controller: :vidy_rabot, action: :ukladka_plitki }, target: :_blank
+    , возможна фактурная окраска стен и так далее.
+  %p
+    При выполнении комплекса работ категории
+    %strong{ style: "color: #800000;" } Премиум
+    будут устроены все коммуникации: видеонаблюдение, системы доступа,
+    телефония, TV, пожарная и охранная сигнализация и так далее.
+
+  %p{style: "color: #800000; text-align: center;"}
+    %strong
+      Евроремонт квартир под ключ категории Премиум - это добротный и
+      продуманный подход для высокого качества жизни!
+
+  %h2 Евроремонт квартир под ключ и что в него входит
+  %p
+    Обычно при выполнении ремонтных работ такого рода в столице выполняется
+    определенный перечень работ. Иногда евроремонт квартир в Москве может
+    включать перепланировку всего помещения: возведение арок, снос старых
+    и возведение новых перегородок.
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %tbody
+      %tr
+        %td Демонтаж
+        %td{style: "text-align: left;"} Демонтаж внутренних НЕ несущих перегородок
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{rowspan: 4} Монтаж
+        %td{style: "text-align: left;"} Возведение прямых конструкций (кирпич, бетон)
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Возведение круглых и фигурных конструкций из ГКЛ
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Возведение перегородок
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Возведение декоративных перегородок произвольной формы
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{rowspan: 3} Стяжка
+        %td{style: "text-align: left;"} Устройство нового пола и стяжка пола по маякам (до 10 см)
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Устройство теплого пола
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Гидроизоляция пола в санузле, на кухне
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{rowspan: 3} Сантехника
+        %td{style: "text-align: left;"} Разводка сантехники (полипропилен)
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Монтаж сантехники
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: left;"} Устройство системы защиты от протечек
+        %td
+          %i.material-icons check_circle
+
+  %p{ style: "text-align: center;" }
+    %strong Смотрите полный перечень работ и стоимость евроремонта квартиры под ключ
+
+  %div{style: "text-align: center"}
+    = link_to informaciya_remont_kvartiry_premium_path, target: :_blank do
+      %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Премиум
+
+  %h2 Евроремонт или просто качественный ремонт - в чем разница?
+  - img = Image.find_by_alt("евроремонт однокомнатной квартиры под ключ в Москве, частная бригада")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Главное условие евроремонта – высочайшее качество работ. Тот факт, что
+    дизайн разрабатывался профессиональным дизайнером, не гарантирует, что Ваш
+    ремонт в квартире – это евроремонт.
+  %p
+    Вот основные стереотипы, которые прочно укоренились в сознании большинства людей:
+  %ul
+    %li Окна должны быть из металлопластика (или современные деревянные);
+    %li Двери деревянные (или металлические, но очень качественные);
+    %li Ультрасовременная сантехника (высококачественная, хромированная);
+    %li Плитка на полу и на стенах;
+    %li Потолки подвесные;
+    %li Теплоизоляция и звукоизоляция;
+    %li Вместо обоев – декоративная штукатурка или другой, альтернативный обоям способ отделки стен;
+    %li Совмещение комнат (туалет + ванная, гостиная с аркой на кухню и так далее).
+
+  %p
+    %em{ style: "color: #800000;" }
+      Все это может быть, но главное условие – работы должны выполняться профессионально!
+  %p
+    Качественный ремонт в своем доме хотят сделать все, и некоторые для этого выполняют частые
+    = link_to "косметические ремонты своей квартиры", vidy_remonta_kosmeticheskiy_remont_kvartiry_path, target: :_blank
+    , некоторые делают дизайнерские интерьеры. Но цель этого стремления одна –
+    приходить домой и наслаждаться уютом и комфортом. Но, чтобы Ваш ремонт не
+    превратился в горы сожаления и миллионы потраченных нервов, обращайтесь к
+    профессионалам!

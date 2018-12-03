@@ -19,6 +19,8 @@ class CreateImages < ActiveRecord::Migration[5.1]
 
       t.attachment :info_image
 
+      t.attachment :vid_remonta_image
+
       t.timestamps
     end
   end
