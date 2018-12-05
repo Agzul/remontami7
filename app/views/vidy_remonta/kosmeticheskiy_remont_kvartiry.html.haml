@@ -1,2 +1,201 @@
-%h1 VidyRemonta#kosmeticheskiy_remont_kvartiry
-%p Find me in app/views/vidy_remonta/kosmeticheskiy_remont_kvartiry.html.haml
+%h1 Косметический ремонт квартир
+%article
+  - img = Image.find_by_alt("косметический ремонт квартир")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Современный косметический ремонт квартир и его инновационные техники отделки
+    способны подарить Вашему жилью второе дыхание за небольшие деньги. Наши
+    частные мастера выполнят для Вас такую отделку помещения в Москве и
+    Подмосковье!
+  %p
+    Предлагаем Вам комплекс работ по косметическому ремонту квартир
+    %strong{ style: "color: #800;" } Эконом
+    в столице, отличающийся низкой стоимостью работ и максимальной
+    эффективностью в изменении внешнего вида помещения. Комплекс отделочных
+    работ категории
+    %strong{ style: "color: #800;" } Эконом
+    подобран таким образом, что гарантирует малый расход строительных материалов,
+    небольшой объем работ и, соответственно, низкие финансовые траты.
+
+  %p{ style: "color: red; text-align: center;" }
+    %strong
+      Стоимость косметического ремонта Эконом составит 2 900* руб/м
+      %sup 2
+
+  %p
+    %span{ style: "color: red;" } *
+    = "- стоимость может измениться, если Вы сами внесете дополнительные работы"
+    (или исключите некоторые) в перечень услуг.
+
+  %p{ style: "text-align: center; color: #800;" }
+    Косметический ремонт квартиры Эконом - недорого, быстро, эффективно!
+
+  %p
+    Косметическая отделка жилья способна сильно преобразить внутреннее убранство
+    комнат, привнести в Вашу жизнь новые ощущения, поднять настроение и
+    жизненный тонус. Зачастую именно "косметика" квартиры становится отправной
+    точкой для новых замыслов и фантазий в обустройстве своего жилого пространства.
+
+  %h2 Что входит в косметический ремонт квартиры Эконом
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %tbody
+      %tr
+        %td{ rowspan: 4 }
+          %strong Демонтаж
+        %td Снятие обоев
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Удаление старой краски, шпаклевки с потолка
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Демонтаж линолеума или ламината
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Демонтаж плинтуса
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{ rowspan: 3 }
+          %strong Стены
+        %td Грунтовка стен
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Поклейка обоев (винил, флизелин)
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Монтаж пластиковых панелей (санузел)
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{ rowspan: 3 }
+          %strong Потолок
+        %td Грунтовка, шпатлевка потолка
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Покраска потолка
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Устройство реечного потолка в санузле
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{ rowspan: 3 }
+          %strong Пол
+        %td Укладка ламината
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Укладка кафеля на кухне
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Укладка плитки в санузле
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{ rowspan: 2 }
+          %strong Электрика
+        %td Монтаж вентилятора в санузле
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Монтаж розеток, выключателей в готовую коробку
+        %td
+          %i.material-icons check_circle
+
+  %p{ style: "text-align: center; margin: 20px 0;" }
+    %strong Ознакомьтесь с перечнем работ и стоимостью ремонта Эконом
+
+  %div{style: "text-align: center; margin: 20px 0;"}
+    = link_to informaciya_remont_kvartiry_jekonom_path, target: :_blank do
+      %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Эконом
+
+  %p{ style: "color: #800;" }
+    %em
+      Мы поможем подобрать оптимальные техники и отделочные материалы, которые
+      будут не только обладать необходимыми именно Вам свойствами, но и защитят
+      Ваш бюджет от лишних трат.
+
+  %h2 Косметический ремонт квартир в Москве и его этапы
+  - img = Image.find_by_alt("косметический ремонт квартир в Москве")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Что входит в косметический ремонт квартир в Москве? Начало отделочных работ
+    всегда начинается с демонтажа – это удаление старых обоев, очистка потолка
+    от покраски и удаление прочих покрытий. Обычно такой вид ремонта частные
+    мастера делают с включением следующих работ:
+  %ul
+    %li= link_to "Покраска и отделка стен и потолков;", vidy_rabot_pokraska_sten_potolka_cena_path, target: :_blank
+    %li Поклейка обоев в квартире;
+    %li Монтаж подвесных потолков (при необходимости);
+    %li
+      Укладка паркетной доски,
+      = link_to "укладка ламининированного паркета", vidy_rabot_ukladka_laminata_cena_path, target: :_blank
+      , линолеума, ковролина и так далее, монтаж плинтусов;
+    %li Установка сантехнических деталей (мойки, смесители и прочее);
+    %li Сбор и перенос выключателей, розеток;
+    %li Сборка мебели.
+  %p
+    Изредка для выполнения косметического ремонта квартир в столичном регионе
+    составляется дизайн-проект, но лишь в тех случаях, когда планировка и
+    оборудование устраивают заказчика, но требуется сменить стилевое решение
+    интерьера.
+
+  %h2 Преимущества косметического ремонта квартир под ключ
+  - img = Image.find_by_alt("косметический ремонт квартир под ключ")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Основные преимущества косметического ремонта квартир  – экономичность,
+    быстрота и эффективность! По сравнению с капитальным ремонтом квартир этот
+    отличается меньшим объемом работ и относительно низким расходом отделочных
+    и строительных материалов.
+  %p
+    Сделать качественный косметический ремонт московской квартиры под ключ
+    значит "на отлично" выполнить отделочные работы, но не затрагивающие
+    основные конструкции здания, сантехнические и электрические магистрали.
+    Такой ремонт может быть простым и сложным.
+  %table
+    %tbody
+      %tr
+        %td
+          %i.material-icons search
+        %td Простой – восстанавливаем уже существующий внешний вид помещения, не меняем характер отделки
+      %tr
+        %td
+          %i.material-icons search
+        %td Сложный – значительно и кардинально меняем внешний вид комнаты, используем совершенно новые отделочные техники и материалы
+
+  %p{ style: "color: #800;" }
+    %em
+      Сегодня косметический ремонт квартиры – это не головная боль и не роскошь!
+      Он становится поистине эффективным и качественным решением обновления
+      помещений, но при условии, что работы выполнят профессионалы.
+  %table
+    %tbody
+      %tr
+        %td
+          %i.material-icons warning
+        %td
+          В заключении необходимо сказать, что если здание находится в плохом
+          состоянии или предыдущий ремонт проводился более 10 лет назад, то
+          "косметика" может оказаться не очень эффективным и практичным
+          решением, как ожидалось. Если Вам требуется косметический ремонт
+          жилья, то наши специалисты объективно оценят помещение и сделают
+          обоснованные выводы о пользе такого ремонта именно в Вашем случае,
+          помогут подобрать оптимальные варианты отделки и строительные материалы.
