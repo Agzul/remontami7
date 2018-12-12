@@ -1,2 +1,208 @@
-%h1 VidyRemonta#remont_kvartir_pod_klyuch
-%p Find me in app/views/vidy_remonta/remont_kvartir_pod_klyuch.html.haml
+%h1 Ремонт квартир в Москве под ключ
+%article
+  - img = Image.find_by_alt("remont-kvartir-v-moskve-pod-klyuch")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Осуществить ремонт квартир в Москве под ключ – об этом мечтает каждый
+    владелец жилья! Но сначала нужно выяснить, что значит ремонт под ключ?
+    %strong
+      Это целый комплекс взаимосвязанных отделочных, монтажных,
+      электротехнических работ
+    , которые предварительно согласованы с заказчиком и осуществляются согласно
+    смете и срокам, по достижении которых заказчик сможет въехать в
+    отремонтированное жилище.
+  %p
+    Если Вам требуется сделать ремонт своей московской квартиры под ключ
+    недорого, но в результате получить полностью обновленную и максимально
+    удобную квартиру, то самым лучшим и оптимальным выбором станет ремонт
+    квартиры под ключ категории
+    %strong{ style: "color: #800;" } Комфорт
+    или
+    %strong{ style: "color: #800;" } Комфорт Плюс.
+  %p
+    По сути данный вид ремонта является капитальным, но выполняется по
+    улучшенному проекту. В результате будет выполнена утепленная стяжка пола с
+    выравниванием по маякам, устройство подвесного и натяжного потолка разной
+    конфигурации, выравнивание всех поверхностей в ноль, монтаж сантехники и
+    устройство электрики. Ваша квартира после качественного ремонта приобретет
+    индивидуальность и функциональность!
+
+  %p{ style: "color: #800; text-align: center;" }
+    %strong
+      Ремонт квартиры под ключ категории Комфорт / Комфорт Плюс - максимальный
+      эффект по минимальным ценам!
+
+  %p
+    Наши специалисты грамотно и профессионально выполнят все необходимые для
+    ремонта строительные работы, но по доступной цене! Таким образом, стоить
+    ремонт квартиры под ключ будет недорого.
+
+  %p{ style: "color: red; text-align: center;" }
+    %strong
+      Ремонт категории Комфорт цена 6 700
+      %sup *
+      руб/м
+      %sup 2
+
+  %p{ style: "color: red; text-align: center;" }
+    %strong
+      Ремонт категории Комфорт Плюс цена 8 200
+      %sup *
+      руб/м
+      %sup 2
+
+  %p
+    * - стоимость работ может изменится только после внесения изменений Вами
+    в перечень работ.
+
+  %h2 Что входит в ремонт под ключ категории Комфорт / Комфорт Плюс
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th
+        %th{ style: "text-align: center;" }
+          %strong Наименование работ
+        %th{ style: "text-align: center;" }
+          %strong Комфорт
+        %th{ style: "text-align: center;" }
+          %strong Комфорт Плюс
+    %tbody
+      %tr
+        %td{ style: "text-align: center;", rowspan: 4 }
+          %strong
+            Стяжка пола
+        %td{ style: "text-align: center;" } Устройство нового пола. Стяжка по маякам (до 5 см)
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+        %td{ style: "text-align: center;" }
+      %tr
+        %td{ style: "text-align: center;" } Устройство нового пола. Стяжка по маякам с керамзитом (более 7 см)
+        %td{ style: "text-align: center;" }
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;" } Монтаж теплого пола (санузел)
+        %td{ style: "text-align: center;" }
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;" } Гидроизоляция пола (санузел)
+        %td{ style: "text-align: center;" }
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+
+      %tr
+        %td{ style: "text-align: center;", rowspan: 2 }
+          %strong
+            Сантехника
+        %td{ style: "text-align: center;" } Разводка и монтаж сантехники полипропилен (полный комплекс)
+        %td{ style: "text-align: center;" }
+          %strong 6 точек
+        %td{ style: "text-align: center;" }
+          %strong 8 точек
+      %tr
+        %td{ style: "text-align: center;" } Штробление стен под трубы
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+
+      %tr
+        %td{ style: "text-align: center;", rowspan: 3 }
+          %strong
+            Электрика
+        %td{ style: "text-align: center;" } Монтаж новой системы электроснабжения (в одной комнате не более)
+        %td{ style: "text-align: center;" }
+          %strong 5 точек
+        %td{ style: "text-align: center;" }
+          %strong 7 точек
+      %tr
+        %td{ style: "text-align: center;" } Монтаж электрощита с автоматами
+        %td{ style: "text-align: center;" }
+          %strong 12 автоматов
+        %td{ style: "text-align: center;" }
+          %strong 18 автоматов
+      %tr
+        %td{ style: "text-align: center;" } Прокладка кабеля + штробление
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+
+  %p{ style: "text-align: center; margin: 20px 0 0 0;" }
+    %strong
+      Смотрите подробнее: ремонт под ключ и цена за квадратный метр
+
+  %table{ style: "width: 100%;" }
+    %tbody
+      %tr
+        %td
+          %div{style: "text-align: center; margin: 20px 0;"}
+            = link_to informaciya_remont_kvartiry_komfort_path, target: :_blank do
+              %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Комфорт
+        %td
+          %div{style: "text-align: center; margin: 20px 0;"}
+            = link_to informaciya_remont_kvartiry_komfort_pljus_path, target: :_blank do
+              %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Комфорт Плюс
+  %p
+    Почему-то бытует мнение, что ремонт однокомнатной или любой другой квартиры
+    под ключ могут себе позволить только состоятельные граждане, но это не верно.
+    Сейчас можно сделать его качественно и недорого даже в столице, ведь с каждым
+    днем появляются новые строительные материалы и техники отделки, которые
+    очень выгодны экономически. Наши опытные мастера знают, как сократить
+    расходы без ущерба качеству даже при небольшом бюджете!
+
+  %h2 Ремонт квартир под ключ и его главные преимущества
+
+  %table{ style: "margin: 20px 0;" }
+    %tbody
+      %tr
+        %td
+          %i.material-icons arrow_forward
+        %td
+          %strong минимальные затраты времени.
+          Весь комплекс ремонтных работ выполняет один подрядчик, и заказчик
+          не тратит время на поиски специалистов для выполнения отдельно взятых
+          работ, например, электромонтажных, сантехнических, плиточных и так далее;
+      %tr
+        %td
+          %i.material-icons arrow_forward
+        %td
+          %strong работы проводит одна и та же компания,
+          что исключает всевозможные недоделки после каждого этапа ремонта.
+          Все наши мастера работают четко и слаженно;
+      %tr
+        %td
+          %i.material-icons arrow_forward
+        %td
+          %strong нет необходимости метаться по городу в поисках необходимых стройматериалов.
+          Наши специалисты имеют долгосрочное сотрудничество с оптовыми
+          поставщиками строительных материалов и готовы предоставить Вам скидки.
+
+  - img = Image.find_by_alt("remont-kvartir-pod-klyuch")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Согласитесь, в силу тотальной занятости и активности современных людей
+    возможность сделать ремонт квартир под ключ быстро, качественно и недорого
+    очень важна. И это касается не только тех заказчиков, у которых
+    катастрофически не хватает времени на ремонт.
+  %p
+    Сделать качественный профессиональный ремонт квартиры под ключ выгодно и
+    тем, кто хоть однажды столкнулся с недобросовестным отношением к ремонту и
+    необходимостью переделывания плохой работы.
+  %p
+    Очевидно, что у этого вида ремонта масса преимуществ, именно поэтому он
+    стал так популярен среди тех, кто хочет въехать в полностью готовую для
+    проживания квартиру без проблем.
+
+  %p{ style: "color: blue; text-align: center;" }
+    %strong
+      Чтобы оградить себя от многих разочарований и временных затрат, нужен
+      качественный ремонт под ключ и работа профессионалов!
