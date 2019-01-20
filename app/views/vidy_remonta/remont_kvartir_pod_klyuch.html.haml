@@ -2,9 +2,9 @@
 %article
   - img = Image.find_by_alt("remont-kvartir-v-moskve-pod-klyuch")
   - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
   - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
   %p
     Осуществить ремонт квартир в Москве под ключ – об этом мечтает каждый
     владелец жилья! Но сначала нужно выяснить, что значит ремонт под ключ?
@@ -185,9 +185,9 @@
 
   - img = Image.find_by_alt("remont-kvartir-pod-klyuch")
   - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
   - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
   %p
     Согласитесь, в силу тотальной занятости и активности современных людей
     возможность сделать ремонт квартир под ключ быстро, качественно и недорого

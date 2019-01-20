@@ -1,2 +1,167 @@
-%h1 VidyRemonta#chernovoj_remont_v_novostrojke
-%p Find me in app/views/vidy_remonta/chernovoj_remont_v_novostrojke.html.haml
+%h1 Черновой ремонт в новостройке
+%article
+  %p
+    Сейчас многие люди покупают квартиры, которые требуют черновой отделки.
+    И это касается не только приобретаемых квартир в новостройках, но и
+    вторичного жилья.
+    %strong Черновой ремонт в новостройке
+    особенно популярен, потому что данные работы являются основой всех
+    дальнейших отделочных работ в новой квартире. Черновой ремонт квартир в
+    новостройках должен быть выполнен профессионально и качественно.
+  %p
+    Черновой ремонт квартир в новостройках включает в себя проведение работ по
+    подготовке стен, пола и потолка к дальнейшей чистовой финишной отделке. Наша
+    бригада предлагает черновую отделку новой (или старой) квартиры в двух вариантах:
+    %strong{ style: "color: #800;" } Стандарт
+    и
+    %strong{ style: "color: #800;" } Комфорт.
+
+  %strong
+    %span{ style: "text-align: center; color: red; display: block;" }
+      Черновой ремонт Стандарт - от 2 800
+      %sup *
+      руб/м
+      %sup 2
+  %strong
+    %span{ style: "text-align: center; color: red; display: block;" }
+      Черновой ремонт Комфорт - от 4 100
+      %sup *
+      руб/м
+      %sup 2
+
+  %p
+    * - сумма может измениться в том случае, если Вы сами внесете дополнения в
+    перечень работ (цена квадратного метра зависит от разных параметров:
+    квадратура объекта, количество возведения перегородок, количество стен,
+    высота потолков, количество сантехнических точек, количество прокладки
+    кабеля и др.)
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th{style: "text-align: center;"}
+        %th{style: "text-align: center;"} Перечень работ
+        %th{style: "text-align: center;"} Стандарт
+        %th{style: "text-align: center;"} Комфорт
+    %tbody
+      %tr
+        %td{style: "text-align: center;", rowspan: 3} Стяжка
+        %td{style: "text-align: center;"} Устройство пола и выполнение стяжки по маякам до 5 см
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+        %td{style: "text-align: center;"}
+      %tr
+        %td{style: "text-align: center;"} Устройство пола и выполнение стяжки по маякам более 7 см (с керамзитом)
+        %td{style: "text-align: center;"}
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: center;"} Гидроизоляция пола в санузле
+        %td{style: "text-align: center;"}
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: center;"} Сантехника
+        %td{style: "text-align: center;"} Разводка сантехники (полипропилен)
+        %td{style: "text-align: center;"}
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: center;", rowspan: 2} Электрика
+        %td{style: "text-align: center;"} Прокладка кабелей
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: center;"} Устройство эл.щитка с автоматами
+        %td{style: "text-align: center;"}
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: center;", rowspan: 4} Стены
+        %td{style: "text-align: center;"} Грунтовка стен
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: center;"} Штукатурка стен по маякам
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: center;"} Штукатурка дверных и оконных откосов
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+      %tr
+        %td{style: "text-align: center;"} Возведение перегородок
+        %td{style: "text-align: center;"}
+        %td{style: "text-align: center;"}
+          %i.material-icons check_circle
+
+  %h2 Ознакомьтесь с подробными ценами на работы по черновому ремонту
+  %table{style: "width: 100%;"}
+    %tbody
+      %tr
+        %td
+          %div{style: "text-align: center; margin: 20px 0;"}
+            = link_to informaciya_remont_kvartiry_standart_path, target: :_blank do
+              %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Стандарт
+        %td
+          %div{style: "text-align: center; margin: 20px 0;"}
+            = link_to informaciya_chernovoj_remont_komfort_path, target: :_blank do
+              %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Комфорт
+
+  %h3 Преимущества чернового ремонта
+  %p
+    Черновой ремонт в новостройке будет очень удобен в том случае, если Вам
+    необходимо отложить покупку стройматериалов для чистовой отделки квартиры и
+    оплату работ по ним. Черновой ремонт также будет полезен, если требуется
+    оценить профессионализм и порядочность исполнителей.
+  %table
+    %tbody
+      %tr
+        %td
+          %i.material-icons arrow_forward
+        %td Покупка материалов для чистовых отделочных работ позднее;
+      %tr
+        %td
+          %i.material-icons arrow_forward
+        %td Выполнение и оплата чистовых отделочных работ позднее;
+      %tr
+        %td
+          %i.material-icons arrow_forward
+        %td Оценка уровня профессионализма и порядочность данного исполнителя.
+
+  %h4 Что потребуется от Вас перед выполнением чернового ремонта?
+  - img = Image.find_by_alt("черновой ремонт квартиры")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Черновой ремонт квартир под дальнейшую отделку в новостройках имеет свои
+    особенности, и для того, чтобы работы было выполнены максимально качественно,
+    необходимо знать и представлять, что будет в квартире.
+  %ol
+    %li Если в квартире предполагается перепланировка, надо иметь план или дизайн-проект будущей квартиры;
+    %li Хорошо знать, где будут перегородки: какие будем убирать, какие и где возводить, какие оставлять как есть;
+    %li Определить места для установки электрооборудования. Для этого нужно знать места установки телевизоров, люстр и других электроприборов. Это поможет максимально удобно для Вас выполнить монтаж розеток и всей электропроводки;
+    %li Места установки сантехники, их количество и тип;
+    %li Определить тип отделки стен, потолка и пола (подготовка стен под покраску, под обои, пол под паркет или кафель и  так далее);
+    %li Выбрать местонахождение датчиков теплого пола (если по дизайну в квартире будет теплый пол).
+  %p
+    %span{ style: "color: #800;" } Пояснение:
+    Например, в прихожей у Вас будет ламинат, а на кухне плитка. Высота этих
+    покрытий может быть различная. Для того, чтобы в итоге поверхность пола была
+    ровной, необходимо выровнять его с помощью стяжки. А для этого как раз
+    требуется понимать разницу толщины покрытий.
+
+  %h4 Сроки выполнения чернового ремонта
+  %p
+    Конечно, сроки работ напрямую будут зависеть от площади квартиры и могут
+    длиться от 3-4 недель до 2-х месяцев.
