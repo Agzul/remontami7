@@ -1,2 +1,146 @@
-%h1 VidyRemonta#kosmeticheskij_remont_komnaty
-%p Find me in app/views/vidy_remonta/kosmeticheskij_remont_komnaty.html.haml
+%h1 Косметический ремонт комнаты
+%article
+  %p
+    Для того, что бы дом стал уютнее и комфортнее, превратился в тот самый
+    родной уголок, располагающий к отдыху и наслаждению жизнью, необходимо
+    следить за внешним видом квартиры и своевременно выполнять
+    %strong косметический ремонт комнаты,
+    который готовы выполнить наши частные мастера.
+  %p
+    Принято считать, что ремонт – удовольствие дорогое, но при обращении к нам
+    это утверждение не верно. Позвоните и убедитесь в этом сами!
+
+  %table{style: "width: 100%;"}
+    %tbody
+      %tr
+        - unless browser.device.mobile?
+          %td{ rowspan: 3 }
+            - img = Image.find_by_alt("contact")
+            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
+        %td
+          %span
+            %strong
+              По тел:
+              %a{ href: "tel:#{@default_phone_normal}", class: "blue" }= @default_phone
+        - unless browser.device.mobile?
+          %td{ rowspan: 3 }
+            - img = Image.find_by_alt("qr-code")
+            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
+      %tr
+      %tr
+        %td
+          %span
+            %strong
+              По почте:
+              %a{ href: "/mail", target: "_blank", class: "blue" } info@remontami7.ru
+
+  %h2 Что входит в косметический ремонт комнаты
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %tbody
+      %tr
+        %td{ style: "text-align: center;", rowspan: 4 }
+          %strong Демонтаж
+        %td Удаление обоев
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Удаление старой краски, шпатлевки
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Снятие линолуема
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Демонтаж плинтуса
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;", rowspan: 3 }
+          %strong Потолок
+        %td Шпатлевка потолка
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Грунтовка потолка
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Покраска потолка
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;", rowspan: 3 }
+          %strong Стены
+        %td Шпатлевка стен
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Грунтовка стен
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Поклейка обоев
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;", rowspan: 2 }
+          %strong Пол
+        %td Укладка ламината
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Монтаж пластиковых плинтусов
+        %td
+          %i.material-icons check_circle
+
+  %h3 Узнайте цены и перечень работ на косметический ремонт комнаты
+  %div{style: "text-align: center; margin: 20px 0;"}
+    = link_to informaciya_kosmeticheskij_remont_komnaty_ceny_path, target: :_blank do
+      %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Подробнее
+
+  %h2 Косметический ремонт отдельных комнат и его преимущество
+  - img = Image.find_by_alt("косметический ремонт комнаты")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Всем известно, что на ремонт всей квартиры нужно потратить больше средств,
+    чем на ремонт одной комнаты. И если необходимо изменить и освежить интерьер
+    всей квартиры, то можно делать это поэтапно, самым оптимальным образом решая
+    вопрос о финансировании ремонтных работ.
+  %p
+    Делать косметический ремонт отдельных комнат выгоднее не только в денежном
+    плане – владельцу жилья нет необходимости переезжать в другое помещение. В
+    каждом конкретном случае необходимо основательно подбирать не только
+    варианты отделки, но и практичность используемых строительных и отделочных
+    материалов.
+  %p
+    Если необходимо произвести ремонт в служебных помещениях, в офисах, то отделка
+    отдельных комнат выгодна тем, что позволяет не прерывать трудовой процесс и не
+    срывать важные переговоры и поставки.
+  - img = Image.find_by_alt("косметический ремонт комнаты в Москве")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Большое значение имеет назначение комнаты, и здесь необходимо тщательно
+    учесть предпочтения будущего жильца. В каждом конкретном случае необходимо
+    основательно подбирать не только варианты отделки, но и практичность
+    используемых строительных и отделочных материалов.
+  %p
+    Если правильно продумать интерьер и все детали будущего ремонта комнаты, то
+    можно сделать очень уютное гнездышко из стандартной небольшой хрущевки, а
+    комната в коммуналке превратится в роскошную квартиру-студию.
+  %p{ style: "color: #800;" }
+    %em
+      Заказывая у нас косметический ремонт комнат, Вы гарантированно получите
+      наилучший результат без излишних расходов и в короткие сроки!
+  %p
+    Наши специалисты являются мастерами высокого класса, хорошо владеют
+    современными техниками отделки и разбираются в характеристиках современных
+    строительных материалов. Именно поэтому они сделают косметическую отделку в
+    комнате в Москве и Подмосковье профессионально и качественно, а результат
+    превзойдет Ваши ожидания.
