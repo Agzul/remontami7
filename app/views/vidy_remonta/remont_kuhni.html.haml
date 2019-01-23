@@ -1,2 +1,127 @@
-%h1 VidyRemonta#remont_kuhni
-%p Find me in app/views/vidy_remonta/remont_kuhni.html.haml
+%h1 Ремонт кухни 6 кв м
+%article
+  - img = Image.find_by_alt("remont-kuhni-6-kv.m")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Если у Вас кухонное помещение небольшое, оптимально использовать
+    пространство поможет ремонт кухни 6 кв м, который выполнит наш частный
+    мастер. Некоторые считают, что кухня - это лишь то место, где готовят еду.
+  %p
+    %strong На самом деле современная кухня - это символ уюта и крепких семейных отношений.
+    Ведь именно здесь собирается вся семья, чтобы за ужином обсудить прошедший
+    день, его радости и удачи.
+  %p
+    Зачастую именно на кухне вся семья планирует и обсуждает завтрашний день.
+    Наши частные мастера отремонтируют кухню профессионально, быстро и всегда
+    учитывая важность этого помещения.
+  %p{ style: "margin: 10px 0; text-align: center;" }
+    %em
+      Сегодня даже малогабаритная кухня просто обязана быть удобной,
+      современной и поднимать настроение!
+  %p{ style: "margin: 10px 0; text-align: center;" }
+    %strong Вы можете посмотреть примерный перечень работ по ремонту кухни 6 кв м
+  %div{style: "text-align: center; margin: 20px 0;"}
+    = link_to informaciya_kosmeticheskij_remont_kuhni_cena_path, target: :_blank do
+      %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Подробнее
+  %p
+    Стоимость ремонта кухни зависит от объёма работ, их сложности и общей
+    площади помещения. Точную цену ремонта кухни можно определить только после
+    осмотра мастером места работ и замеров площади. Выезд мастера бесплатно!
+    Ориентировочную стоимость можно узнать у нашего оператора
+
+  %table{style: "width: 100%;"}
+    %tbody
+      %tr
+        - unless browser.device.mobile?
+          %td{ rowspan: 3 }
+            - img = Image.find_by_alt("contact")
+            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
+        %td
+          %span
+            %strong
+              По тел:
+              %a{ href: "tel:#{@default_phone_normal}", class: "blue" }= @default_phone
+        - unless browser.device.mobile?
+          %td{ rowspan: 3 }
+            - img = Image.find_by_alt("qr-code")
+            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
+      %tr
+      %tr
+        %td
+          %span
+            %strong
+              По почте:
+              %a{ href: "/mail", target: "_blank", class: "blue" } info@remontami7.ru
+
+  %h2 Ремонт кухни 6 кв м в Москве
+  - img = Image.find_by_alt("remont-malogabaritnoy-kuhni")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Возникает множество вопросов, если необходимо сделать ремонт на
+    малогабаритной кухне площалью 6 кв м или чуть больше . В наше время
+    существует определенный набор необходимой на кухне мебели и техники,
+    без которого современная хозяйка совсем не может обойтись, даже если очень
+    захочет.
+  %p
+    %strong
+      Вот несколько особенностей, которых придерживаются наши частные мастера,
+      выполняя ремонт шестиметровой кухни, например:
+  %table
+    %tbody
+      %tr
+        %td
+          %i.material-icons search
+        %td не устанавливать плиту непосредственно около окна;
+      %tr
+        %td
+          %i.material-icons search
+        %td обеспечить расстояние между мойкой и плитой;
+      %tr
+        %td
+          %i.material-icons search
+        %td не устанавливать над плитой ничего кроме вытяжки;
+      %tr
+        %td
+          %i.material-icons search
+        %td использовать подвесные шкафы, они хорошо экономят пространство;
+      %tr
+        %td
+          %i.material-icons search
+        %td сделать застройку пространства под раковиной;
+      %tr
+        %td
+          %i.material-icons search
+        %td устанавливать шкафы с раздвижными дверцами;
+      %tr
+        %td
+          %i.material-icons search
+        %td обеспечить максимально большую рабочую поверхность.
+
+  %h2 Ремонт кухни под ключ
+  - img = Image.find_by_alt("remont-kuhni-v-moskve")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Наши частные мастера выполнят ремонт кухни в столице и ближнем Подмосковье
+    под ключ любой площади в соответствии со всеми стандартами безопасности.
+    Для этого специалисты тщательно спланируют систему электричества,
+    водоснабжения и вентиляции.
+  %p
+    На современной кухне присутствует большое количество электроприборов.
+    Обращаясь к профессионалам, Вы сводите к минимуму риск возникновения
+    неприятных ситуаций в будущем.
+    %strong Ваша кухня всегда будет безопасна!
+  %p
+    Сделать ремонт кухни площадью 8 кв метров, в квартире с улучшенной
+    планировкой под ключ или в сталинке очень просто, для этого обратитесь к
+    нашим специалистам. Они подробно выяснят Ваши пожелания, предложат самый
+    оптимальный способ достижения поставленной цели, а так же подберут
+    необходимые отделочные материалы без лишних бессмысленных переплат!
