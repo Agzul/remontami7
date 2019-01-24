@@ -1,2 +1,193 @@
-%h1 VidyRemonta#remont_koridora_pod_kljuch
-%p Find me in app/views/vidy_remonta/remont_koridora_pod_kljuch.html.haml
+%h1 Ремонт коридора под ключ
+%article
+  - img = Image.find_by_alt("ремонт коридора под ключ")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Обновляя облик своего жилья и делая ремонт коридора под ключ в квартире,
+    многие считают, что этому помещению требуется не очень много внимания. И
+    зря. Во-первых, прихожая в доме - это визитная карточка всего жилья. Гости
+    формируют первое впечатление о квартире именно по состоянию прихожей.
+    Во-вторых, прихожая в квартире – это особенное помещение, которое нас
+    встречает и провожает.
+  %p
+    В прихожей должно быть все продумано до мелочей, иначе мы рискуем получить
+    при выходе из дома заряд раздражения: то зонтик куда-то задевался, то ключи
+    завалились… Ну и в-третьих, прихожая чуть-чуть ограничивает доступ в
+    квартиру нежелательных гостей и незнакомцев.
+  %hr
+  %p{style: "font-size: 1.3em; color: #800;"}
+    %strong
+      Ремонт в прихожей от бригады Ремонтами7 - качественно, недорого,
+      практично и в срок!
+  %hr
+  %p
+    Наша бригада частных мастеров сделает Вашу прихожую удобной, красивой и
+    индивидуальной! Звоните, и мы сделаем полный комплекс ремонтных и отделочных
+    работ в коридоре под ключ по адекватным ценам, а наш опыт и долговременные
+    контакты с поставщиками стройматериалов помогут максимально снизить
+    стоимость работ.
+  %table{style: "width: 100%;"}
+    %tbody
+      %tr
+        - unless browser.device.mobile?
+          %td{ rowspan: 3 }
+            - img = Image.find_by_alt("contact")
+            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
+        %td
+          %span
+            %strong
+              По тел:
+              %a{ href: "tel:#{@default_phone_normal}", class: "blue" }= @default_phone
+        - unless browser.device.mobile?
+          %td{ rowspan: 3 }
+            - img = Image.find_by_alt("qr-code")
+            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
+      %tr
+      %tr
+        %td
+          %span
+            %strong
+              По почте:
+              %a{ href: "/mail", target: "_blank", class: "blue" } info@remontami7.ru
+
+  %h2 Ремонт коридора в квартире
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp{ style: "min-width: 75%; margin: auto;" }
+    %thead
+      %tr
+        %th{ style: "text-align: center;" } Наименование работ
+        %th{ style: "text-align: center;" }
+          Цена за м
+          %sup 2
+    %tbody
+      %tr
+        %td{ style: "text-align: center;" } Оштукатуривание поверхностей
+        %td{ style: "text-align: center;" }
+          от
+          %strong= Work.find_by_name("Штукатурка стен по маякам (толщина слоя до 3 см)").price
+          руб
+      %tr
+        %td{ style: "text-align: center;" } Шпаклевание стен под покраску
+        %td{ style: "text-align: center;" }
+          от
+          %strong= Work.find_by_name("Шпаклевка стен под покраску (3 слоя)").price
+          руб
+      %tr
+        %td{ style: "text-align: center;" } Шпаклевание стен под обои
+        %td{ style: "text-align: center;" }
+          от
+          - link = url_for controller: :vidy_rabot, action: :shpaklevka_sten_pod_oboi_ceny, only_path: true
+          %strong= Work.find_by_name("<a href='#{link}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").price
+          руб
+      %tr
+        %td{ style: "text-align: center;" } Монтаж электроточки
+        %td{ style: "text-align: center;" }
+          от
+          %strong= Work.find_by_name("Электромонтаж (розетка, выключатель, освещение)").price
+          руб
+      %tr
+        %td{ style: "text-align: center;" } Стяжка пола
+        %td{ style: "text-align: center;" }
+          от
+          - link = url_for controller: :vidy_rabot, action: :samovyravnivajushhajasja_stjazhka, only_path: true
+          %strong= Work.find_by_name("Чистовая <a href='#{link}' target='_blank'>cтяжка самовыравнивающейся смесью</a> до 5 мм (наливной пол)").price
+          руб
+      %tr
+        %td{ style: "text-align: center;" } Укладка ламината + укладка подложки
+        %td{ style: "text-align: center;" }
+          от
+          - link = url_for controller: :vidy_rabot, action: :ukladka_laminata_cena, only_path: true
+          %strong= Work.find_by_name("<a href='#{link}' target='_blank'>Укладка ламината</a>&nbsp;в комнате по прямой + укладка подложки").price
+          руб
+      %tr
+        %td{ style: "text-align: center;" } Укладка плитки керамической + затирка
+        %td{ style: "text-align: center;" }
+          от
+          - link = url_for controller: :vidy_rabot, action: :ukladka_plitki, only_path: true
+          %strong= Work.find_by_name("<a href='#{link}' target='_blank'>Укладка плитки</a> 20х30, 20х40, 30х40").price.to_i + Work.find_by_name("Затирка швов плитки 20х30, 20х40, 30х30, 40х40 (пол, стены)").price.to_i
+          руб
+      %tr
+        %td{ style: "text-align: center;" } Покраска стен, потолка (1 слой)
+        %td{ style: "text-align: center;" }
+          от
+          %strong= 90
+          руб
+      %tr
+        %td{ style: "text-align: center;" } Поклейка обоев
+        %td{ style: "text-align: center;" }
+          от
+          - link = url_for controller: :vidy_rabot, action: :pokleyka_oboev_cena, only_path: true
+          %strong= Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price
+          руб
+  %p
+    Смотрите
+    = link_to "наши Цены", ceny_path
+
+  %p{ style: "text-align: center; font-size: 1.2em;" }
+    Узнайте стоимость отделки и косметического ремонта в прихожих (коридоре)
+    %div{style: "text-align: center; margin: 20px 0;"}
+      = link_to informaciya_cena_remonta_koridora_path, target: :_blank do
+        %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Подробнее
+
+  %h2 Ремонт небольшого коридора в хрущевке
+  - img = Image.find_by_alt("ремонт прихожей в хрущевке")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Чаще всего бывает так, что площадь коридора невелика, а функциональность и
+    удобство должны быть максимальными. Часто этой проблемой грешат коридоры в
+    хрущевках. Решить проблему отчасти помогут современные производители мебели
+    для прихожих и коридоров: вместительные шкафы-купе, множество удобных полок.
+    Но для того, чтобы коридор стал достойной визитной карточкой всей квартиры,
+    отделка должна выполняться профессионалами.
+  %p
+    Если правильно выбрать материалы для отделки коридора в хрущевской квартире,
+    то можно значительно снизить общую стоимость затрат и визуально увеличить
+    небольшое пространство. Обратитесь к нашим специалистам, и они предложат
+    оптимальные варианты отделочных материалов и техник выполнения для
+    недорогого, качественного и красивого ремонта коридора и прихожей в хрущевке.
+
+  %h2 Ремонт прихожей в панельном доме, особенности
+  - img = Image.find_by_alt("ремонт прихожей в панельном доме")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    При выполнении ремонта прихожей в панельном доме есть несколько
+    рекомендаций, на которые желательно обратить внимание:
+  %ul
+    %li
+      Обычно в прихожей устанавливается домофон, электрощит. Установка этого
+      оборудования должна производиться специалистом соответствующей квалификации;
+    %li
+      Установка светильников в прихожей несколько отличается от обычного
+      освещения, все будет зависеть от формы и общей площади прихожей;
+    %li
+      При выборе напольного покрытия для прихожей учитывайте износоустойчивость
+      и легкость мытья, так как коридор в квартире подвержен частому загрязнению;
+    %li
+      При отделке стен в прихожей выбирайте материалы, которые легко и просто
+      моются. Все-таки нагрузка на прихожую большая, и это помещение проходят чаще.
+  %p
+    Делая ремонт небольшой прихожей в панельном доме, можно визуально увеличить
+    пространство, правильно выбрав цветовую гамму отделочных материалов и их
+    фактуру. Способов масса: ложные арки, вертикальные бордюры, выбор напольного
+    покрытия в тон мебели прихожей и многое другое.
+  %p{ style: "color: blue;" }
+    %strong
+      Выполняя ремонт в прихожей, помните, что ремонтироваться она должна в
+      последнюю очередь и только после того, как все остальные комнаты и
+      помещения квартиры уже отремонтированы. Поставка стройматериалов,
+      оборудования и вынос строительного мусора будет осуществляться именно
+      через прихожую. Иначе в дальнейшем могут потребоваться дополнительные
+      отделочные работы!
+  %p
+    У наших специалистов большой опыт в ремонте прихожих. С помощью нашей
+    %span{ style: "color: #800;" } бригады частных мастеров Ремонтами 7
+    Ваша "визитная карточка квартиры"станет не только функциональной и удобной,
+    но и красивой!
