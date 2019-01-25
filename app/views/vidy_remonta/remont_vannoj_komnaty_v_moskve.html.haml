@@ -1,2 +1,150 @@
-%h1 VidyRemonta#remont_vannoj_komnaty_v_moskve
-%p Find me in app/views/vidy_remonta/remont_vannoj_komnaty_v_moskve.html.haml
+%h1 Ремонт ванной комнаты в Москве
+%article
+  - img = Image.find_by_alt("ремонт ванной комнаты в Москве")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Ванная комната - приватное помещение в квартире, и, несмотря на свою малую
+    площадь, призвано дарить хозяину тепло и уют. Именно с ванной комнаты
+    начинается и заканчивается день. Наши частные мастера сделают ремонт ванной
+    комнаты в Москве и Подмосковье по выгодным ценам.
+  %p
+    Профессиональный и качественный ремонт ванной комнаты, сделанный частным
+    мастером, требует особого внимания и квалифицированного подхода, поскольку
+    такие помещения обладают повышенным уровнем влажности.
+  %p
+    Если требуется сделать ремонт в ванной комнате, первым делом нужно
+    определить перечень необходимых работ. Наша бригада частных мастеров
+    выполняет капитальный ремонт ванной комнаты по выгодным ценам!
+
+  %p{ style: "text-align: center; color: red;" }
+    %strong
+      Капитальный ремонт ванной комнаты от нашей бригады - профессионализм и
+      доступность!
+
+  %p
+    Выполняют ремонт ванной комнаты частные мастера по разумной стоимости и
+    гарантируют высокое качество работ. Обратившись к нам, Вы принимаете
+    экономически выгодное решение. Наши специалисты профессионально выполнят
+    весь объем необходимых работ! Мы сэкономим Ваше время, нервы и деньги!
+
+  %h2 Перечень работ по капитальному ремонту ванных комнат
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
+    %thead
+      %tr
+        %th
+        %th{ style: "text-align: center;" } Наименование работ
+        %th{ style: "text-align: center;" } Капитальный
+    %tbody
+      %tr
+        %td{ style: "text-align: center;", rowspan: 4 }
+          %strong Демонтаж
+        %td{ style: "text-align: center;" } Снятие старой плитки / краски / побелки
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;" } Демонтаж сантехники
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;" } Демонтаж разводки, сантехнического короба
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;" } Демонтаж дверного блока
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;" }
+          %strong Потолок
+        %td{ style: "text-align: center;" } Монтаж подвесного потолка
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;", rowspan: 2 }
+          %strong Стены
+        %td{ style: "text-align: center;" } Подготовка стен с выравниванием
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;" } Укладка плитки
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;", rowspan: 2 }
+          %strong Пол
+        %td{ style: "text-align: center;" } Стяжка + гидроизоляция
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;" } Укладка плитки
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;", rowspan: 2 }
+          %strong Сантехника
+        %td{ style: "text-align: center;" } Монтаж разводки (канализация, сантехника)
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;" } Установка сантехники
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;", rowspan: 3 }
+          %strong Электрика
+        %td{ style: "text-align: center;" } Монтаж сантехнического короба
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;" } Устройство электрики
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;" } Устройство вентиляции
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;", rowspan: 3 }
+          %strong Финальная отделка
+        %td{ style: "text-align: center;" } Монтаж экрана ванной
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;" } Монтаж порожка
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+      %tr
+        %td{ style: "text-align: center;" } Установка дверного блока
+        %td{ style: "text-align: center;" }
+          %i.material-icons check_circle
+  %p{ style: "text-align: center; margin: 20px 0;" }
+    %strong Ознакомьтесь с подробными ценами на капитальный ремонт ванной комнаты
+  %div{style: "text-align: center; margin: 20px 0;"}
+    = link_to informaciya_remont_vannoj_komnaty_ceny_path, target: :_blank do
+      %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Подробнее
+  %p
+    Из-за того, что ванная комната обладает повышенным уровнем влажности,
+    целесообразно заранее подумать о вентиляции в ванной. При недостаточной
+    вентиляции в ванной комнате образуется конденсат, и комфорт от принятия
+    ванны в таком помещении будет минимальный. Не обрекайте себя на неудобства!
+  - img = Image.find_by_alt("ремонт ванной комнаты частным мастером")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Профессиональный ремонт ванных комнат, в хрущевке в том числе, и его
+    стоимость во многом зависит от выбранного отделочного материала. Оптимальным
+    решением будет укладка плитки в ванной. Важно, что бы отделочный материал
+    соответствовал главным условиям: влагоустойчивость и способность выдерживать
+    механические нагрузки. Наши специалисты помогут выбрать качественную и
+    недорогую кафельную плитку. Таким образом, ремонт ванной комнаты частным
+    мастером будет стоить недорого.
+  %p
+    Помните, что ремонт ванной - это самый сложный ремонт во всей квартире. Даже
+    если это всего лишь косметический ремонт ванной комнаты с отделкой стен
+    пластиковыми панелями. Переделывать ремонт гораздо сложнее и дороже, чем
+    сделать качественный и профессиональный ремонт ванных комнат изначально.
