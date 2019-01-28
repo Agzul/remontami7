@@ -1,2 +1,248 @@
-%h1 VidyRemonta#remont_gostinoj
-%p Find me in app/views/vidy_remonta/remont_gostinoj.html.haml
+%h1 Ремонт гостиной
+%article
+  - img = Image.find_by_alt("ремонт гостиной")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Гостиная выполняет очень важную роль во всей квартире: здесь принимают
+    гостей и собираются все вместе во время торжеств, праздников или просто для
+    семейного отдыха. Таким образом, гостиная должна быть такой комнатой,
+    находиться в которой комфортно и приятно. Более того, гостиная должна
+    отражать общую стилистику жилья, его микроклимат и предпочтения владельцев
+    квартиры. Превратить гостиную именно в такое помещение поможет ремонт
+    гостиной.
+  %p
+    Конечно, первым делом нужно определиться, какой именно ремонт нужен Вашей
+    гостиной. Возможно, достаточно произвести легкий
+    = link_to "косметический ремонт в данной квартире", vidy_remonta_kosmeticheskiy_remont_kvartiry_path, target: :_blank
+    , но вполне может быть, что в Вашем случае требуется более глобальный ремонт
+    с заменой коммуникаций, теплоснабжения и электропроводки. Многое будет
+    зависеть и от финансовых возможностей владельца. Определить тип требуемого
+    ремонта для Вашей гостиной поможет следующая таблица:
+
+  %h2 Ремонт гостиной в Москве и области
+  %p
+    %strong Наименование работ и типы ремонта
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp{ style: "margin: 20px 0;" }
+    %thead
+      %tr
+        %th
+        %th
+          Косметический от
+          %strong 2 500
+          р/м
+          %sup 2
+        %th
+          Капитальный от
+          %strong 4 800
+          р/м
+          %sup 2
+        %th
+          Евроремонт от
+          %strong 8 500
+          р/м
+          %sup 2
+    %tbody
+      %tr
+        %td Покраска потолка
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Поклейка обоев
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Нанесение фактурной шпаклевки
+        %td
+        %td
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Нанесение декоративных покрытый
+        %td
+        %td
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Венецианская штукатурка
+        %td
+        %td
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Облицовка стен декоративным камнем
+        %td
+        %td
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Выравнивание штукатурной смесью
+        %td
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Шлифовка, шпаклевка под обои
+        %td
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Шлифовка, шпаклевка под покраску
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Покраска труб
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Покраска радиатора
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Выравнивание стен гипсокартоном
+        %td
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Монтаж потолка из гипсокартона
+        %td
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Монтаж ниш, выступов ГКЛ
+        %td
+        %td
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Изготовление арок из ГКЛ (до 1 м)
+        %td
+        %td
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Монтаж звукоизоляции
+        %td
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Монтаж теплоизоляции
+        %td
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td= link_to "Натяжной потолок с полотном", vidy_rabot_natyazhnye_potolki_v_moskve_path, target: :_blank
+        %td
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Стяжка пола
+        %td
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td
+          = link_to "Укладка ламината,", vidy_rabot_ukladka_laminata_cena_path, target: :_blank
+          паркета,
+          = link_to "паркетной доски", vidy_rabot_ukladka_parketnoy_doski_path, target: :_blank
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Замена розетки без штробления
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Монтаж электроточки
+        %td
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Замена электропроводки
+        %td
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+      %tr
+        %td Установка радиатора отопления
+        %td
+        %td
+          %i.material-icons check_circle
+        %td
+          %i.material-icons check_circle
+
+  - img = Image.find_by_alt("ремонт гостиной комнаты в Москве")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Сейчас огромное количество компаний предлагают свои услуги, чтобы сделать
+    ремонт Вашей гостиной комнаты. Но важно не только качественное исполнение
+    ремонтно-отделочных работ и соблюдение всех сроков ремонта. Еще очень
+    хочется, чтобы стоимость ремонтных работ уложилась в тот бюджет, который
+    заказчик выделил на преобразование своей гостиной.
+  %p
+    Наши специалисты - частные мастера знают, как сократить расходы на ремонт
+    гостиной в хрущевке или любой другой квартиры в Москве различной площади!
+    Обратитесь к нам, и мы поможем выбрать самые оптимальные строительные
+    материалы и техники отделки. Рынок строительных материалов сейчас
+    многообразен и, не имея специальных профессиональных знаний, очень легко
+    потеряться в этом гигантском ассортименте.
+  %p{ style: "color: #800;" }
+    %strong
+      Ваши желания и бюджет – наш опыт и профессиональные знания!
+  %p
+    Если грамотно подходить к выбору стройматериалов, техник и методов отделки,
+    то ремонт гостиной комнаты не станет серьезной тратой семейного бюджета. От
+    Вас потребуется озвучить свои желания и размер бюджета, а наши частные
+    мастера сделают все возможное, чтобы обеспечить оптимальное соотношение
+    наилучшего качества, сроков исполнения и техник отделки с ценой. Нет ничего
+    невозможного!
