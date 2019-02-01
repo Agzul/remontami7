@@ -223,7 +223,7 @@ Image.create([
   { slider_image: slider_images[5], slider: slider },
   { slider_image: slider_images[4], slider: slider },
   { slider_image: slider_images[3], slider: slider },
-  { slider_image: slider_images[2], slider: slider },
+  { slider_image: slider_images[2], slider: slider, title: "og" },
   { slider_image: slider_images[1], slider: slider },
   { slider_image: slider_images[0], slider: slider },
   # Контакты

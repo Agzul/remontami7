@@ -37,7 +37,7 @@
     - if @og_image
       %meta{ property: "og:image", content: @og_image }
     - else
-      - img = Image.find_by_alt("косметический ремонт квартир").vid_remonta_image.url(:original)
+      - img = Image.find_by_title("og").slider_image.url(:original)
       %meta{ property: "og:image", content: "#{request.base_url}#{img}" }
 
     = canonical_tag
