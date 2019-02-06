@@ -1,2 +1,151 @@
-%h1 VidyRemonta#remont_tualeta_v_kvartire
-%p Find me in app/views/vidy_remonta/remont_tualeta_v_kvartire.html.haml
+%h1 Ремонт туалета в квартире
+%article
+  - img = Image.find_by_alt("ремонт туалета")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Ремонт туалетной комнаты - отнюдь не легкое занятие, особенно ремонт
+    туалета в квартире. Туалет является практически самым маленьким помещением
+    в квартире, но требования к состоянию санузла велики. Туалет в квартире
+    должен легко мыться, чтобы обеспечить чистоту и гигиеничность, быть удобным
+    в использовании и готовым работать круглосуточно.
+  %p
+    При выполнении ремонта туалета в квартире необходимо выполнить замену
+    оборудования, а также очень часто при ремонте туалета требуется замена
+    канализационных труб и разводки. Поэтому для выполнения качественного
+    ремонта санузла рекомендуется привлечь специалистов, имеющих необходимые
+    навыки. Воспользовавшись услугами наших частных мастеров, Вы гарантированно
+    получите выполнение работ по ремонту туалета на самом высоком уровне и по
+    доступным ценам, звоните!
+
+  %table{style: "width: 100%;"}
+    %tbody
+      %tr
+        - unless browser.device.mobile?
+          %td{ rowspan: 3 }
+            - img = Image.find_by_alt("contact")
+            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
+        %td
+          %span
+            %strong
+              По тел:
+              %a{ href: "tel:#{@default_phone_normal}", class: "blue" }= @default_phone
+        - unless browser.device.mobile?
+          %td{ rowspan: 3 }
+            - img = Image.find_by_alt("qr-code")
+            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
+      %tr
+      %tr
+        %td
+          %span
+            %strong
+              По почте:
+              %a{ href: "/mail", target: "_blank", class: "blue" } info@remontami7.ru
+
+  %h2 Ремонт санузла под ключ в Москве и цены
+  - img = Image.find_by_alt("ремонт санузла под ключ")
+  - if browser.device.mobile?
+    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  - else
+    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  %p
+    Стоимость ремонта санузла в Москве целиком и полностью зависит от площади,
+    требуемого объема работ, а так же от стоимости выбранных строительных
+    материалов. Стоимость ремонта маленького туалета невелика и вполне доступна
+    для того, что бы сделать ремонт туалета в своей квартире профессионально.
+  %p
+    Лучший способ узнать, сколько будет стоить ремонт санузла под ключ в Москве
+    – это позвонить мастеру и проконсультироваться. Оценка стоимости ремонта
+    туалета всегда начинается с визита специалиста, который визуально определит
+    техническое состояние туалета на текущий момент и озвучит предстоящий объем
+    работ и их стоимость.
+  %p
+    %em
+      Наши частные мастера имеют долговременные контакты с поставщиками
+      строительных материалов, отлично разбираются в свойствах материалов и
+      техник выполнения работ. Мы обеспечим самое оптимальное соотношение между
+      стоимостью ремонта туалета и Вашими пожеланиями!
+
+  %h3 Порядок работ при ремонте совмещенного санузла под ключ
+  %p
+    Ремонт совмещенного с ванной комнатой санузла обычно включает
+    следующие работы:
+
+  %table
+    %tbody
+      %tr
+        %td
+          %i.material-icons attach_file
+        %td Удаление старых отделочных материалов;
+      %tr
+        %td
+          %i.material-icons attach_file
+        %td Демонтаж старой сантехники (если требуется - замена сантехники);
+      %tr
+        %td
+          %i.material-icons attach_file
+        %td Демонтаж старых инженерных коммуникаций и прокладка новых;
+      %tr
+        %td
+          %i.material-icons attach_file
+        %td Выравнивание потолка, стен;
+      %tr
+        %td
+          %i.material-icons attach_file
+        %td Выполнение стяжки пола с гидроизоляций;
+      %tr
+        %td
+          %i.material-icons attach_file
+        %td
+          = link_to "Отделка поверхностей пола, потолка и стен кафельной плиткой, пластиковыми панелями", vidy_rabot_ukladka_plitki_path, target: :_blank
+          и другими отделочными материалами (по выбору заказчика);
+      %tr
+        %td
+          %i.material-icons attach_file
+        %td Монтаж теплого пола (если требуется);
+
+      %tr
+        %td
+          %i.material-icons attach_file
+        %td 	Установка осветительного оборудования, зеркал;
+      %tr
+        %td
+          %i.material-icons attach_file
+        %td Монтаж потолка;
+
+      %tr
+        %td
+          %i.material-icons attach_file
+        %td Установка экрана под ванну.
+
+  %table
+    %tbody
+      %tr
+        %td
+          - img = Image.find_by_alt("ремонт санузла совмещенного")
+          - if browser.device.mobile?
+            = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+          - else
+            = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+        %td
+          - img = Image.find_by_alt("ремонт санузла и ванной")
+          - if browser.device.mobile?
+            = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+          - else
+            = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+
+  %p
+    Если Вы решили сделать ремонт совмещенного санузла под ключ, то лучше не
+    ограничиваться косметическим ремонтом туалета. Возможно, есть необходимость
+    сделать перепланировку и увеличить тем самым площадь, если нужен ремонт
+    санузла в маленькой квартире. Капитальный ремонт туалета гарантирует, что
+    еще долгое время санузел не потребует к себе пристального внимания.
+  %p
+    Следует заметить, что современные технологии и отделочные материалы, которые
+    используют наши специалисты, позволяют сделать ремонт туалета быстро. Мы
+    имеем большой опыт! Таким образом, неудобство всех проживающих в квартире
+    членов семьи будет минимальным. Наличие специальных инструментов и
+    продуманная последовательность работ гарантирует, что будет выполнен ремонт
+    санузла в Москве в кратчайшие сроки.
