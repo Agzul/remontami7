@@ -11,14 +11,13 @@ class MainMenuController < ApplicationController
     @description = "Цены на услуги по ремонту квартир в Москве и Московской области по видам работ. Стоимость отделочных работ по ремонту квартир у нас доступна, бригада специалистов работает профессионально и быстро!"
     @keywords =    "ремонт квартир цены за работу, стоимость работ по ремонту квартир"
 
-    @works = Work.all
-    @floor_works =     @works.where(plane: "floor")
-    @wall_works =      @works.where(plane: "wall")
-    @roof_works =      @works.where(plane: "roof")
-    @tile_works =      @works.where(plane: "tile")
-    @plumbing_works =  @works.where(plane: "plumbing")
-    @electric_works =  @works.where(plane: "electric")
-    @extra_works =     @works.where(plane: "extra")
+    @floor_works =     Work.where(plane: "floor")
+    @wall_works =      Work.where(plane: "wall")
+    @roof_works =      Work.where(plane: "roof")
+    @tile_works =      Work.where(plane: "tile")
+    @plumbing_works =  Work.where(plane: "plumbing")
+    @electric_works =  Work.where(plane: "electric")
+    @extra_works =     Work.where(plane: "extra")
   end
 
   def consumption_of_materials
