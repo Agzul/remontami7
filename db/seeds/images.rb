@@ -88,6 +88,22 @@ slider_images = [
   File.open(File.join(Rails.root, '/app/assets/images/sliders/pokraska-sten.jpg')),
   File.open(File.join(Rails.root, '/app/assets/images/sliders/samovyravnivayuschayasya-styazhka-pola.jpg'))
 ]
+slider_images_alts = [
+  "shpaklevka-sten-i-cena-rabot",
+  "ukladka-laminata-cena",
+  "cementno-peschanaya-styazhka-pola",
+  "master-po-pokleyke-oboev",
+  "pokraska-sten",
+  "samovyravnivayuschayasya-styazhka-pola"
+]
+slider_images_titles = [
+  "шпаклевка стен и цена работ",
+  "укладка ламината цена",
+  "цементно песчаная стяжка пола",
+  "мастер по поклейке обоев",
+  "покраска стен",
+  "самовыравнивающаяся стяжка пола"
+]
 # Виды ремонта
 vidy_remonta_titles = [
   "Пример готовой работы по евроремонту квартир под ключ",
@@ -220,12 +236,12 @@ Image.create([
   { title: 'инфракрасный пленочный пол',                                               alt: 'пример работы мастера по устройству инфракрасного пленочного теплого пол',                             info_image: info_images["17_3"] },
   { title: 'гидроизоляция в ванной',                                                   alt: 'Готовая обмазочная гидроизоляция в ванной комнате',                                                    info_image: info_images["18_1"] },
   # Слайдер
-  { slider_image: slider_images[5], slider: slider },
-  { slider_image: slider_images[4], slider: slider },
-  { slider_image: slider_images[3], slider: slider },
-  { slider_image: slider_images[2], slider: slider, title: "og" },
-  { slider_image: slider_images[1], slider: slider },
-  { slider_image: slider_images[0], slider: slider },
+  { slider_image: slider_images[5], slider: slider, title: slider_images_titles[5], alt: slider_images_alts[5] },
+  { slider_image: slider_images[4], slider: slider, title: slider_images_titles[4], alt: slider_images_alts[4] },
+  { slider_image: slider_images[3], slider: slider, title: slider_images_titles[3], alt: slider_images_alts[3] },
+  { slider_image: slider_images[2], slider: slider, title: "og",                    alt: slider_images_alts[2] },
+  { slider_image: slider_images[1], slider: slider, title: slider_images_titles[1], alt: slider_images_alts[1] },
+  { slider_image: slider_images[0], slider: slider, title: slider_images_titles[0], alt: slider_images_alts[0] },
   # Контакты
   { static_image: static_pages_images_contacts[0], alt: "contact" },
   { static_image: static_pages_images_contacts[1], alt: "qr-code" },

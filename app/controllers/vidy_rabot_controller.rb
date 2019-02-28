@@ -1,5 +1,57 @@
 class VidyRabotController < ApplicationController
   def shpaklevka_sten_cena
+    @work_names = [
+      "Шпаклевка стен под обои в 2 слоя",
+      "Шпаклевка стен под покраску в 3 слоя",
+      "Шпаклевка стен финишной шпаклевкой Шитрок",
+      "Шпаклевка гипсокартона",
+      "Шпаклевка оконных откосов (ширина не более 40 см)",
+      "Шлифовка стен",
+      "Грунтовка",
+      'Грунтовка "Бетоконтактом"',
+      "Наклейка малярной сетки",
+      "Удаление старой шпаклевки со стен"
+    ]
+    link = url_for controller: :vidy_rabot, action: :shpaklevka_sten_pod_oboi_ceny, only_path: true
+    @work_prices = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").price,
+      Work.find_by_name("Шпаклевка стен под покраску (3 слоя)").price,
+      Work.find_by_name("Шпаклевка стен финишной шпаклевкой Шитрок").price,
+      Work.find_by_name("Шпаклевка гипсокартона").price,
+      Work.find_by_name("Штукатурка + грунтовка дверных и оконных откосов с уголками").price.to_i-150,
+      Work.find_by_name("Шлифовка стен").price,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").price,
+      Work.find_by_name("Грунтовка бетоноконтактом").price,
+      Work.find_by_name("Поклейка малярной сетки").price,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").price.to_i-50
+    ]
+    @work_units = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").unit,
+      Work.find_by_name("Шпаклевка стен под покраску (3 слоя)").unit,
+      Work.find_by_name("Шпаклевка стен финишной шпаклевкой Шитрок").unit,
+      Work.find_by_name("Шпаклевка гипсокартона").unit,
+      Work.find_by_name("Штукатурка + грунтовка дверных и оконных откосов с уголками").unit,
+      Work.find_by_name("Шлифовка стен").unit,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").unit,
+      Work.find_by_name("Грунтовка бетоноконтактом").unit,
+      Work.find_by_name("Поклейка малярной сетки").unit,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").unit
+    ]
+    link  = url_for controller: :vidy_rabot, action: :pokraska_sten_cena, only_path: true
+    link1 = url_for controller: :vidy_rabot, action: :pokleyka_oboev_pod_pokrasku, only_path: true
+
+    @additional_service_names = [
+      "<a href='#{link}' target='_blank'>Покраска стен</a> (1 слой/2 слоя/3 слоя)",
+      "<a href='#{link1}' target='_blank'>Поклейка обоев под покраску</a>"
+    ]
+    @additional_service_prices = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Покраска стен</a> (1 слой/2 слоя/3 слоя)").price,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Поклейка обоев под покраску</a>").price
+    ]
+    @additional_service_units = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Покраска стен</a> (1 слой/2 слоя/3 слоя)").unit,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Поклейка обоев под покраску</a>").unit
+    ]
   end
 
   def shpaklevka_sten_pod_oboi_ceny
