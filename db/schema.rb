@@ -89,6 +89,10 @@ ActiveRecord::Schema.define(version: 2018_09_30_145822) do
     t.string "vid_remonta_image_content_type"
     t.bigint "vid_remonta_image_file_size"
     t.datetime "vid_remonta_image_updated_at"
+    t.string "vid_rabot_image_file_name"
+    t.string "vid_rabot_image_content_type"
+    t.bigint "vid_rabot_image_file_size"
+    t.datetime "vid_rabot_image_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["gallery_id"], name: "index_images_on_gallery_id"

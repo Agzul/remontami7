@@ -74,7 +74,16 @@ class Image < ApplicationRecord
     all:  "-quality 85 -strip"
   }
 
-  validates_attachment :background, :logo, :tagline, :gallery_image, :info_image, :slider_image, :static_image, :vid_remonta_image, content_type: {
+  has_attached_file :vid_rabot_image, styles: {
+    thumb: [ "100x75!", :jpeg ],
+    small: [ "180x?",   :jpeg ],
+    med:   [ "360x?",   :jpeg ]
+   },
+  convert_options: {
+    all:  "-quality 85 -strip"
+  }
+
+  validates_attachment :background, :logo, :tagline, :gallery_image, :info_image, :slider_image, :static_image, :vid_remonta_image, :vid_rabot_image, content_type: {
     content_type: /\Aimage\/.*\z/,
     message: "имеет неверное расширение"
   }

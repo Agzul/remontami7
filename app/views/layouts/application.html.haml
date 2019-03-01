@@ -37,7 +37,7 @@
     - if @og_image
       %meta{ property: "og:image", content: @og_image }
     - else
-      - img = Image.find_by_title("og").slider_image.url(:original)
+      - img = Image.find_by_title("цементно песчаная стяжка пола").slider_image.url(:original)
       %meta{ property: "og:image", content: "#{request.base_url}#{img}" }
 
     = canonical_tag

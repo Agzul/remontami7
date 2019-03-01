@@ -4,6 +4,8 @@ GALLERY_NUMBERS = 16
 ################################################################################
 # КОЛИЧЕСТВО ВИДОВ РЕМОНТА (С ЕДЕНИЦЫ!)
 VIDY_REMONTA_NUMBERS = 16
+# КОЛИЧЕСТВО ВИДОВ РАБОТ (С ЕДЕНИЦЫ!)
+VIDY_RABOT_NUMBERS = 25
 ########################## Получение изображений ###############################
 # Фон, лого, слоган
 image_background = File.open(File.join(Rails.root, '/app/assets/images/background/background.jpg'))
@@ -201,6 +203,126 @@ for i in 0...VIDY_REMONTA_NUMBERS
     end
   end
 end
+# Виды работ
+vidy_rabot_titles = [
+  "шпаклевка стен и цена работ",
+  "шпаклевка стен под обои и цена работ",
+  "шпаклевка стены под покраску",
+  "штукатурка стен по маякам",
+  "поклейка обоев мастером по выгодной цене за м2",
+  "",
+  "",
+  "",
+  "поклейка виниловых обоев",
+  "выполняется поклейка обоев на флизелиновой основе",
+  "поклейка мастером флизелиновых обоев",
+  "пример поклейки текстильных обоев мастером",
+  "поклейка текстильных обоев в интерьере гостиной по доступной цене",
+  "покраска обоев мастером",
+  "",
+  "",
+  "покраска стен и потолков по доступной стоимости",
+  "покраска стен по доступной цене за м2",
+  "покраска потолка водоэмульсионкой по выгодной цене",
+  "",
+  "преимущества цементно-песчаной стяжки по доступной стоимости",
+  "устройство стяжки с гидроизоляцией",
+  "Фрагмент работы мастера по устройству самовыравнивающейся стяжки пола",
+  "",
+  "",
+  "",
+  "",
+  "укладка ламината по доступной цене",
+  "укладка ламината мастером по доступной цене",
+  "укладка паркетной доски по доступной стоимости",
+  "укладка паркетной доски частным мастером на клей",
+  "укладка плитки и стоимость работы мастера",
+  "укладка плитки частным мастером по выгодной цене за квадратный метр",
+  "стоимость работы частного мастера по укладке плитки",
+  "укладка плитки в маленьком помещении (прихожая)",
+  "укладка плитки на стену по адекватной цене за м2",
+  "фрагмент работы частного мастера по укладке плитки на стену",
+  "укладка плитки на пол  по выгодной цене работ за м2",
+  "мастер может положить плитку на пол по адеватной цене за кв м",
+  "керамогранит на полу на кухне, работа частного мастера",
+  "качественная укладка керамогранита на пол",
+  "момент выполнения ремонта, утепления и отделки балкона частным мастером",
+  "",
+  "Утепление лоджии по доступной цене, выполненное частным мастером",
+  "Пример работы частного мастера по установке межкомнатной двери недорого",
+  "",
+  "натяжные потолки в Москве и Подмосковье недорого по доступной цене",
+  "",
+  ""
+]
+vidy_rabot_alts = [
+  "shpaklevka-sten-i-cena-rabot",
+  "shpatlevka-sten-pod-oboi",
+  "shpaklevka-steny-pod-pokrasku",
+  "shtukaturka-sten-i-vyravnivanie",
+  "pokleyka-oboev-cena",
+  "master-po-pokleyke-oboev",
+  "pokleyka-oboev-masterom",
+  "pokleyka-oboev-masterom-v-odnoy-komnate",
+  "pokleyka-vinilovyh-oboev",
+  "pokleyka-oboev-na-flizelinovoy-osnove",
+  "pokleyka-flizelinovyh-oboev-masterom",
+  "pokleyka-tekstilnyh-oboev",
+  "cena-pokleyki-tekstilnyh-oboev",
+  "pokleyka-oboev-pod-pokrasku",
+  "pokleyka-flizelinovyh-oboev-pod-pokrasku",
+  "cena-pokleyki-steklooboev",
+  "stoimost-pokraski-sten-i-potolkov",
+  "pokraska-sten-cena-za-m2",
+  "pokraska-potolka-vodoemulsionnoy-kraskoy",
+  "styazhka-pola-cena-za-rabotu",
+  "stoimost-rabot-po-styazhke-pola-i-preimuschestva",
+  "ustroystvo-styazhki-pola-i-cena-rabot",
+  "samovyravnivayuschayasya-styazhka-pola",
+  "samovyravnivayuschiysya-pol",
+  "Самовыравнивающаяся стяжка - схема",
+  "styazhka-pola-s-keramzitom",
+  "cena-rabot-po-styazhke-pola-s-keramzitom",
+  "stoimost-ukladki-laminata-v-moskve",
+  "ukladka-laminata-cena",
+  "ukladka-parketnoy-doski",
+  "ukladka-parketnoy-doski-masterom",
+  "stoimost-ukladki-plitki-za-kvadratnyy-metr",
+  "ukladka-plitki-cena-za-kvadratnyy-metr",
+  "stoimost-raboty-mastera-po-ukladke-plitki",
+  "ukladka-plitki-v-prihozhey",
+  "ukladka-plitki-na-stenu-cena-za-m2",
+  "ukladka-plitki-na-stenu",
+  "ukladka-plitki-na-pol-cena-za-m2",
+  "polozhit-plitku-na-pol-cena-za-kv-m",
+  "ukladka-keramogranita-cena-za-m2",
+  "ukladka-keramogranita-na-pol",
+  "uteplenie-i-otdelka-balkonov-i-lodzhiy",
+  "утепление пола на балконе",
+  "утепление балкона минеральной ватой",
+  "установить межкомнатные двери в Москве",
+  "установка дверей в Москве, частный мастер",
+  "natyazhnye-potolki-v-moskve-nedorogo-cena",
+  "natyazhnye-potolki1",
+  "natyazhnye-potolki3"
+]
+
+vidy_rabot_images = []
+k = 0
+for i in 0...VIDY_RABOT_NUMBERS
+  if File.file? File.join(Rails.root, "/app/assets/images/vidy_rabot/#{i+1}_1.jpg")
+    j = 0
+    loop do
+      if File.file? File.join(Rails.root, "/app/assets/images/vidy_rabot/#{i+1}_#{j+1}.jpg")
+        vidy_rabot_images[k] = File.open(File.join(Rails.root, "/app/assets/images/vidy_rabot/#{i+1}_#{j+1}.jpg"))
+        j += 1
+        k += 1
+      else
+        break
+      end
+    end
+  end
+end
 ################################################################################
 
 
@@ -239,7 +361,7 @@ Image.create([
   { slider_image: slider_images[5], slider: slider, title: slider_images_titles[5], alt: slider_images_alts[5] },
   { slider_image: slider_images[4], slider: slider, title: slider_images_titles[4], alt: slider_images_alts[4] },
   { slider_image: slider_images[3], slider: slider, title: slider_images_titles[3], alt: slider_images_alts[3] },
-  { slider_image: slider_images[2], slider: slider, title: "og",                    alt: slider_images_alts[2] },
+  { slider_image: slider_images[2], slider: slider, title: slider_images_titles[2], alt: slider_images_alts[2] },
   { slider_image: slider_images[1], slider: slider, title: slider_images_titles[1], alt: slider_images_alts[1] },
   { slider_image: slider_images[0], slider: slider, title: slider_images_titles[0], alt: slider_images_alts[0] },
   # Контакты
@@ -279,6 +401,16 @@ for i in 0...vidy_remonta_images.size
       title: vidy_remonta_titles[i],
       alt: vidy_remonta_alts[i],
       vid_remonta_image: vidy_remonta_images[i]
+    )
+  end
+end
+# Виды работ
+for i in 0...vidy_rabot_images.size
+  if vidy_rabot_images[i]
+    Image.create(
+      title: vidy_rabot_titles[i],
+      alt: vidy_rabot_alts[i],
+      vid_rabot_image: vidy_rabot_images[i]
     )
   end
 end
