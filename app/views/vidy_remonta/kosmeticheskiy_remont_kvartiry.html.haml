@@ -1,10 +1,6 @@
 %h1 Косметический ремонт квартир
 %article
-  - img = Image.find_by_alt("косметический ремонт квартир")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "косметический ремонт квартир", image_type: "vid_remonta"
   %p
     Современный косметический ремонт квартир и его инновационные техники отделки
     способны подарить Вашему жилью второе дыхание за небольшие деньги. Наши
@@ -127,11 +123,7 @@
       Ваш бюджет от лишних трат.
 
   %h2 Косметический ремонт квартир в Москве и его этапы
-  - img = Image.find_by_alt("косметический ремонт квартир в Москве")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "косметический ремонт квартир в Москве", image_type: "vid_remonta"
   %p
     Что входит в косметический ремонт квартир в Москве? Начало отделочных работ
     всегда начинается с демонтажа – это удаление старых обоев, очистка потолка
@@ -155,11 +147,7 @@
     интерьера.
 
   %h2 Преимущества косметического ремонта квартир под ключ
-  - img = Image.find_by_alt("косметический ремонт квартир под ключ")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "косметический ремонт квартир под ключ", image_type: "vid_remonta"
   %p
     Основные преимущества косметического ремонта квартир  – экономичность,
     быстрота и эффективность! По сравнению с капитальным ремонтом квартир этот

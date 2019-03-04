@@ -1,10 +1,6 @@
 %h1 Ремонт туалета в квартире
 %article
-  - img = Image.find_by_alt("ремонт туалета")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "ремонт туалета", image_type: "vid_remonta"
   %p
     Ремонт туалетной комнаты - отнюдь не легкое занятие, особенно ремонт
     туалета в квартире. Туалет является практически самым маленьким помещением
@@ -20,36 +16,10 @@
     получите выполнение работ по ремонту туалета на самом высоком уровне и по
     доступным ценам, звоните!
 
-  %table{style: "width: 100%;"}
-    %tbody
-      %tr
-        - unless browser.device.mobile?
-          %td{ rowspan: 3 }
-            - img = Image.find_by_alt("contact")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-        %td
-          %span
-            %strong
-              По тел:
-              %a{ href: "tel:#{@default_phone_normal}", class: "blue" }= @default_phone
-        - unless browser.device.mobile?
-          %td{ rowspan: 3 }
-            - img = Image.find_by_alt("qr-code")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-      %tr
-      %tr
-        %td
-          %span
-            %strong
-              По почте:
-              %a{ href: "/mail", target: "_blank", class: "blue" } info@remontami7.ru
+  = render "partials/contacts"
 
   %h2 Ремонт санузла под ключ в Москве и цены
-  - img = Image.find_by_alt("ремонт санузла под ключ")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "ремонт санузла под ключ", image_type: "vid_remonta"
   %p
     Стоимость ремонта санузла в Москве целиком и полностью зависит от площади,
     требуемого объема работ, а так же от стоимости выбранных строительных

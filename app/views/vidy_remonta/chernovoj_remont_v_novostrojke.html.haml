@@ -138,11 +138,7 @@
         %td Оценка уровня профессионализма и порядочность данного исполнителя.
 
   %h4 Что потребуется от Вас перед выполнением чернового ремонта?
-  - img = Image.find_by_alt("черновой ремонт квартиры")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "черновой ремонт квартиры", image_type: "vid_remonta"
   %p
     Черновой ремонт квартир под дальнейшую отделку в новостройках имеет свои
     особенности, и для того, чтобы работы было выполнены максимально качественно,

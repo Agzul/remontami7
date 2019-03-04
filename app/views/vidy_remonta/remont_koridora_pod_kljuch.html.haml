@@ -1,10 +1,6 @@
 %h1 Ремонт коридора под ключ
 %article
-  - img = Image.find_by_alt("ремонт коридора под ключ")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "ремонт коридора под ключ", image_type: "vid_remonta"
   %p
     Обновляя облик своего жилья и делая ремонт коридора под ключ в квартире,
     многие считают, что этому помещению требуется не очень много внимания. И
@@ -29,29 +25,7 @@
     работ в коридоре под ключ по адекватным ценам, а наш опыт и долговременные
     контакты с поставщиками стройматериалов помогут максимально снизить
     стоимость работ.
-  %table{style: "width: 100%;"}
-    %tbody
-      %tr
-        - unless browser.device.mobile?
-          %td{ rowspan: 3 }
-            - img = Image.find_by_alt("contact")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-        %td
-          %span
-            %strong
-              По тел:
-              %a{ href: "tel:#{@default_phone_normal}", class: "blue" }= @default_phone
-        - unless browser.device.mobile?
-          %td{ rowspan: 3 }
-            - img = Image.find_by_alt("qr-code")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-      %tr
-      %tr
-        %td
-          %span
-            %strong
-              По почте:
-              %a{ href: "/mail", target: "_blank", class: "blue" } info@remontami7.ru
+  = render "partials/contacts"
 
   %h2 Ремонт коридора в квартире
   %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp{ style: "min-width: 75%; margin: auto;" }
@@ -132,11 +106,7 @@
         %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Подробнее
 
   %h2 Ремонт небольшого коридора в хрущевке
-  - img = Image.find_by_alt("ремонт прихожей в хрущевке")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "ремонт прихожей в хрущевке", image_type: "vid_remonta"
   %p
     Чаще всего бывает так, что площадь коридора невелика, а функциональность и
     удобство должны быть максимальными. Часто этой проблемой грешат коридоры в
@@ -152,11 +122,7 @@
     недорогого, качественного и красивого ремонта коридора и прихожей в хрущевке.
 
   %h2 Ремонт прихожей в панельном доме, особенности
-  - img = Image.find_by_alt("ремонт прихожей в панельном доме")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "ремонт прихожей в панельном доме", image_type: "vid_remonta"
   %p
     При выполнении ремонта прихожей в панельном доме есть несколько
     рекомендаций, на которые желательно обратить внимание:

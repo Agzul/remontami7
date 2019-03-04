@@ -91,12 +91,12 @@ slider_images = [
   File.open(File.join(Rails.root, '/app/assets/images/sliders/samovyravnivayuschayasya-styazhka-pola.jpg'))
 ]
 slider_images_alts = [
-  "shpaklevka-sten-i-cena-rabot",
-  "ukladka-laminata-cena",
-  "cementno-peschanaya-styazhka-pola",
-  "master-po-pokleyke-oboev",
-  "pokraska-sten",
-  "samovyravnivayuschayasya-styazhka-pola"
+  "shpaklevka-sten-i-cena-rabot-slider",
+  "ukladka-laminata-cena-slider",
+  "cementno-peschanaya-styazhka-pola-slider",
+  "master-po-pokleyke-oboev-slider",
+  "pokraska-sten-slider",
+  "samovyravnivayuschayasya-styazhka-pola-slider"
 ]
 slider_images_titles = [
   "шпаклевка стен и цена работ",
@@ -380,12 +380,14 @@ for i in 0...GALLERY_NUMBERS
         Image.create(
           gallery: gallery,
           gallery_image: gallery_images[i][j],
-          gallery_cover: true
+          gallery_cover: true,
+          alt: "#{i}_#{j}"
         )
       else
         Image.create(
           gallery_image: gallery_images[i][j],
-          gallery: gallery
+          gallery: gallery,
+          alt: "#{i}_#{j}"
         )
       end
       j+=1

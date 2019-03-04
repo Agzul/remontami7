@@ -1,10 +1,6 @@
 %h1 Ремонт ванной комнаты в Москве
 %article
-  - img = Image.find_by_alt("ремонт ванной комнаты в Москве")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "ремонт ванной комнаты в Москве", image_type: "vid_remonta"
   %p
     Ванная комната - приватное помещение в квартире, и, несмотря на свою малую
     площадь, призвано дарить хозяину тепло и уют. Именно с ванной комнаты
@@ -130,11 +126,7 @@
     целесообразно заранее подумать о вентиляции в ванной. При недостаточной
     вентиляции в ванной комнате образуется конденсат, и комфорт от принятия
     ванны в таком помещении будет минимальный. Не обрекайте себя на неудобства!
-  - img = Image.find_by_alt("ремонт ванной комнаты частным мастером")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "ремонт ванной комнаты частным мастером", image_type: "vid_remonta"
   %p
     Профессиональный ремонт ванных комнат, в хрущевке в том числе, и его
     стоимость во многом зависит от выбранного отделочного материала. Оптимальным

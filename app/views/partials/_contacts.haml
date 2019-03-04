@@ -1,0 +1,23 @@
+%table{style: "width: 100%;"}
+  %tbody
+    %tr
+      - unless browser.device.mobile?
+        %td{ rowspan: 3 }
+          - img = Image.find_by_alt("contact")
+          = image_tag img.static_image.url(:med), alt: "#{img.alt}"
+      %td
+        %span
+          %strong
+            По тел:
+            %a{ href: "tel:#{@default_phone_normal}", class: "blue" }= @default_phone
+      - unless browser.device.mobile?
+        %td{ rowspan: 3 }
+          - img = Image.find_by_alt("qr-code")
+          = image_tag img.static_image.url(:med), alt: "#{img.alt}"
+    %tr
+    %tr
+      %td
+        %span
+          %strong
+            По почте:
+            %a{ href: "mailto:info@remontami7.ru", target: "_blank" } info@remontami7.ru

@@ -2,7 +2,7 @@ class CreateImages < ActiveRecord::Migration[5.1]
   def change
     create_table :images do |t|
       t.string :title
-      t.string :alt
+      t.string :alt, null: false
 
       t.attachment :logo
       t.attachment :background
@@ -25,5 +25,6 @@ class CreateImages < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+    add_index :images, :alt, unique: true
   end
 end

@@ -1,7 +1,6 @@
 %h1 Цена ремонта коридора
 %article
-  - img = Image.find_by_alt("remont-koridora-cena")
-  = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
+  = render "partials/image", image_alt: "remont-koridora-cena", image_type: "info", image_size: "small"
   %p
     Зная о том, что
     %strong каждый клиент хочет узнать максимально точную цену ремонта коридора (или прихожей)
@@ -98,11 +97,8 @@
       Скидки на определенные виды работ определяются после осмотра мастером места работ.
       %strong Выезд мастера бесплатно!
       Стоимость работ будет неизменна до окончания работ.
-  - img = Image.find_by_alt("stoimost-remonta-prihozhey")
-  - if browser.device.mobile?
-    = link_to (image_tag img.info_image.url(:small), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.info_image.url(:med), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
+
+  = render "partials/image", image_alt: "stoimost-remonta-prihozhey", image_type: "info"
   %p
     Ремонт коридора представляет некоторую сложность тем, что это не ремонт
     комнаты, которую можно закрыть и ее ремонт Вам не будет сильно докучать.

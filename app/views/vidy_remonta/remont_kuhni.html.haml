@@ -1,10 +1,6 @@
 %h1 Ремонт кухни 6 кв м
 %article
-  - img = Image.find_by_alt("remont-kuhni-6-kv.m")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "remont-kuhni-6-kv.m", image_type: "vid_remonta"
   %p
     Если у Вас кухонное помещение небольшое, оптимально использовать
     пространство поможет ремонт кухни 6 кв м, который выполнит наш частный
@@ -32,36 +28,10 @@
     осмотра мастером места работ и замеров площади. Выезд мастера бесплатно!
     Ориентировочную стоимость можно узнать у нашего оператора
 
-  %table{style: "width: 100%;"}
-    %tbody
-      %tr
-        - unless browser.device.mobile?
-          %td{ rowspan: 3 }
-            - img = Image.find_by_alt("contact")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-        %td
-          %span
-            %strong
-              По тел:
-              %a{ href: "tel:#{@default_phone_normal}", class: "blue" }= @default_phone
-        - unless browser.device.mobile?
-          %td{ rowspan: 3 }
-            - img = Image.find_by_alt("qr-code")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-      %tr
-      %tr
-        %td
-          %span
-            %strong
-              По почте:
-              %a{ href: "/mail", target: "_blank", class: "blue" } info@remontami7.ru
+  = render "partials/contacts"
 
   %h2 Ремонт кухни 6 кв м в Москве
-  - img = Image.find_by_alt("remont-malogabaritnoy-kuhni")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "remont-malogabaritnoy-kuhni", image_type: "vid_remonta"
   %p
     Возникает множество вопросов, если необходимо сделать ремонт на
     малогабаритной кухне площалью 6 кв м или чуть больше . В наше время
@@ -104,11 +74,7 @@
         %td обеспечить максимально большую рабочую поверхность.
 
   %h2 Ремонт кухни под ключ
-  - img = Image.find_by_alt("remont-kuhni-v-moskve")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "remont-kuhni-v-moskve", image_type: "vid_remonta"
   %p
     Наши частные мастера выполнят ремонт кухни в столице и ближнем Подмосковье
     под ключ любой площади в соответствии со всеми стандартами безопасности.

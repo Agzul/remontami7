@@ -20,29 +20,7 @@
       Наши мастера бригады выполнят ремонт квартир в новостройках по доступной
       стоимости, профессионально и без просрочек, звоните!
 
-  %table{style: "width: 100%;"}
-    %tbody
-      %tr
-        - unless browser.device.mobile?
-          %td{ rowspan: 3 }
-            - img = Image.find_by_alt("contact")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-        %td
-          %span
-            %strong
-              По тел:
-              %a{ href: "tel:#{@default_phone_normal}", class: "blue" }= @default_phone
-        - unless browser.device.mobile?
-          %td{ rowspan: 3 }
-            - img = Image.find_by_alt("qr-code")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-      %tr
-      %tr
-        %td
-          %span
-            %strong
-              По почте:
-              %a{ href: "/mail", target: "_blank", class: "blue" } info@remontami7.ru
+  = render "partials/contacts"
 
   %table{ style: "width: 100%; margin: 20px 0;" }
     %tbody
@@ -132,11 +110,8 @@
           %i.material-icons attachment
         %td Окончательная отделка.
 
-  - img = Image.find_by_alt("средняя стоимость ремонта квартир в новостройках")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "средняя стоимость ремонта квартир в новостройках", image_type: "vid_remonta"
+
   %p
     %strong
       Средняя стоимость ремонта в новостройке может значительно различаться в
@@ -159,11 +134,7 @@
   %h2 Перечень работ по ремонту квартиры в новостройках
   %p
     При обращении к нам бригада частных мастеров-специалистов выполнит следующие работы:
-  - img = Image.find_by_alt("ремонт новостроек под ключ стоимость")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "ремонт новостроек под ключ стоимость", image_type: "vid_remonta"
   %ul
     %li перенос стен и перегородок;
     %li разводка сантехнических труб;

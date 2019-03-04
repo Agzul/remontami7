@@ -1,7 +1,6 @@
 %h1 Стоимость евроремонта за квадратный метр
 %article
-  - img = Image.find_by_alt("Расчет стоимости евроремонта категории Премиум в Москве за квадратный метр")
-  = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
+  = render "partials/image", image_alt: "Расчет стоимости евроремонта категории Премиум в Москве за квадратный метр", image_type: "info", image_size: "small"
   %p
     Любой евроремонт квартиры делается надолго и максимально качественно,
     поэтому стоимость евроремонта за квадратный метр просто не может быть низкой.
@@ -219,4 +218,4 @@
           %i.material-icons check_circle
   %p
     Смотрите более подробно
-    = link_to "Цены на наши услуги.", controller: :main_menu, action: :prices 
+    = link_to "Цены на наши услуги.", controller: :main_menu, action: :prices

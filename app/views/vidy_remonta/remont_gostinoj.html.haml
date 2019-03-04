@@ -1,10 +1,6 @@
 %h1 Ремонт гостиной
 %article
-  - img = Image.find_by_alt("ремонт гостиной")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "ремонт гостиной", image_type: "vid_remonta"
   %p
     Гостиная выполняет очень важную роль во всей квартире: здесь принимают
     гостей и собираются все вместе во время торжеств, праздников или просто для
@@ -218,11 +214,7 @@
         %td
           %i.material-icons check_circle
 
-  - img = Image.find_by_alt("ремонт гостиной комнаты в Москве")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "ремонт гостиной комнаты в Москве", image_type: "vid_remonta"
   %p
     Сейчас огромное количество компаний предлагают свои услуги, чтобы сделать
     ремонт Вашей гостиной комнаты. Но важно не только качественное исполнение

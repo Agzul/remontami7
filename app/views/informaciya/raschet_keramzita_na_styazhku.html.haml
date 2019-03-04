@@ -1,10 +1,6 @@
 %h1 Расчет керамзита на стяжку пола
 %article
-  - img = Image.find_by_alt("стяжка_с_керамзитом_по_уровню.jpg")
-  - if browser.device.mobile?
-    = link_to (image_tag img.info_image.url(:small), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.info_image.url(:med), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "стяжка_с_керамзитом_по_уровню.jpg", image_type: "info"
   %p
     При устройстве стяжки самым экономичным и экологичным материалом считается
     керамзит. Его получают из вспененной глины путем обжига в специальных печах,
@@ -76,11 +72,7 @@
         стяжки.
 
   %h2 Какой нужен керамзит для стяжки
-  - img = Image.find_by_alt("keramzit")
-  - if browser.device.mobile?
-    = link_to (image_tag img.info_image.url(:small), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.info_image.url(:med), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "keramzit", image_type: "info"
   %p
     В магазинах стройматериалов керамзит продается в мешках. Для устройства
     стяжки лучше всего использовать керамзит различных фракций, от 5 мм до 20 мм.

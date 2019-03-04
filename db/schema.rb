@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2018_09_30_145822) do
 
   create_table "images", force: :cascade do |t|
     t.string "title"
-    t.string "alt"
+    t.string "alt", null: false
     t.string "logo_file_name"
     t.string "logo_content_type"
     t.bigint "logo_file_size"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 2018_09_30_145822) do
     t.datetime "vid_rabot_image_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["alt"], name: "index_images_on_alt", unique: true
     t.index ["gallery_id"], name: "index_images_on_gallery_id"
     t.index ["slider_id"], name: "index_images_on_slider_id"
   end

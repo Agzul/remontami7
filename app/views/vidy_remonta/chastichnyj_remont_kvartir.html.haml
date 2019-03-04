@@ -1,10 +1,6 @@
 %h1 Частичный ремонт квартир
 %article
-  - img = Image.find_by_alt("частичный ремонт квартир")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "частичный ремонт квартир", image_type: "vid_remonta"
   %p
     Частенько случается так, что ремонт квартиры сделать необходимо, но по
     некоторым причинам для проведения полноценного
@@ -77,11 +73,7 @@
             на поверхность. Особенно целесообразно применение магнитной пленки
             при циклевке паркета.
 
-  - img = Image.find_by_alt("частичный ремонт квартиры в Москве")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "частичный ремонт квартиры в Москве", image_type: "vid_remonta"
   %p
     Следует сказать, что не все подрядчики и строительные бригады готовы
     выполнять частичный ремонт квартир. В этом случае Вам необходимо выбранному

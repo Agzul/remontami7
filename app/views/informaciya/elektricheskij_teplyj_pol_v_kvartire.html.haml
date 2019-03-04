@@ -1,10 +1,6 @@
 %h1 Теплый пол в квартире электрический
 %article
-  - img = Image.find_by_alt("пример укладки теплого электрического пола в квартире")
-  - if browser.device.mobile?
-    = link_to (image_tag img.info_image.url(:small), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.info_image.url(:med), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "пример укладки теплого электрического пола в квартире", image_type: "info"
   %p
     Сейчас все большее распространение получают альтернативные способы
     отопления. Они позволяют не зависеть от коммунальных служб и всегда
@@ -23,12 +19,7 @@
     Не ждите, пока пустят горячую воду в радиаторы центрального отопления. Детям
     нет нужды ходить в тапочках и более теплой одежде. Дома всегда будет
     комфортная температура, а значит тепло и уют гарантирован!
-
-  - img = Image.find_by_alt("схема прогревания воздуха в комнате с системой теплый пол")
-  - if browser.device.mobile?
-    = link_to (image_tag img.info_image.url(:small), alt: img.alt, align: "left"), img.info_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.info_image.url(:med), alt: img.alt, align: "left"), img.info_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "схема прогревания воздуха в комнате с системой теплый пол", image_type: "info"
   %p
     Из-за того, что разница между температурой пола и воздуха комнаты составляет
     3-4 градуса, тепловые потоки не циркулируют. Следовательно, в комнате с
@@ -49,11 +40,7 @@
     Проектировка современных новостроек с достаточной высотой потолков позволяет сделать
     %strong кабельный электрический теплый пол.
 
-  - img = Image.find_by_alt("пример работы мастера по устройству инфракрасного пленочного теплого пол")
-  - if browser.device.mobile?
-    = link_to (image_tag img.info_image.url(:small), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.info_image.url(:med), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "пример работы мастера по устройству инфракрасного пленочного теплого пол", image_type: "info"
   %p
     Теплые полы не дороги в эксплуатации, так как предусмотрено использование
     терморегулятора.

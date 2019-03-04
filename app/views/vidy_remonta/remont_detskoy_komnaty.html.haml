@@ -1,10 +1,6 @@
 %h1 Ремонт детской комнаты
 %article
-  - img = Image.find_by_alt("remont-v-detskoj-komnate")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "remont-v-detskoj-komnate", image_type: "vid_remonta"
   %p
     С особой ответственностью необходимо ремонтировать детскую комнату. Как и
     каждый родитель, Вы стремитесь дать своему ребенку все самое лучшее, в том
@@ -66,11 +62,7 @@
           использовать бумажные обои и специальный не токсичный клей.
 
   %h2 Ремонт комнаты для мальчика
-  - img = Image.find_by_alt("ремонт в комнате мальчика с пиратскими мотивами")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "ремонт в комнате мальчика с пиратскими мотивами", image_type: "vid_remonta"
   %p
     Главный атрибут мальчиковой комнаты - это спортивный уголок, и для его
     установки при подготовке к ремонту детской комнаты требуется определить
@@ -89,11 +81,7 @@
     практичность и функциональность
 
   %h2 Ремонт в комнате для девочки
-  - img = Image.find_by_alt("детская для девочки")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "детская для девочки", image_type: "vid_remonta"
   %p
     Основные зоны детской комнаты: спальное место, шкаф, место для занятий и
     творчества, место для игр с кукольным домиком или маленькой кухней.

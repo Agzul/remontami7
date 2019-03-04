@@ -1,10 +1,6 @@
 %h1 Капитальный ремонт ванной комнаты и стоимость работ
 %article
-  - img = Image.find_by_alt("Пример готовой работы частных мастеров по капитальному ремонту ванной комнаты по доступной стоимости")
-  - if browser.device.mobile?
-    = link_to (image_tag img.info_image.url(:small), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.info_image.url(:med), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "Пример готовой работы частных мастеров по капитальному ремонту ванной комнаты по доступной стоимости", image_type: "info"
   %p
     Чтобы ответить максимально точно на вопрос о том,
     %strong сколько стоит ремонт ванной комнаты,

@@ -1,10 +1,6 @@
 %h1 Комплексный ремонт квартир
 %article
-  - img = Image.find_by_alt("комплексный ремонт квартир")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "комплексный ремонт квартир", image_type: "vid_remonta"
   %p
     Ремонт – это всегда сложный, затратный и трудоёмкий процесс. Предположим,
     что решение о необходимости отремонтировать квартиру принято, бюджет
@@ -66,11 +62,7 @@
           %i.material-icons attachment
         %td Установка встроенной техники, мебели.
 
-  - img = Image.find_by_alt("комплексный ремонт квартиры в Москве и МО")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "комплексный ремонт квартиры в Москве и МО", image_type: "vid_remonta"
   %p
     В нашей бригаде работают только высококлассные электрики, штукатуры-маляры,
     столяры, плиточники  и другие специалисты, обладающие профессиональными

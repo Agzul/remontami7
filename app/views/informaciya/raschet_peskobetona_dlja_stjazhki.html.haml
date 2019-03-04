@@ -1,7 +1,6 @@
 %h1 Расчет пескобетона на стяжку пола
 %article
-  - img = Image.find_by_alt("Пример расчета пескобетона для стяжки")
-  = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
+  = render "partials/image", image_alt: "Пример расчета пескобетона для стяжки", image_type: "info", image_size: "small"
   %p
     Цементная стяжка, или как её ещё называют "традиционная стяжка", по праву
     считается самой надежной и экономичной в плане денежных затрат.

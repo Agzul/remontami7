@@ -1,10 +1,6 @@
 %h1 Евроремонт квартир под ключ
 %article
-  - img = Image.find_by_alt("евроремонт квартир под ключ")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "евроремонт квартир под ключ", image_type: "vid_remonta"
   %p
     Несколько лет назад никто и не слышал о таком понятии, как евроремонт.
     Употребляя этот термин, люди стремились в первую очередь подчеркнуть то, что
@@ -25,11 +21,7 @@
 
   %p{style: "color: #800000; text-align: center;"}
     %strong Стоимость евроремонта Премиум составляет от 12 000 руб/м2
-  - img = Image.find_by_alt("evroremont_kvartiri_v_moskve")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "evroremont_kvartiri_v_moskve", image_type: "vid_remonta"
   %p
     Отметим, что наша бригада частных мастеров предлагает услуги по выполнению
     евроремонта квартир под ключ по очень демократичным ценам и на высоком
@@ -113,11 +105,7 @@
       %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Премиум
 
   %h2 Евроремонт или просто качественный ремонт - в чем разница?
-  - img = Image.find_by_alt("евроремонт однокомнатной квартиры под ключ в Москве, частная бригада")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "евроремонт однокомнатной квартиры под ключ в Москве, частная бригада", image_type: "vid_remonta"
   %p
     Главное условие евроремонта – высочайшее качество работ. Тот факт, что
     дизайн разрабатывался профессиональным дизайнером, не гарантирует, что Ваш

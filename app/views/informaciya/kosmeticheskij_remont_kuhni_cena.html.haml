@@ -1,7 +1,6 @@
 %h1 Ремонт маленькой кухни
 %article
-  - img = Image.find_by_alt("remont-kuhni-cena")
-  = image_tag img.info_image.url(:small), alt: img.alt, align: "right"
+  = render "partials/image", image_alt: "remont-kuhni-cena", image_type: "info", image_size: "small"
   %p
     Нам известно, насколько для Вас важно узнать сколько стоит ремонт кухни.
     Бригада частных мастеров

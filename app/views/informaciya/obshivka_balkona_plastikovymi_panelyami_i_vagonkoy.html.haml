@@ -1,10 +1,6 @@
 %h1 Обшивка балкона пластиковыми панелями ПВХ и вагонкой, стоимость работ
 %article
-  - img = Image.find_by_alt("пластиковые панели под дерево на балконе")
-  - if browser.device.mobile?
-    = link_to (image_tag img.info_image.url(:small), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.info_image.url(:med), alt: img.alt, align: "right"), img.info_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "пластиковые панели под дерево на балконе", image_type: "info"
   %p
     Время идет и многое изменяется, но лишь предназначение балконов и лоджий
     остается таким же. Только теперь эти помещения помимо удобного хранения
@@ -62,21 +58,17 @@
     Обшивка балкона пластиковыми панелями – самый простой и дешевый способ
     использовать помещение по-новому, совместив практичность и уют.
   %hr
-  - img = Image.find_by_alt("красивая отделка балкона панелями ПВХ")
-  %figure{style: "display: inline-block; margin: 0px;"}
-    - if browser.device.mobile?
-      = link_to (image_tag img.info_image.url(:small), alt: img.alt), img.info_image.url(:original), target: "_blank"
-      %figcaption пример отделки лоджии пластиковыми панелями
-    - else
+  - if browser.device.mobile? || browser.device.tablet?
+    = render "partials/image", image_alt: "красивая отделка балкона панелями ПВХ", image_type: "info"
+    = render "partials/image", image_alt: "балкон пластиковыми панелями", image_type: "info"
+  - else
+    - img = Image.find_by_alt("красивая отделка балкона панелями ПВХ")
+    %figure{style: "display: inline-block; margin: 0px;"}
       = link_to (image_tag img.info_image.url(:med), alt: img.alt), img.info_image.url(:original), target: "_blank"
       %figcaption пример отделки лоджии пластиковыми панелями
 
-  - img = Image.find_by_alt("балкон пластиковыми панелями")
-  %figure{style: "display: inline-block; margin: 0px;"}
-    - if browser.device.mobile?
-      = link_to (image_tag img.info_image.url(:small), alt: img.alt), img.info_image.url(:original), target: "_blank"
-      %figcaption отделка потолка на лоджии пластиковыми панелями ПВХ
-    - else
+    - img = Image.find_by_alt("балкон пластиковыми панелями")
+    %figure{style: "display: inline-block; margin: 0px;"}
       = link_to (image_tag img.info_image.url(:med), alt: img.alt), img.info_image.url(:original), target: "_blank"
       %figcaption отделка потолка на лоджии пластиковыми панелями ПВХ
   %p

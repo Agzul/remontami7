@@ -10,29 +10,7 @@
     Принято считать, что ремонт – удовольствие дорогое, но при обращении к нам
     это утверждение не верно. Позвоните и убедитесь в этом сами!
 
-  %table{style: "width: 100%;"}
-    %tbody
-      %tr
-        - unless browser.device.mobile?
-          %td{ rowspan: 3 }
-            - img = Image.find_by_alt("contact")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-        %td
-          %span
-            %strong
-              По тел:
-              %a{ href: "tel:#{@default_phone_normal}", class: "blue" }= @default_phone
-        - unless browser.device.mobile?
-          %td{ rowspan: 3 }
-            - img = Image.find_by_alt("qr-code")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-      %tr
-      %tr
-        %td
-          %span
-            %strong
-              По почте:
-              %a{ href: "/mail", target: "_blank", class: "blue" } info@remontami7.ru
+  = render "partials/contacts"
 
   %h2 Что входит в косметический ремонт комнаты
   %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp
@@ -100,11 +78,7 @@
       %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Подробнее
 
   %h2 Косметический ремонт отдельных комнат и его преимущество
-  - img = Image.find_by_alt("косметический ремонт комнаты")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "косметический ремонт комнаты", image_type: "vid_remonta"
   %p
     Всем известно, что на ремонт всей квартиры нужно потратить больше средств,
     чем на ремонт одной комнаты. И если необходимо изменить и освежить интерьер
@@ -120,11 +94,7 @@
     Если необходимо произвести ремонт в служебных помещениях, в офисах, то отделка
     отдельных комнат выгодна тем, что позволяет не прерывать трудовой процесс и не
     срывать важные переговоры и поставки.
-  - img = Image.find_by_alt("косметический ремонт комнаты в Москве")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "косметический ремонт комнаты в Москве", image_type: "vid_remonta"
   %p
     Большое значение имеет назначение комнаты, и здесь необходимо тщательно
     учесть предпочтения будущего жильца. В каждом конкретном случае необходимо

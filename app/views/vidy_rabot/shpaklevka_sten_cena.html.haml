@@ -10,29 +10,7 @@
     Наши мастера с удовольствием выполнят для Вас шпаклевку стен или потолка по
     выгодным и адекватным ценам, звоните!
 
-  %table{style: "width: 100%;"}
-    %tbody
-      %tr
-        - unless browser.device.mobile?
-          %td{ rowspan: 3 }
-            - img = Image.find_by_alt("contact")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-        %td
-          %span
-            %strong
-              По тел:
-              %a{ href: "tel:#{@default_phone_normal}", class: "blue" }= @default_phone
-        - unless browser.device.mobile?
-          %td{ rowspan: 3 }
-            - img = Image.find_by_alt("qr-code")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-      %tr
-      %tr
-        %td
-          %span
-            %strong
-              По почте:
-              %a{ href: "mailto:info@remontami7.ru", target: "_blank" } info@remontami7.ru
+  = render "partials/contacts"
 
   %h2 Шпатлевка стен и цена за м2 работ в Москве и МО
 
@@ -121,6 +99,7 @@
     достаточно двух раз.
 
   %h3 Для чего нужно шпатлевать?
+  = render "partials/image", image_alt: "shpaklevka-sten-i-cena-rabot", image_type: "vid_rabot"
   %p
     Основным критерием выполнения высококачественных ремонтных и отделочных
     работ является идеально ровная поверхность. Именно подготовке основы хороший

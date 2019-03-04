@@ -1,10 +1,6 @@
 %h1 Капитальный ремонт квартир в Москве
 %article
-  - img = Image.find_by_alt("капитальный ремонт квартир в Москве")
-  - if browser.device.mobile?
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
-  - else
-    = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right"), img.vid_remonta_image.url(:original), target: "_blank"
+  = render "partials/image", image_alt: "капитальный ремонт квартир в Москве", image_type: "vid_remonta"
   %p
     Любой ремонт в квартире предполагает
     %strong
