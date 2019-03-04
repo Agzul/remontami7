@@ -41,8 +41,8 @@ class Image < ApplicationRecord
 
   has_attached_file :slider_image, styles: {
     pc:     [ "720x360!", :jpeg ],
-    tablet: [ "480x240!", :jpeg ],
-    mobile: [ "320x160!", :jpeg ]
+    tablet: [ "460x230!", :jpeg ],
+    mobile: [ "300x150!", :jpeg ]
   },
   convert_options: {
     all: "-quality 85 -strip"
@@ -58,7 +58,7 @@ class Image < ApplicationRecord
 
   has_attached_file :info_image, styles: {
     thumb: [ "100x75!", :jpeg ],
-    small: [ "320x?",   :jpeg ],
+    small: [ "300x?",   :jpeg ],
     med:   [ "360x?",   :jpeg ]
   },
   convert_options: {
@@ -66,7 +66,7 @@ class Image < ApplicationRecord
   }
 
   has_attached_file :vid_remonta_image, styles: {
-    small: [ "320x?",   :jpeg ],
+    small: [ "300x?",   :jpeg ],
     med:   [ "360x?",   :jpeg ]
   },
   convert_options: {
@@ -74,7 +74,7 @@ class Image < ApplicationRecord
   }
 
   has_attached_file :vid_rabot_image, styles: {
-    small: [ "320x?",   :jpeg ],
+    small: [ "300x?",   :jpeg ],
     med:   [ "360x?",   :jpeg ]
   },
   convert_options: {

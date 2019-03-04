@@ -7,29 +7,29 @@
   - if image_type == "info"
     - if img.info_image.exists?
       - if browser.device.mobile?
-        = link_to (image_tag img.info_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.info_image.url(:original), target: "_blank"
+        = link_to (image_tag img.info_image.url(:small), alt: img.alt, title: img.title), img.info_image.url(:original), target: "_blank"
       - else
         = link_to (image_tag img.info_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.info_image.url(:original), target: "_blank"
 
   - elsif image_type == "vid_remonta"
     - if img.vid_remonta_image.exists?
       - if browser.device.mobile?
-        = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+        = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title), img.vid_remonta_image.url(:original), target: "_blank"
       - else
         = link_to (image_tag img.vid_remonta_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
 
   - elsif image_type == "vid_rabot"
     - if img.vid_rabot_image.exists?
       - if browser.device.mobile?
-        = link_to (image_tag img.vid_rabot_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_rabot_image.url(:original), target: "_blank"
+        = link_to (image_tag img.vid_rabot_image.url(:small), alt: img.alt, title: img.title), img.vid_rabot_image.url(:original), target: "_blank"
       - else
         = link_to (image_tag img.vid_rabot_image.url(:med),   alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_rabot_image.url(:original), target: "_blank"
 
 
-- elsif image_size == "small"
+- elsif image_size == "thumb"
   - if image_type == "info"
-    = link_to (image_tag img.info_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.info_image.url(:original), target: "_blank"
+    = link_to (image_tag img.info_image.url(:thumb), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.info_image.url(:original), target: "_blank"
   - elsif image_type == "vid_remonta"
-    = link_to (image_tag img.vid_remonta_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
+    = link_to (image_tag img.vid_remonta_image.url(:thumb), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_remonta_image.url(:original), target: "_blank"
   - elsif image_type == "vid_rabot"
-    = link_to (image_tag img.vid_rabot_image.url(:small), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_rabot_image.url(:original), target: "_blank"
+    = link_to (image_tag img.vid_rabot_image.url(:thumb), alt: img.alt, title: img.title, align: "right", vspace: 5, hspace: 5), img.vid_rabot_image.url(:original), target: "_blank"
