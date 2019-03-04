@@ -1,6 +1,14 @@
 @import 'material';
 @import 'bxslider';
 
+// выравнивание текста
+.content{
+  text-align: justify;
+  h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+  }
+}
+
 // Уменьшение внутреннего отступа в header-е
 @media screen and (max-width: 768px) {
   .mdl-layout__header-row {
