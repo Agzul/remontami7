@@ -7,45 +7,29 @@
   %p
   %span{:style => "font-size: 12pt;"}
     %strong Получить квалифицированную консультацию о стоимости наших работ, общей суммы комплексного или мелкого ремонта квартиры или другого помещения в Москве и Московской области, оформить заказ осмотра места проведения работ Вы можете:
-  %table{style: "width: 100%;"}
-    %tbody
-      %tr
-        - unless browser.device.mobile?
-          %td{rowspan: 3}
-            - img = Image.find_by_alt("contact")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-        %td
-          %span
-            %strong
-              По тел:
-              %a{:href => "tel:#{@default_phone_normal}", class: "blue"}= @default_phone
-        - unless browser.device.mobile?
-          %td{rowspan: 3}
-            - img = Image.find_by_alt("qr-code")
-            = image_tag img.static_image.url(:med), alt: "#{img.alt}"
-      %tr
-      %tr
-        %td
-          %span
-            %strong
-              По почте:
-              %a{:href => "/mail", :target => "_blank", class: "blue"} info@remontami7.ru
+
+  = render "partials/contacts"
 
   %p{:style => "text-align: center; margin-top: 50px;"}
     %span{:style => "font-size: 14pt;"}
       %strong Где работают наши мастера
 
-  %p{style: "display: flex; align-items: center;"}
-    - img = Image.find_by_alt("remont-kvartir")
-    = image_tag img.static_image.url(:small), alt: "#{img.alt}"
-    %strong Ремонт квартир, офисов, служебных помещений
-    в Москве (все районы) и Московской области с удаленностью от МКАД ≈ до 10-15 км (к сожалению, мы ограничены дальностью в осуществлении ремонта)
-
-  %p{style: "display: flex; align-items: center;"}
-    - img = Image.find_by_alt("remont-kottedzhey")
-    = image_tag img.static_image.url(:small), alt: "#{img.alt}"
-    %strong Ремонт в коттеджах
-    до Малого бетонного кольца ( ≈ до 35 км от МКАД)
+  %table
+    %tbody
+      %tr
+        %td
+          - img = Image.find_by_alt("remont-kvartir")
+          = image_tag img.static_image.url(:small), alt: "#{img.alt}"
+        %td
+          %strong Ремонт квартир, офисов, служебных помещений
+          в Москве (все районы) и Московской области с удаленностью от МКАД ≈ до 10-15 км (к сожалению, мы ограничены дальностью в осуществлении ремонта)
+      %tr
+        %td
+          - img = Image.find_by_alt("remont-kottedzhey")
+          = image_tag img.static_image.url(:small), alt: "#{img.alt}"
+        %td
+          %strong Ремонт в коттеджах
+          до Малого бетонного кольца ( ≈ до 35 км от МКАД)
 
   %hr{style: "margin: 50px; 0 50px 0;"}
 

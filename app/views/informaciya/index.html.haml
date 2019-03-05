@@ -1,8 +1,11 @@
 %h1 Информация о ремонте квартир
-%article{style: "display: flex; flex-direction: column; display: -webkit-inline-flex; -webkit-flex-direction: column;"}
+%article
   - for i in 0...@links.size
-    %a.mdl-button.mdl-js-button.mdl-button--raised{style: "height: 80px; margin-bottom: 10px; text-transform: none; padding: 0;", href: @links[i], target: "_blank"}
+    %a.mdl-button.mdl-js-button.mdl-button--raised{style: "height: 80px; margin-bottom: 10px; text-transform: none; padding: 0; width: 100%;", href: @links[i], target: "_blank"}
       %table
         %tr
-          %td= image_tag @preview_image[i] if @preview_image[i] != nil
+          - if @preview_image[i] != nil
+            %td= image_tag @preview_image[i]
+          - else
+            %td{style: "width: 100px; height: 75px;"}
           %td{style: "line-height: 15px; color: black;"}= @link_names[i]
