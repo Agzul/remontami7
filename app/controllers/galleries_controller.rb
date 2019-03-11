@@ -2,6 +2,40 @@ class GalleriesController < ApplicationController
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
   before_action :deny_access, only: [:new, :edit, :create, :update, :destroy]
 
+  # POST /galleries/show_images?id=1
+  def show_images
+    @gallery= Gallery.find(params[:id])
+    @cover_urls = []
+    @thumb_urls = []
+    @original_urls = []
+    @gallery.images.each do |image|
+      if image.gallery_cover == true
+        if browser.device.mobile?
+          @cover_urls.unshift(image.gallery_image.url(:mobile_cover))
+        elsif browser.device.tablet?
+          @cover_urls.unshift(image.gallery_image.url(:tablet_cover))
+        else
+          @cover_urls.unshift(image.gallery_image.url(:cover))
+        end
+        @thumb_urls.unshift(image.gallery_image.url(:thumb))
+        @original_urls.unshift(image.gallery_image.url(:original))
+      else
+        if browser.device.mobile?
+          @cover_urls.push(image.gallery_image.url(:mobile_cover))
+        elsif browser.device.tablet?
+          @cover_urls.push(image.gallery_image.url(:tablet_cover))
+        else
+          @cover_urls.push(image.gallery_image.url(:cover))
+        end
+        @thumb_urls.push(image.gallery_image.url(:thumb))
+        @original_urls.push(image.gallery_image.url(:original))
+      end
+    end
+    respond_to do |format|
+      format.js {render :layout => false}
+    end
+  end
+
   # GET /galleries
   # GET /galleries.json
   def index
@@ -10,6 +44,11 @@ class GalleriesController < ApplicationController
     @keywords =    "фото ремонт квартир"
 
     @galleries = Gallery.all
+    @main_gallery_thumb_urls = []
+    @galleries.each do |gallery|
+      image = gallery.images.find_by_gallery_cover(true)
+      @main_gallery_thumb_urls.push(image.gallery_image.url(:thumb))
+    end
   end
 
   # GET /galleries/1

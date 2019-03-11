@@ -1,0 +1,15 @@
+- unless @original_urls.empty?
+  - unless @original_urls[0].empty? && @thumb_urls[0].empty? && @cover_urls[0].empty?
+    = link_to (image_tag @cover_urls[0], style: "display: block; margin-left: auto; margin-right: auto;"), @original_urls[0], target: :_blank, class: "cover"
+  .thumbs_block{ style: "margin: 10px 0 10px 0; height: 106px; overflow:hidden; position:relative;" }
+
+    .left_arrow_block{style: "width: 30px; height: 106px; position: absolute; background: #333; z-index: 1;", onmouseout: "this.style.backgroundColor='#333';", onmouseover: "this.style.backgroundColor='#555'; this.style.cursor = 'pointer';"}
+      %i.arrow_left{style: "left: 15px; top: 48px; position: absolute;"}
+
+    .images_block{ style: "width: #{@original_urls.size*111}px; margin: 0 30px 0 30px;" }
+      - for i in 0...@original_urls.size
+        - unless @original_urls[i].empty? && @thumb_urls[i].empty? && @cover_urls[i].empty?
+          = image_tag @thumb_urls[i], data: {cover: @cover_urls[i], original: @original_urls[i]}, class: "thumb", style: "float: left; margin: 0 5px 0 0; border: 3px solid gray;"
+
+    .right_arrow_block{style: "width: 30px; height: 106px; position: absolute; background: #333; z-index: 1; right: 0px;", onmouseout: "this.style.backgroundColor='#333';", onmouseover: "this.style.backgroundColor='#555'; this.style.cursor = 'pointer';"}
+      %i.arrow_right{style: "right: 15px; top: 48px; position: absolute;"}

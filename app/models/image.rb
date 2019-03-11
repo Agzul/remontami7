@@ -27,16 +27,16 @@ class Image < ApplicationRecord
 
   has_attached_file :gallery_image, styles: {
     thumb:        [ "100x100", :jpeg ],
-    cover:        [ "680x680", :jpeg ],
-    tablet_cover: [ "440x440", :jpeg ],
-    mobile_cover: [ "280x280", :jpeg ]
+    cover:        [ "600x600", :jpeg ],
+    tablet_cover: [ "400x400", :jpeg ],
+    mobile_cover: [ "250x250", :jpeg ]
   },
   convert_options: {
     all:          "-quality 85 -strip",
     thumb:        "-background black -gravity center -extent 100x100",
-    cover:        "-background black -gravity center -extent 680x680",
-    tablet_cover: "-background black -gravity center -extent 440x440",
-    mobile_cover: "-background black -gravity center -extent 280x280"
+    cover:        "-background black -gravity center -extent 600x600",
+    tablet_cover: "-background black -gravity center -extent 400x400",
+    mobile_cover: "-background black -gravity center -extent 250x250"
   }
 
   has_attached_file :slider_image, styles: {

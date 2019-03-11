@@ -26,5 +26,6 @@ document.addEventListener('turbolinks:load', function() {
 $(document).on('turbolinks:load', function(){
   $('.bxslider').bxSlider({
     auto: true,
+    pager: false,
   });
 });

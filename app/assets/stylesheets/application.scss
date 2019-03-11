@@ -1,6 +1,41 @@
 @import 'material';
 @import 'bxslider';
+// Arrows
+.arrow_right {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
 
+.arrow_left {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.arrow_up {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.arrow_down {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
 // выравнивание текста
 .content{
   text-align: justify;
@@ -50,7 +85,7 @@ article a {
 }
 
 // thumb изображение
-.gallery_thumb {
+.thumb {
   &:hover {
     cursor: pointer;
   }

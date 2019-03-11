@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get  'login'  => 'user_sessions#new',     :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
   # Scaffolds
-  resources :sliders
   resources :galleries, path: '/foto-nashih-rabot'
+  post '/galleries/show_images', to: 'galleries#show_images', :as => 'show_images'
+
+  resources :sliders
   resources :articles,  path: '/news'
   # Главное меню
   root 'main_menu#home'

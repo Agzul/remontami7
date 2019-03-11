@@ -381,13 +381,13 @@ for i in 0...GALLERY_NUMBERS
           gallery: gallery,
           gallery_image: gallery_images[i][j],
           gallery_cover: true,
-          alt: "#{i}_#{j}"
+          alt: "#{i+1}_#{j+1}"
         )
       else
         Image.create(
           gallery_image: gallery_images[i][j],
           gallery: gallery,
-          alt: "#{i}_#{j}"
+          alt: "#{i+1}_#{j+1}"
         )
       end
       j+=1
