@@ -1,2 +1,274 @@
-%h1 VidyRabot#pokleyka_oboev_cena
-%p Find me in app/views/vidy_rabot/pokleyka_oboev_cena.html.haml
+%h1 Поклейка обоев и цена м2
+%article
+  %p
+    Если возникла необходимость в поклейке обоев, цена за м2 работ на которую
+    представлена на нашем сайте - обратитесь к
+    %em{style: "color: #800;"} бригаде частных мастеров Ремонтами 7.
+    Знайте, что такие услуги в Москве и Подмосковье можно заказать по адекватной
+    и доступной стоимости, причем не только в отдельной комнате, но и во всей
+    квартире! Уточнить, сколько стоит поклейка обоев именно в Вашей квартире,
+    можно, обратившись к мастеру:
+  = render "partials/contacts"
+  %p
+    Практически каждый хозяин может себе позволить воспользоваться услугами
+    специалиста с тем, чтобы поклеить обои по оптимальной стоимости работ
+    качественно, недорого и не тратить на это занятие собственное свободное
+    время.
+  %table{ style: "min-width: 75%; margin: 10px auto 10px auto;" }
+    %tbody
+      %tr
+        %td{ colspan: 3, style: "background: #ffdab9; text-align: center; height: 40px;" }
+          %strong
+            Поклейка обоев - общая цена работы
+      %tr
+        %td{ style: "text-align: center; background: #cd853f; height: 60px;" }
+          %strong
+            Комната площадь 15 м
+            %sup 2
+        %td{ style: "text-align: center; background: #cd853f; height: 60px;" }
+          %strong
+            Комната площадь 18 м
+            %sup 2
+        %td{ style: "text-align: center; background: #cd853f; height: 60px;" }
+          %strong
+            Комната площадь 22 м
+            %sup 2
+      %tr
+        %td{ style: "text-align: center; background: #d2b48c; height: 40px;" }
+          %strong
+            9 625 руб
+        %td{ style: "text-align: center; background: #d2b48c; height: 40px;" }
+          %strong
+            10 750 руб
+        %td{ style: "text-align: center; background: #d2b48c; height: 40px;" }
+          %strong
+            12 250 руб
+      %tr
+        %td{ colspan: 3, style: "background: #ffdab9; text-align: center; height: 40px;" }
+          Указана общая цена оклейки обоев без подбора рисунка +
+          грунтовка, высота потолка 2,7 м
+  %p{ style: "color: #800" }
+    %em
+      %strong *Внимание!
+      Окончательная стоимость поклейки обоев и скидки на определенные виды
+      работ определяются после осмотра мастером места работ. Выезд мастера
+      бесплатно. Стоимость будет неизменна до окончания работ.
+  %p{ style: "font-size: 12pt; text-align: center; color: blue;" }
+    %strong
+      Указана цена работ без стоимости расходных и стройматериалов!
+  %p{ style: "font-size: 12pt; text-align: center; color: red;" }
+    %strong
+      Работаем без предоплат!
+
+  %h2
+    Поклейка различных обоев и цена за м
+    %sup 2
+    в Москве
+
+  %table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp{ style: "min-width: 75%; margin: auto;" }
+    %thead
+      %tr
+        %th{ style: "text-align: center;" } Наименование работ
+        %th{ style: "text-align: center;" } Цена
+    %tbody
+      - for i in 0...@work_names.size
+        %tr
+          %td{ style: "text-align: left;" }= @work_names[i].html_safe
+          %td{ style: "text-align: center;" }
+            %strong= @work_prices[i]
+            руб/#{@work_units[i].html_safe}
+
+      %tr
+        %td{ style: "text-align: center;", colspan: 2 }
+          %strong Дополнительные услуги
+
+      - for i in 0...@additional_service_names.size
+        %tr
+          %td{ style: "text-align: left;" }= @additional_service_names[i].html_safe
+          %td{ style: "text-align: center;" }
+            %strong= @additional_service_prices[i]
+            руб/#{@additional_service_units[i].html_safe}
+
+      %tr
+        %td{ style: "text-align: center; color: blue;", colspan: 2 }
+          %strong Поклейка обоев "Эконом"
+          (срок 1-2 дня)
+
+      - for i in 0...@jekonom_names.size
+        %tr
+          %td{ style: "text-align: left;" }= @jekonom_names[i].html_safe
+          %td{ style: "text-align: center;" }
+            %strong= @jekonom_prices[i]
+            руб/#{@jekonom_units[i].html_safe}
+
+      %tr
+        %td{ style: "text-align: center; color: blue;", colspan: 2 }
+          %strong Поклейка обоев "Оптимал"
+          (3 дня)
+
+      - for i in 0...@optimal_names.size
+        %tr
+          %td{ style: "text-align: left;" }= @optimal_names[i].html_safe
+          %td{ style: "text-align: center;" }
+            %strong= @optimal_prices[i]
+            руб/#{@optimal_units[i].html_safe}
+
+      %tr
+        %td{ style: "text-align: center; color: blue;", colspan: 2 }
+          %strong Поклейка обоев "Все полностью"
+
+      - for i in 0...@all_names.size
+        %tr
+          %td{ style: "text-align: left;" }= @all_names[i].html_safe
+          %td{ style: "text-align: center;" }
+            %strong= @all_prices[i]
+            руб/#{@all_units[i].html_safe}
+
+  %p
+    %span{ style: "color: red;" }*
+    \- предоставляем скидку 5% при объеме работ свыше 150 м2
+
+  %h3 Из чего складывается цена
+  = render "partials/image", image_alt: "pokleyka-oboev-cena", image_type: "vid_rabot"
+  %p
+    Общая цена поклейки обоев выражается в рублях за квадратный метр
+    поверхности стен/потолка. В итоговую стоимость работ входит подготовка стен
+    к поклейке, стоимость расходных материалов и непосредственно сама работа.
+  %p
+    Виды обоев, которые вы выбрали для оклейки, также напрямую влияют на расценки.
+    Каждый вид требует определенные навыки мастера, приложенные усилия, риск. А
+    также учитываются особые пожелания заказчика, нестандартные ситуации.
+  %p
+    Можно поклеить обои без подготовки основания, только грунтовка и собственно
+    сама поклейка, в этом случае стоимость работ будет меньше. Но помните, что
+    %strong
+      даже самый лучший мастер-профессионал не сможет качественно поклеить
+      обои на неподготовленную поверхность.
+
+  %p{ style: "color: blue;" }
+    %strong Подготовка стен включает в себя:
+
+  %table
+    %tbody
+      %tr
+        %td
+          %i.material-icons{ style: "font-size: 30px;" } attach_file
+        %td
+          Демонтаж старых обоев, остатков клея и отстающих фрагментов
+          предыдущего слоя шпатлевки;
+      %tr
+        %td
+          %i.material-icons{ style: "font-size: 30px;" } attach_file
+        %td
+          Шпатлевание поверхности для выравнивания стены (потолка) и заделки
+          мелких трещин и неровностей;
+      %tr
+        %td
+          %i.material-icons{ style: "font-size: 30px;" } attach_file
+        %td
+          Грунтовка стен (потолка) для лучшего сцепления обоев и борьбы с
+          грибком и плесенью.
+
+  %p{ style: "text-align: center;" }
+    %strong Рассчитайте точную площадь стен под поклейку обоев в Вашей комнате
+
+  %div{style: "text-align: center; margin: 20px 0;"}
+    = link_to informaciya_raschet_ploschadi_sten_pod_pokleyku_path, target: :_blank do
+      %button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored{style: "width: 150px; text-transform: none;"} Подробнее
+
+  %h2 Преимущества работы мастера по поклейке обоев
+  %p
+    Всем известно, что ремонт связан с массой неудобств и финансовых расходов.
+    Такая простая на первый взгляд задача, как поклейка обоев с рисунком, может
+    скрывать в себе много тонкостей и нюансов, не зная которые можно сильно
+    разочароваться в полученном результате и испортить ценный стройматериал.
+  %p
+    Мы предлагаем услуги профессионала, который может наклеить обои
+    по-настоящему качественно. Мастер обеспечит высокий результат работ и он
+    будет намного выше, чем экономия средств, а риск испорченного строительного
+    материала фактически отсутствует.
+  %p
+    Обращайтесь к нам, и Вы получите следующие преимущества:
+
+  %table
+    %tbody
+      %tr
+        %td
+          %i.material-icons{ style: "font-size: 30px;" } check
+        %td
+          %strong У Вас больше свободного времени.
+          Жизнь в современном мегаполисе, к сожалению, оставляет слишком мало
+          времени для организации собственного досуга;
+      %tr
+        %td
+          %i.material-icons{ style: "font-size: 30px;" } check
+        %td
+          %strong Недостаток собственного опыта – не проблема.
+          Наш мастер по поклейке обоев выполнит работу профессионально,
+          поскольку занимается этим каждый день и обладает достаточными
+          навыками;
+      %tr
+        %td
+          %i.material-icons{ style: "font-size: 30px;" } check
+        %td
+          %strong
+            Недостаток знаний о свойствах современных строительных
+            материалов - не проблема.
+          Наши сотрудники обладают всеми необходимыми знаниями, которые помогут
+          оптимально подобрать и правильно использовать современные отделочные
+          материалы. Вам нет необходимости тратить время на изучение свойств
+          тех или иных обоев, техники их использования.
+      %tr
+        %td
+          %i.material-icons{ style: "font-size: 30px;" } check
+        %td
+          %strong Работаем быстро и качественно.
+          При условии подготовленных стен можем
+          %em{ style: "color: red;" } поклеить обои за 1 день!
+      %tr
+        %td
+          %i.material-icons{ style: "font-size: 30px;" } check
+        %td
+          %strong Ценообразование абсолютно прозрачно.
+          У нас нет скрытых пунктов для дополнительных расходов!
+
+  %table
+    %tbody
+      %tr
+        %td
+          - img = Image.find_by_alt("master-po-pokleyke-oboev")
+          - if browser.device.mobile?
+            = link_to (image_tag img.vid_rabot_image.url(:small), alt: img.alt, title: img.title, style: "width: 100%;"), img.vid_rabot_image.url(:original), target: "_blank"
+          - else
+            = link_to (image_tag img.vid_rabot_image.url(:med), alt: img.alt, title: img.title, style: "width: 100%;"), img.vid_rabot_image.url(:original), target: "_blank"
+        %td
+          - img = Image.find_by_alt("pokleyka-oboev-masterom")
+          - if browser.device.mobile?
+            = link_to (image_tag img.vid_rabot_image.url(:small), alt: img.alt, title: img.title, style: "width: 100%;"), img.vid_rabot_image.url(:original), target: "_blank"
+          - else
+            = link_to (image_tag img.vid_rabot_image.url(:med), alt: img.alt, title: img.title, style: "width: 100%;"), img.vid_rabot_image.url(:original), target: "_blank"
+        %td
+          - img = Image.find_by_alt("pokleyka-oboev-masterom-v-odnoy-komnate")
+          - if browser.device.mobile?
+            = link_to (image_tag img.vid_rabot_image.url(:small), alt: img.alt, title: img.title, style: "width: 100%;"), img.vid_rabot_image.url(:original), target: "_blank"
+          - else
+            = link_to (image_tag img.vid_rabot_image.url(:med), alt: img.alt, title: img.title, style: "width: 100%;"), img.vid_rabot_image.url(:original), target: "_blank"
+  %p
+    Если нужно поклеить обои и решено обратиться к нашему частному мастеру, то
+    можно решить несколько вопросов сразу, поскольку наши специалисты являются
+    профессионалами в смежных областях. Например, поклеив обои в комнате, у
+    Вас возникнет
+    = link_to "желание положить ламинат", vidy_rabot_ukladka_laminata_cena_path
+    или другое напольное покрытие. Наши мастера выполнят профессионально эти
+    работы по доступной цене, при этом соблюдая все условия и нормативные
+    требования.
+  %p
+    Оклейка стен  и потолков обоями очень хорошо влияет на визуализацию стен.
+    Обои с рисунком, особенно рисунок 3D, тоже способны зрительно увеличить
+    пространство.
+    %strong
+      Но главное правило, пренебрегать которым нельзя – это тщательная
+      подготовка поверхности стен и шпаклевание к поклейке обоев.
+    Необходимо очистить стены от старых обоев или иных покрытий, от старого
+    клея, зашпаклевать и загрунтовать их, обеспечив таким образом ровную
+    поверхность и наилучшее сцепление.

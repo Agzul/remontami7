@@ -170,6 +170,130 @@ class VidyRabotController < ApplicationController
     @title       = "Качественная поклейка обоев и цена за м2 работы частного мастера в Москве и МО"
     @description = "Предлагаем качественную поклейку обоев по доступной цене за м2. Можем поклеить любые обои в Москве, стоимость работ по такой услуге у нас доступна и составит 200 руб за м2 площади стен. Частные мастера могут поклеить обои по выгодной цене, поэтому не стоит обременять себя этим занятием!"
     @keywords    = "поклейка обоев и цена за м2, поклеить обои стоимость работ"
+
+    @work_names = [
+      "Поклейка обоев винил, флизелин",
+      "Поклейка обоев (винил, флизелин) с подбором рисунка",
+      "Поклейка бумажных обоев",
+      "Поклейка структурных обоев под покраску (стеклообои)",
+      "Поклейка текстильных обоев",
+      "Поклейка 2-уровневых обоев с бордюром",
+      "Поклейка фотообоев",
+      "Грунтовка стен"
+    ]
+    link = url_for controller: :vidy_rabot, action: :pokleyka_oboev_cena, only_path: true
+    link1 = url_for controller: :vidy_rabot, action: :pokleyka_oboev_pod_pokrasku, only_path: true
+    @work_prices = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price.to_i + 30,
+      Work.find_by_name("Поклейка бумажных обоев").price,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Поклейка обоев под покраску</a>").price,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price.to_i + 280,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price.to_i + 80,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price.to_i + 330,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").price
+    ]
+    @work_units = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").unit,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").unit,
+      Work.find_by_name("Поклейка бумажных обоев").unit,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Поклейка обоев под покраску</a>").unit,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").unit,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").unit,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").unit,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").unit
+    ]
+
+    link = url_for controller: :vidy_rabot, action: :shpaklevka_sten_pod_oboi_ceny, only_path: true
+    @additional_service_names = [
+      "Удаление (демонтаж) старых обоев со стен простое",
+      "Шпатлевка стен под обои (2 слоя)",
+      "Шлифовка стен",
+      "Покраска обоев"
+    ]
+    @additional_service_prices = [
+      Work.find_by_name("Демонтаж обоев").price,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").price,
+      Work.find_by_name("Шлифовка стен").price,
+      Work.find_by_name("Покраска обоев").price
+    ]
+    @additional_service_units = [
+      Work.find_by_name("Демонтаж обоев").unit,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").unit,
+      Work.find_by_name("Шлифовка стен").unit,
+      Work.find_by_name("Покраска обоев").unit
+    ]
+
+    link = url_for controller: :vidy_rabot, action: :pokleyka_oboev_cena, only_path: true
+    @jekonom_names = [
+      "Демонтаж старых обоев",
+      "Грунтовка стен",
+      "Поклейка обоев"
+    ]
+    @jekonom_prices = [
+      Work.find_by_name("Демонтаж обоев").price,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").price,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price
+    ]
+    @jekonom_units = [
+      Work.find_by_name("Демонтаж обоев").unit,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").unit,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").unit
+    ]
+
+    link = url_for controller: :vidy_rabot, action: :shpaklevka_sten_pod_oboi_ceny, only_path: true
+    link1 = url_for controller: :vidy_rabot, action: :pokleyka_oboev_cena, only_path: true
+    @optimal_names = [
+      "Демонтаж старых обоев",
+      "Грунтовка стен",
+      "Шпаклевание стен под обои",
+      "Шлифовка стен после шпаклевания",
+      "Поклейка обоев"
+    ]
+    @optimal_prices = [
+      Work.find_by_name("Демонтаж обоев").price,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").price,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").price,
+      Work.find_by_name("Шлифовка стен").price,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price
+    ]
+    @optimal_units = [
+      Work.find_by_name("Демонтаж обоев").unit,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").unit,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").unit,
+      Work.find_by_name("Шлифовка стен").unit,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").unit
+    ]
+
+    link = url_for controller: :vidy_rabot, action: :shpaklevka_sten_pod_oboi_ceny, only_path: true
+    link1 = url_for controller: :vidy_rabot, action: :pokleyka_oboev_cena, only_path: true
+    @all_names = [
+      "Демонтаж старых обоев",
+      "Грунтовка после каждого цикла работ",
+      "Выравнивание стен по плоскости (до 1 см) смесью Ротбанд",
+      'Поклейка "паутинки", "Строби"',
+      "Шпаклевка стен под обои",
+      "Шлифовка после шпаклевания и выравнивания",
+      "Поклейка обоев"
+    ]
+    @all_prices = [
+      Work.find_by_name("Демонтаж обоев").price,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").price,
+      Work.find_by_name("Выравнивание штукатурной смесью по плоскости").price,
+      Work.find_by_name("Поклейка малярной сетки").price,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").price,
+      Work.find_by_name("Шлифовка стен").price,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price
+    ]
+    @all_units = [
+      Work.find_by_name("Демонтаж обоев").unit,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").unit,
+      Work.find_by_name("Выравнивание штукатурной смесью по плоскости").unit,
+      Work.find_by_name("Поклейка малярной сетки").unit,
+      Work.find_by_name("<a href='#{link}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").unit,
+      Work.find_by_name("Шлифовка стен").unit,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").unit
+    ]
   end
 
   def poklejka_vinilovyh_oboev
