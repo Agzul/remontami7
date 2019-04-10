@@ -35,14 +35,18 @@
             %sup 2
       %tr
         %td{ style: "text-align: center; background: #d2b48c; height: 40px;" }
+          - link = url_for controller: :vidy_rabot, action: :pokleyka_oboev_cena, only_path: true
           %strong
-            9 625 руб
+            = ((Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price.to_i + Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").price.to_i)*38.5).to_i
+            руб
         %td{ style: "text-align: center; background: #d2b48c; height: 40px;" }
           %strong
-            10 750 руб
+            = (Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price.to_i + Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").price.to_i)*43
+            руб
         %td{ style: "text-align: center; background: #d2b48c; height: 40px;" }
           %strong
-            12 250 руб
+            = (Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price.to_i + Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").price.to_i)*49
+            руб
       %tr
         %td{ colspan: 3, style: "background: #ffdab9; text-align: center; height: 40px;" }
           Указана общая цена оклейки обоев без подбора рисунка +
@@ -100,6 +104,16 @@
           %td{ style: "text-align: center;" }
             %strong= @jekonom_prices[i]
             руб/#{@jekonom_units[i].html_safe}
+      %tr
+        %td{ colspan: 2 }
+          %strong
+            ИТОГО:
+            - sum = 0
+            - @jekonom_prices.each do |jp|
+              - sum += jp.to_i
+            = sum
+            руб/м
+            %sup 2
 
       %tr
         %td{ style: "text-align: center; color: blue;", colspan: 2 }
@@ -112,6 +126,16 @@
           %td{ style: "text-align: center;" }
             %strong= @optimal_prices[i]
             руб/#{@optimal_units[i].html_safe}
+      %tr
+        %td{ colspan: 2 }
+          %strong
+            ИТОГО:
+            - sum = 0
+            - @optimal_prices.each do |op|
+              - sum += op.to_i
+            = sum
+            руб/м
+            %sup 2
 
       %tr
         %td{ style: "text-align: center; color: blue;", colspan: 2 }
@@ -123,6 +147,16 @@
           %td{ style: "text-align: center;" }
             %strong= @all_prices[i]
             руб/#{@all_units[i].html_safe}
+      %tr
+        %td{ colspan: 2 }
+          %strong
+            ИТОГО:
+            - sum = 0
+            - @all_prices.each do |ap|
+              - sum += ap.to_i
+            = sum
+            руб/м
+            %sup 2
 
   %p
     %span{ style: "color: red;" }*
