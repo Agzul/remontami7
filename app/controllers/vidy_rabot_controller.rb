@@ -330,6 +330,30 @@ class VidyRabotController < ApplicationController
     @title       = "Поклейка обоев на флизелиновой основе - услуги частного мастера"
     @description = "Частный мастер выполнит поклейку обоев на флизелиновой основе профессионально и недорого. Поклейка флизелиновых обоев в Москве и Подмосковье от 200 руб/м2"
     @keywords    = "поклейка обоев на флизелиновой основе, поклейка флизелиновых обоев"
+
+    @work_names = [
+      "Поклейка флизелиновых обоев",
+      "Удаление старых обоев со стен (простое)",
+      "Шпаклевка стен под обои (2 слоя)",
+      "Грунтовка стен",
+      "Шлифовка"
+    ]
+    link  = url_for controller: :vidy_rabot, action: :pokleyka_oboev_cena, only_path: true
+    link1 = url_for controller: :vidy_rabot, action: :shpaklevka_sten_pod_oboi_ceny, only_path: true
+    @work_prices = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price,
+      Work.find_by_name("Демонтаж обоев").price,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").price,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").price,
+      Work.find_by_name("Шлифовка стен").price
+    ]
+    @work_units = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").unit,
+      Work.find_by_name("Демонтаж обоев").unit,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").unit,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").unit,
+      Work.find_by_name("Шлифовка стен").unit
+    ]
   end
 
   def pokleyka_tekstilnyh_oboev
