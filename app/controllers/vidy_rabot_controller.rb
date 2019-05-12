@@ -300,6 +300,30 @@ class VidyRabotController < ApplicationController
     @title       = "Поклейка виниловых обоев и цена работ - частный мастер"
     @description = "Бригада частных мастеров выполнит поклейку виниловых обоев недорого и качественно. Стоимость работ по поклейке виниловых обоев в Москве и Подмосковье от 200 руб/кв.м."
     @keywords    = "поклейка виниловых обоев"
+
+    @work_names = [
+      "Оклейка стен виниловыми обоями",
+      "Удаление старых обоев со стен (простое)",
+      "Шпаклевка стен под обои (2 слоя)",
+      "Грунтовка стен",
+      "Шлифовка"
+    ]
+    link  = url_for controller: :vidy_rabot, action: :pokleyka_oboev_cena, only_path: true
+    link1 = url_for controller: :vidy_rabot, action: :shpaklevka_sten_pod_oboi_ceny, only_path: true
+    @work_prices = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").price,
+      Work.find_by_name("Демонтаж обоев").price,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").price,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").price,
+      Work.find_by_name("Шлифовка стен").price
+    ]
+    @work_units = [
+      Work.find_by_name("<a href='#{link}' target='_blank'>Поклейка обоев</a> (флизелин, винил)").unit,
+      Work.find_by_name("Демонтаж обоев").unit,
+      Work.find_by_name("<a href='#{link1}' target='_blank'>Шпаклевка стен под обои</a> (2 слоя)").unit,
+      Work.find_by_name("Грунтовка стен после каждого цикла работ (необходима для наилучшего результата)").unit,
+      Work.find_by_name("Шлифовка стен").unit
+    ]
   end
 
   def poklejka_oboev_na_flizelinovoj_osnove
